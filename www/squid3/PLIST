@@ -11,7 +11,6 @@ libexec/cachemgr.cgi
 ${PLIST.da_file}libexec/digest_file_auth
 ${PLIST.da_LDAP}libexec/digest_ldap_auth
 ${PLIST.diskd}libexec/diskd
-${PLIST.eacl_file_userip}libexec/ext_file_userip_acl
 ${PLIST.eacl_LDAP_group}libexec/ext_ldap_group_acl
 ${PLIST.eacl_unix_group}libexec/ext_unix_group_acl
 libexec/helper-mux.pl
@@ -31,7 +30,6 @@ ${PLIST.ba_LDAP}man/man8/basic_ldap_auth.8
 ${PLIST.ba_NCSA}man/man8/basic_ncsa_auth.8
 ${PLIST.ba_PAM}man/man8/basic_pam_auth.8
 ${PLIST.da_file}man/man8/digest_file_auth.8
-${PLIST.eacl_file_userip}man/man8/ext_file_userip_acl.8
 ${PLIST.eacl_LDAP_group}man/man8/ext_ldap_group_acl.8
 ${PLIST.eacl_unix_group}man/man8/ext_unix_group_acl.8
 ${PLIST.ta_kerberos}man/man8/negotiate_kerberos_auth.8
