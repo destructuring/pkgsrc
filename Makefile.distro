@@ -1,37 +1,39 @@
+PKG_HOME := $(HOME)/pkg
+VAULT := $(HOME)/vault
 PKG_ID := $(shell uname -s)$(shell echo $(PKG_HOME) | tr / _)
 PKGPATH := $(VAULT)/packages_$(PKG_ID)
 BOOTSTRAPKIT := $(VAULT)/bootstrap_$(PKG_ID).tgz
 PKGSRC := env MAKEFLAGS= MFLAGS= PACKAGES=$(PKGPATH)
-BMAKE = $(PKGSRC) $(PKG_HOME)/pkg/bin/bmake
-PKGADD := env PKG_PATH=$(PKGPATH)/All $(PKG_HOME)/pkg/sbin/pkg_add
+BMAKE = $(PKGSRC) $(PKG_HOME)/bin/bmake
+PKGADD := env PKG_PATH=$(PKGPATH)/All $(PKG_HOME)/sbin/pkg_add
 
 build_bmake:
 	rm -rf bootstrap/work
-	cd bootstrap && $(PKGSRC) ./bootstrap --prefix=$(PKG_HOME)/pkg --unprivileged --abi 64 --mk-fragment=$(PKG_HOME)/etc/mk.conf --gzip-binary-kit $(BOOTSTRAPKIT) --prefer-pkgsrc=yes --ignore-user-check
+	cd bootstrap && $(PKGSRC) ./bootstrap --prefix=$(PKG_HOME) --unprivileged --abi 64 --mk-fragment=$(PKG_HOME)/etc/mk.conf --gzip-binary-kit $(BOOTSTRAPKIT) --prefer-pkgsrc=yes --ignore-user-check -j4
 
-build_pkgsrc: pkg/bin/bmake
-	cd vendor/projects/pkgsrc/converters/libiconv && $(BMAKE) install package
-	cd vendor/projects/pkgsrc/devel/gettext-lib && $(BMAKE) install package
-	-cd vendor/projects/pkgsrc/devel/gettext-tools && $(BMAKE)
-	cd vendor/projects/pkgsrc/devel/gettext-tools/work/gettext-*/gettext-runtime/gnulib-lib && make
-	cd vendor/projects/pkgsrc/devel/gettext-tools && $(BMAKE) install package
-	cd vendor/projects/pkgsrc/devel/zlib && $(BMAKE) install package
-	cd vendor/projects/pkgsrc/misc/getopt && $(BMAKE) install package
-	cd vendor/projects/pkgsrc/archivers/unzip && $(BMAKE) install package
-	cd vendor/projects/pkgsrc/textproc/libxml2 && $(BMAKE) install package
-	cd vendor/projects/pkgsrc/textproc/libxslt && $(BMAKE) install package
-	cd vendor/projects/pkgsrc/security/gnupg && $(BMAKE) install package
-	cd vendor/projects/pkgsrc/www/squid3 && $(BMAKE) install package
-	cd vendor/projects/pkgsrc/x11/xtermset && $(BMAKE) install package
-	cd vendor/projects/pkgsrc/security/openssh && $(BMAKE) install package
-	cd vendor/projects/pkgsrc/sysutils/coreutils && $(BMAKE) install package
-	cd vendor/projects/pkgsrc/misc/figlet && $(BMAKE) install package
-	cd vendor/projects/pkgsrc/www/wget && $(BMAKE) install package
-	cd vendor/projects/pkgsrc/www/curl && $(BMAKE) install package
-	cd vendor/projects/pkgsrc/lang/lua && $(BMAKE) install package
-	cd vendor/projects/pkgsrc/devel/pcre && $(BMAKE) install package
-	-cd vendor/projects/pkgsrc/lang/ruby193-base && $(BMAKE) install package
-	-cd vendor/projects/pkgsrc/devel/ruby-readline && $(BMAKE) install package
+build_pkgsrc: $(PKG_HOME)/bin/bmake
+	cd converters/libiconv && $(BMAKE) install package
+	cd devel/gettext-lib && $(BMAKE) install package
+	-cd devel/gettext-tools && $(BMAKE)
+	cd devel/gettext-tools/work/gettext-*/gettext-runtime/gnulib-lib && make
+	cd devel/gettext-tools && $(BMAKE) install package
+	cd devel/zlib && $(BMAKE) install package
+	cd misc/getopt && $(BMAKE) install package
+	cd archivers/unzip && $(BMAKE) install package
+	cd textproc/libxml2 && $(BMAKE) install package
+	cd textproc/libxslt && $(BMAKE) install package
+	cd security/gnupg && $(BMAKE) install package
+	cd www/squid3 && $(BMAKE) install package
+	cd x11/xtermset && $(BMAKE) install package
+	cd security/openssh && $(BMAKE) install package
+	cd sysutils/coreutils && $(BMAKE) install package
+	cd misc/figlet && $(BMAKE) install package
+	cd www/wget && $(BMAKE) install package
+	cd www/curl && $(BMAKE) install package
+	cd lang/lua && $(BMAKE) install package
+	cd devel/pcre && $(BMAKE) install package
+	cd lang/ruby193-base && $(BMAKE) install package
+	cd devel/ruby-readline && $(BMAKE) install package
 
 clean_pkgsrc:
 	rm -rf pkg
@@ -50,25 +52,25 @@ pkgsrc_cache: pkgsrc
 	$(PKGADD) squid
 	$(PKGADD) openssh
 
-pkgsrc_ruby: pkg/bin/bundle
+pkgsrc_ruby: $(PKG_HOME)bin/bundle
 
 pkgsrc_lua:
 	$(PKGADD) pcre
 	$(PKGADD) lua
 
-pkg/bin/bundle: pkg/bin/ruby pkg/bin/gem pkg/bin/irb
+$(PKG_HOME)/bin/bundle: $(PKG_HOME)/bin/ruby $(PKG_HOME)/bin/gem $(PKG_HOME)/bin/irb
 	gem install bundler -v '~> 1.3.5'
 
-pkg/bin/ruby193: pkgsrc
+$(PKG_HOME)/bin/ruby193: pkgsrc
 	$(PKGADD) ruby193-base ruby193-readline
 
-pkg/bin/gem193: pkg/bin/ruby193
+$(PKG_HOME)/bin/gem193: $(PKG_HOME)/bin/ruby193
 
-pkg/bin/ruby: pkg/bin/ruby193
+$(PKG_HOME)/bin/ruby: $(PKG_HOME)/bin/ruby193
 	ln -nfs $(shell basename $<) $@
 
-pkg/bin/gem: pkg/bin/gem193
+$(PKG_HOME)/bin/gem: $(PKG_HOME)/bin/gem193
 	ln -nfs $(shell basename $<) $@
 
-pkg/bin/irb: pkg/bin/irb193
+$(PKG_HOME)/bin/irb: $(PKG_HOME)/bin/irb193
 	ln -nfs $(shell basename $<) $@
