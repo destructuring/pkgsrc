@@ -13,6 +13,8 @@ build_pkgsrc: $(PKG_HOME)/bin/bmake
 	cd www/squid3 && $(BMAKE) install package
 	cd sysutils/coreutils && $(BMAKE) install package
 	cd misc/figlet && $(BMAKE) install package
+	cd sysutils/daemontools && $(BMAKE) install package
+	cd wip/runit && $(BMAKE) install package
 
 clean_pkgsrc:
 	rm -rf pkg
