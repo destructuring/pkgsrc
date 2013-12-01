@@ -3,6 +3,9 @@
 #   vault symlink in $(PWD) to distfiles, packages
 #   suggestion:
 #     env CC=clang PKG_HOME=$HOME/pkg PATH="$HOME/pkg/bin:$HOME/pkg/sbin:$PATH" make -f Makefile.goose
+
+.PHONY: $(PKG)
+
 PKG_ID := $(shell uname -s)$(shell echo $(PKG_HOME) | tr / _)
 
 PKGPATH := $(PWD)/packages/$(PKG_ID)
@@ -29,3 +32,8 @@ packages: $(WRKOBJDIR)/.gitignore  $(PKGPATH)/.gitignore
 	cd www/squid3 && $(BMAKE) package
 	cd sysutils/coreutils && $(BMAKE) package
 	cd misc/figlet && $(BMAKE) package
+
+$(PKG):
+	cd $(PKG) && $(BMAKE) package
+
+pkg: $(PKG)
