@@ -25,7 +25,7 @@ bmake: $(PKGPATH)/.gitignore
 
 $(PKG_HOME)/bin/bmake: bmake
 
-packages: $(PKG_HOME)/bin/bmake $(WRKOBJDIR)/.gitignore  $(PKGPATH)/.gitignore
+packages: $(WRKOBJDIR)/.gitignore  $(PKGPATH)/.gitignore
 	cd www/squid3 && $(BMAKE) package
 	cd sysutils/coreutils && $(BMAKE) package
 	cd misc/figlet && $(BMAKE) package
