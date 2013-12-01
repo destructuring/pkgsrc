@@ -1,24 +1,22 @@
+# depends on:
+#   externally defined PKG_HOME, CC
+#   vault symlink in $(PWD) to distfiles, packages
 PKG_ID := $(shell uname -s)$(shell echo $(PKG_HOME) | tr / _)
-PKGPATH := $(VAULT)/packages_$(PKG_ID)
-BOOTSTRAPKIT := $(VAULT)/bootstrap_$(PKG_ID).tgz
-PKGSRC := env MAKEFLAGS= MFLAGS= PACKAGES=$(PKGPATH)
+PKGPATH := $(PWD)/packages/$(PKG_ID)
+BOOTSTRAPKIT := $(PWD)/packages/$(PKG_ID)/bootstrap.tgz
+WRKDIR := $(PWD)/work
+PKGSRC := env MAKEFLAGS= MFLAGS= PACKAGES=$(PKGPATH) WRKDIR=$(WRKDIR)
 BMAKE = $(PKGSRC) $(PKG_HOME)/bin/bmake
 PKGADD := env PKG_PATH=$(PKGPATH)/All $(PKG_HOME)/sbin/pkg_add
 
 build_bmake:
-	rm -rf bootstrap/work $(PKG_HOME)
-	cd bootstrap && $(PKGSRC) ./bootstrap --prefix=$(PKG_HOME) --unprivileged --abi 64 --mk-fragment=$(PKG_HOME)/etc/mk.conf --gzip-binary-kit $(BOOTSTRAPKIT) --prefer-pkgsrc=yes --ignore-user-check -j4 --compiler=$(CC)
+	rm -rf bootstrap/work
+	cd bootstrap && $(PKGSRC) ./bootstrap --prefix=$(PKG_HOME) --unprivileged --abi 64 --mk-fragment=$(PKG_HOME)/etc/mk.conf --workdir $(WRKDIR) --gzip-binary-kit $(BOOTSTRAPKIT) --prefer-pkgsrc=yes --ignore-user-check -j4 --compiler=$(CC)
 
 build_pkgsrc: $(PKG_HOME)/bin/bmake
 	cd www/squid3 && $(BMAKE) install package
 	cd sysutils/coreutils && $(BMAKE) install package
 	cd misc/figlet && $(BMAKE) install package
-
-clean_pkgsrc:
-	rm -rf pkg
-	git clean -fdx
-	rm -rf $(PKGPATH)
-	rm -f $(BOOTSTRAPKIT)
 
 pkgsrc:
 	$(PKGADD) libiconv gettext-lib zlib getopt unzip coreutils figlet curl wget
