@@ -2,10 +2,9 @@
 #   externally defined PKG_HOME, CC, PATH
 #   vault symlink in $(PWD) to distfiles, packages
 #   suggestion:
-#     env CC=clang PKG_HOME=$HOME/pkg PATH="$HOME/pkg/bin:$HOME/pkg/sbin:$PATH" make -f Makefile.goose
+#     env CC=clang PKG_HOME=/opt/goose/pkg PATH="/opt/goose/pkg/bin:/opt/goose/pkg/sbin:$PATH" make -f Makefile.goose
 
-.PHONY: $(PKG)
-
+.PHONY: $(PKG) packages
 PKG_ID := $(shell uname -s)$(shell echo $(PKG_HOME) | tr / _)
 
 PKGPATH := $(PWD)/packages/$(PKG_ID)
@@ -13,6 +12,13 @@ WRKOBJDIR := $(PWD)/work
 
 PKGSRC := env MAKEFLAGS= MFLAGS= PACKAGES=$(PKGPATH) WRKOBJDIR=$(WRKOBJDIR)
 BMAKE = $(PKGSRC) $(PKG_HOME)/bin/bmake
+
+PARENT := $(shell cd .. && pwd)
+
+default:
+	@echo env CC=clang PKG_HOME=$(PARENT)/pkg PATH="$(PARENT)/pkg/bin:$(PARENT)/pkg/sbin:\$$PATH" make -f Makefile.goose
+	@echo make bmake
+	@echo make packages
 
 $(WRKOBJDIR)/.gitignore:
 	mkdir -p $(WRKOBJDIR)
