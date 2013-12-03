@@ -38,6 +38,11 @@ packages: $(WRKOBJDIR)/.gitignore  $(PKGPATH)/.gitignore
 	cd www/squid3 && $(BMAKE) package
 	cd sysutils/coreutils && $(BMAKE) package
 	cd misc/figlet && $(BMAKE) package
+	cd sysutils/daemontools && $(BMAKE) package
+	#cd wip/runit && $(BMAKE) package
+	cd security/openssh && $(BMAKE) package
+	cd lang/ruby193-base && $(BMAKE) package
+	cd devel/ruby-readline && $(BMAKE) package
 
 $(PKG):
 	cd $(PKG) && $(BMAKE) package
