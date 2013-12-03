@@ -1,0 +1,5 @@
+#!/bin/bash
+
+if [[ "$(uname -s)" = "Linux" ]]; then
+  echo '#define HAVE_RB_STR_SET_LEN 1' >> work/lang/ruby193-base/work/*/ext/openssl/extconf.h
+fi
