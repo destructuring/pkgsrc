@@ -41,8 +41,10 @@ packages: $(WRKOBJDIR)/.gitignore  $(PKGPATH)/.gitignore
 	cd sysutils/daemontools && $(BMAKE) package
 	cd wip/runit && $(BMAKE) package
 	cd security/openssh && $(BMAKE) package
-	-cd lang/ruby193-base && $(BMAKE) package
-	libexec/ubuntu-ruby-workaround
+
+ruby:
+	#-cd lang/ruby193-base && $(BMAKE) package
+	#libexec/ubuntu-ruby-workaround
 	cd lang/ruby193-base && $(BMAKE) package
 	cd devel/ruby-readline && $(BMAKE) package
 
