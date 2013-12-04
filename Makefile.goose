@@ -37,9 +37,10 @@ $(PKG_HOME)/bin/bmake: bmake
 packages: $(WRKOBJDIR)/.gitignore  $(PKGPATH)/.gitignore
 	cd www/squid3 && $(BMAKE) package
 	cd sysutils/coreutils && $(BMAKE) package
+	cd misc/getopt && $(BMAKE) package
 	cd misc/figlet && $(BMAKE) package
 	cd sysutils/daemontools && $(BMAKE) package
-	cd wip/runit && $(BMAKE) package
+	#cd wip/runit && $(BMAKE) package
 	cd security/openssh && $(BMAKE) package
 
 ruby:
