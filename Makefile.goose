@@ -40,12 +40,14 @@ packages: $(WRKOBJDIR)/.gitignore  $(PKGPATH)/.gitignore
 	cd misc/getopt && $(BMAKE) package
 	cd misc/figlet && $(BMAKE) package
 	cd sysutils/daemontools && $(BMAKE) package
-	#cd wip/runit && $(BMAKE) package
+	-cd wip/runit && $(BMAKE) package
+	libexec/fixup-osx-runit
+	cd wip/runit && $(BMAKE) package
 	cd security/openssh && $(BMAKE) package
 
 ruby:
 	#-cd lang/ruby193-base && $(BMAKE) package
-	#libexec/ubuntu-ruby-workaround
+	#libexec/fixup-ubuntu-ruby
 	cd lang/ruby193-base && $(BMAKE) package
 	cd devel/ruby-readline && $(BMAKE) package
 
