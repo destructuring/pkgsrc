@@ -43,6 +43,8 @@ packages: $(WRKOBJDIR)/.gitignore  $(PKGPATH)/.gitignore
 	cd sysutils/coreutils && $(BMAKE) package
 	cd misc/getopt && $(BMAKE) package
 	cd misc/figlet && $(BMAKE) package
+	cd archivers/bsdtar && $(BMAKE) package
+	cd archivers/unzip && $(BMAKE) package
 	cd sysutils/daemontools && $(BMAKE) package
 	-cd wip/runit && $(BMAKE) package
 	libexec/fixup-osx-runit
