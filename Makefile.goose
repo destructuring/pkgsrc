@@ -44,6 +44,7 @@ packages: $(WRKOBJDIR)/.gitignore  $(PKGPATH)/.gitignore
 	libexec/fixup-osx-runit
 	cd wip/runit && $(BMAKE) package
 	cd security/openssh && $(BMAKE) package
+	cd chat/irssi && $(BMAKE) package
 
 ruby:
 	#-cd lang/ruby193-base && $(BMAKE) package
