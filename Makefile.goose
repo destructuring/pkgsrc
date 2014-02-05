@@ -25,6 +25,9 @@ default:
 bmake:
 	env CC=$(CC) PKG_HOME=$(PARENT)/pkg PATH="$(PARENT)/pkg/bin:$(PARENT)/pkg/sbin:$(PATH)" make -f Makefile.goose bmake_inner
 
+ruby:
+	env CC=$(CC) PKG_HOME=$(PARENT)/pkg PATH="$(PARENT)/pkg/bin:$(PARENT)/pkg/sbin:$(PATH)" make -f Makefile.goose ruby_inner
+
 $(WRKOBJDIR)/.gitignore:
 	mkdir -p $(WRKOBJDIR)
 	touch $@
@@ -53,7 +56,7 @@ packages: $(WRKOBJDIR)/.gitignore $(PKGPATH)/.gitignore
 	cd security/openssh && $(BMAKE) package
 	cd chat/irssi && $(BMAKE) package
 
-ruby:
+ruby_inner:
 	cd textproc/libxml2 && $(BMAKE) package
 	-cd lang/ruby193-base && $(BMAKE) package
 	libexec/fixup-ubuntu-ruby
