@@ -1,0 +1,157 @@
+$NetBSD: patch-aa,v 1.20 2013/12/26 13:17:37 ryoon Exp $
+
+--- mozilla/configure.in.orig	2013-12-11 04:28:28.000000000 +0000
++++ mozilla/configure.in
+@@ -2752,6 +2752,7 @@ EOF
+ #pragma GCC visibility push(hidden)
+ #pragma GCC visibility push(default)
+ #include <string.h>
++#include <iterator>
+ #pragma GCC visibility pop
+ 
+ __attribute__ ((visibility ("default"))) void Func() {
+@@ -2760,7 +2761,7 @@ __attribute__ ((visibility ("default")))
+ }
+ EOF
+                        ac_cv_have_visibility_builtin_bug=no
+-                       if ! ${CC-cc} ${CFLAGS} ${DSO_PIC_CFLAGS} ${DSO_LDOPTS} -O2 -S -o conftest.S conftest.c > /dev/null 2>&1 ; then
++                       if ! ${CXX-c++} ${CXXFLAGS} ${DSO_PIC_CFLAGS} ${DSO_LDOPTS} -O2 -S -o conftest.S conftest.c > /dev/null 2>&1 ; then
+                          ac_cv_have_visibility_builtin_bug=yes
+                        else
+                          if test `grep -c "@PLT" conftest.S` = 0; then
+@@ -3216,14 +3217,22 @@ fi
+ AC_CACHE_CHECK(
+     [for res_ninit()],
+     ac_cv_func_res_ninit,
+-    [AC_TRY_LINK([
++    [AC_TRY_RUN([
+         #ifdef linux
+         #define _BSD_SOURCE 1
+         #endif
++	#ifdef __NetBSD__
++	#error use of global _res variable in threaded programs is not portable
++	#endif
++        #include <sys/types.h>
++        #include <netinet/in.h>
++        #include <arpa/nameser.h>
+         #include <resolv.h>
+-        ],
+-        [int foo = res_ninit(&_res);],
++        int main(int argc, char **argv){
++            int foo = res_ninit(&_res);
++        }],
+         [ac_cv_func_res_ninit=yes],
++        [ac_cv_func_res_ninit=no],
+         [ac_cv_func_res_ninit=no])
+     ])
+ 
+@@ -3874,6 +3883,14 @@ if test -n "$YASM"; then
+   _YASM_BUILD=`        echo ${YASM_VERSION} | $AWK -F\. '{ print $4 }'`
+ fi
+ 
++if test -n "${LIBXUL_SDK_DIR}"; then
++    AC_MSG_WARN([pkgsrc: LIBXUL_SDK_DIR is set; assuming we want nss and nspr from xulrunner.])
++    NSPR_CFLAGS="-I${prefix}/include/xulrunner/unstable `pkg-config --cflags nspr`"
++    NSPR_LIBS="`pkg-config --libs nspr`"
++    NSS_CFLAGS="`pkg-config --cflags nss`"
++    NSS_LIBS="`pkg-config --libs nss`"
++fi
++
+ if test -z "$SKIP_LIBRARY_CHECKS"; then
+ dnl system JPEG support
+ dnl ========================================================
+@@ -3901,11 +3918,7 @@ if test "$MOZ_NATIVE_JPEG" = 1; then
+                      #include <jpeglib.h> ],
+                    [ #if JPEG_LIB_VERSION < $MOZJPEG
+                      #error "Insufficient JPEG library version ($MOZJPEG required)."
+-                     #endif
+-                     #ifndef JCS_EXTENSIONS
+-                     #error "libjpeg-turbo JCS_EXTENSIONS required"
+-                     #endif
+-                     ],
++                     #endif ],
+                    MOZ_NATIVE_JPEG=1,
+                    AC_MSG_ERROR([Insufficient JPEG library version for --with-system-jpeg]))
+ fi
+@@ -4062,6 +4075,22 @@ fi
+ AC_SUBST(MOZ_NATIVE_ICU)
+ 
+ dnl ========================================================
++dnl system icu support
++dnl ========================================================
++MOZ_NATIVE_ICU=
++MOZ_ARG_WITH_BOOL(system-icu,
++[  --with-system-icu
++                          Use system icu (located with pkgconfig)],
++    MOZ_NATIVE_ICU=1)
++
++if test -n "$MOZ_NATIVE_ICU"; then
++    PKG_CHECK_MODULES(MOZ_ICU, icu-i18n >= 50.1)
++    MOZ_JS_STATIC_LIBS="$MOZ_JS_STATIC_LIBS $MOZ_ICU_LIBS"
++fi
++
++AC_SUBST(MOZ_NATIVE_ICU)
++
++dnl ========================================================
+ dnl Java SDK support
+ dnl ========================================================
+ 
+@@ -5281,6 +5310,12 @@ if test -n "$MOZ_WEBRTC"; then
+     MOZ_VP8_ENCODER=1
+     MOZ_VP8_ERROR_CONCEALMENT=1
+ 
++    dnl with libv4l2 we can support more cameras
++    PKG_CHECK_MODULES(MOZ_LIBV4L2, libv4l2)
++
++    dnl with libv4l2 we can support more cameras
++    PKG_CHECK_MODULES(MOZ_LIBV4L2, libv4l2)
++
+ dnl enable once Signaling lands
+     MOZ_WEBRTC_SIGNALING=1
+     AC_DEFINE(MOZ_WEBRTC_SIGNALING)
+@@ -5307,15 +5342,18 @@ AC_SUBST(MOZ_SRTP)
+ 
+ dnl Use integers over floats for audio on B2G and Android, because audio
+ dnl backends for those platforms don't support floats.
+-if test "$OS_TARGET" = "Android"; then
++case "$OS_TARGET" in
++ndroid|DragonFly|FreeBSD|NetBSD|OpenBSD)
+     MOZ_SAMPLE_TYPE_S16=1
+     AC_DEFINE(MOZ_SAMPLE_TYPE_S16)
+     AC_SUBST(MOZ_SAMPLE_TYPE_S16)
+-else
++    ;;
++*)
+     MOZ_SAMPLE_TYPE_FLOAT32=1
+     AC_DEFINE(MOZ_SAMPLE_TYPE_FLOAT32)
+     AC_SUBST(MOZ_SAMPLE_TYPE_FLOAT32)
+-fi
++    ;;
++esac
+ 
+ dnl ========================================================
+ dnl = Disable Speech API code
+@@ -8276,7 +8314,7 @@ case "$OS_TARGET" in
+       NECKO_WIFI=1
+     fi
+     ;;
+-  Darwin|SunOS|WINNT)
++  Darwin|FreeBSD|SunOS|WINNT)
+     NECKO_WIFI=1
+     ;;
+   Linux)
+@@ -9005,6 +9043,14 @@ if test -n "$INTEL_ARCHITECTURE"; then
+   fi
+ fi
+ 
++if test -n "$MOZ_LIBV4L2_LIBS"; then
++   EXTRA_GYP_DEFINES="$EXTRA_GYP_DEFINES -D use_libv4l2=1"
++fi
++
++if test -n "$MOZ_LIBV4L2_LIBS"; then
++   EXTRA_GYP_DEFINES="$EXTRA_GYP_DEFINES -D use_libv4l2=1"
++fi
++
+ if test -n "$MOZ_WEBRTC"; then
+    AC_MSG_RESULT("generating WebRTC Makefiles...")
+ 

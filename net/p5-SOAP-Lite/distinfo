@@ -1,0 +1,5 @@
+$NetBSD: distinfo,v 1.13 2013/11/12 13:31:38 wen Exp $
+
+SHA1 (SOAP-Lite-1.08.tar.gz) = 84363ed85c6aa41676bff0ed96f30e9d79fc833e
+RMD160 (SOAP-Lite-1.08.tar.gz) = bd554cf8fe32d843a559d1c4781bae64130ee6fc
+Size (SOAP-Lite-1.08.tar.gz) = 227090 bytes

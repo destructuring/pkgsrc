@@ -1,0 +1,9 @@
+$NetBSD: distinfo,v 1.8 2013/10/21 10:06:57 fhajny Exp $
+
+SHA1 (miniupnpd-1.8.20130730.tar.gz) = 32eed969a6c653d6d5ccd236ee50275c933d020e
+RMD160 (miniupnpd-1.8.20130730.tar.gz) = 1d7488a2567c1eb72393c61be462f893b5519285
+Size (miniupnpd-1.8.20130730.tar.gz) = 149904 bytes
+SHA1 (patch-Makefile) = 622cfcaf46259dec41cf5bb9d11e6b5a2fa2830d
+SHA1 (patch-bsd_getroute.c) = 0649c6e3febc2bac008f4325f71c64c99200c216
+SHA1 (patch-bsd_ifacewatcher.c) = 3a9fdf12e721c1452bc34bf2a4938ae5d492a0f0
+SHA1 (patch-upnputils.h) = a948bc7e77a9ef105f72b28f97498b329849e31f

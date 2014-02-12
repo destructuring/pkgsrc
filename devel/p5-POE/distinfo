@@ -1,0 +1,5 @@
+$NetBSD: distinfo,v 1.11 2013/12/15 13:05:13 wen Exp $
+
+SHA1 (POE-1.358.tar.gz) = a89708dcc4c0dda8914e5ef6330fe739bf17d1d0
+RMD160 (POE-1.358.tar.gz) = c06c375c1eabcc1e409700fda41fcde6c2822d3d
+Size (POE-1.358.tar.gz) = 371648 bytes

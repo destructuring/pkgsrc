@@ -1,0 +1,5 @@
+$NetBSD: distinfo,v 1.23 2013/10/21 18:09:30 gls Exp $
+
+SHA1 (Fabric-1.8.0.tar.gz) = 3c999323be3b7512e634dce3ae02c8fedab1ea87
+RMD160 (Fabric-1.8.0.tar.gz) = c670cc03a5e10d6d8a43b15deb98e75e23c20c4e
+Size (Fabric-1.8.0.tar.gz) = 219420 bytes

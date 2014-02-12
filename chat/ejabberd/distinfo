@@ -1,0 +1,9 @@
+$NetBSD: distinfo,v 1.22 2013/10/11 13:32:25 fhajny Exp $
+
+SHA1 (ejabberd-13.10.tgz) = 916775fe2ec71ceefbe88aa49698c4ba5c0d53de
+RMD160 (ejabberd-13.10.tgz) = ca2eed7d6a60347af9800ba2bd83bcb556e481e6
+Size (ejabberd-13.10.tgz) = 2165967 bytes
+SHA1 (patch-aa) = f573f541ae6963acffa5a470a290874b3312b787
+SHA1 (patch-ad) = cdd7a61333f3206ac3ae9168b1878a059da25988
+SHA1 (patch-ae) = cfd7a7337410a70d38e4ef10a74db91ca512874c
+SHA1 (patch-configure) = 8cf03f571ef13ed825b445e0f1664d387895b8fe

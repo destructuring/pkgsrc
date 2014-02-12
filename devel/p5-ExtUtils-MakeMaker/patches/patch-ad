@@ -1,0 +1,16 @@
+$NetBSD: patch-ad,v 1.5 2013/12/01 09:05:03 wiz Exp $
+
+Perl in pkgsrc doesn't install or tweak perllocal.pod, so comment
+out that test.
+
+--- t/INSTALL_BASE.t.orig	2009-02-20 00:30:32.000000000 +0000
++++ t/INSTALL_BASE.t	2009-04-12 00:49:30.000000000 +0000
+@@ -52,7 +52,7 @@
+   ('../dummy-install/lib/perl5/Big/Dummy.pm',
+    '../dummy-install/lib/perl5/Big/Liar.pm',
+    '../dummy-install/bin/program',
+-   "../dummy-install/lib/perl5/$Config{archname}/perllocal.pod",
++#  "../dummy-install/lib/perl5/$Config{archname}/perllocal.pod",
+    "../dummy-install/lib/perl5/$Config{archname}/auto/Big/Dummy/.packlist"
+   );
+ 

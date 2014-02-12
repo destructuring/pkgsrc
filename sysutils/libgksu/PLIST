@@ -1,0 +1,21 @@
+@comment $NetBSD: PLIST,v 1.4 2013/10/16 07:04:37 wiz Exp $
+bin/gksu-properties
+include/libgksu/gksu.h
+include/libgksu/libgksu.h
+lib/libgksu/gksu-run-helper
+lib/libgksu2.la
+lib/pkgconfig/libgksu2.pc
+man/man1/gksu-properties.1
+share/applications/gksu-properties.desktop
+share/gconf/schemas/gksu.schemas
+share/gtk-doc/html/libgksu/home.png
+share/gtk-doc/html/libgksu/index.html
+share/gtk-doc/html/libgksu/index.sgml
+share/gtk-doc/html/libgksu/left.png
+share/gtk-doc/html/libgksu/libgksu-API-Reference.html
+share/gtk-doc/html/libgksu/libgksu.devhelp2
+share/gtk-doc/html/libgksu/right.png
+share/gtk-doc/html/libgksu/style.css
+share/gtk-doc/html/libgksu/up.png
+share/libgksu/gksu-properties.ui
+share/pixmaps/gksu.png

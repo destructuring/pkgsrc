@@ -1,0 +1,94 @@
+$NetBSD: patch-aa,v 1.24 2013/10/17 07:56:36 adam Exp $
+
+builtin krb5-config in platforms such as solaris do not support
+the gssapi option, and need an explicit -lgss
+
+--- configure.orig	2013-10-12 20:24:48.000000000 +0000
++++ configure
+@@ -3642,6 +3642,7 @@ $as_echo "$as_me: $xc_bad_var_msg librar
+         ;;
+     esac
+   done
++  xc_bad_var_cflags=no
+   if test $xc_bad_var_cflags = yes; then
+     { $as_echo "$as_me:${as_lineno-$LINENO}: using CFLAGS: $CFLAGS" >&5
+ $as_echo "$as_me: using CFLAGS: $CFLAGS" >&6;}
+@@ -16614,7 +16615,7 @@ squeeze() {
+ 
+ 
+       #
+-  if test "$compiler_id" != "unknown"; then
++  if false; then
+     #
+     if test "$compiler_id" = "GNU_C" ||
+       test "$compiler_id" = "CLANG"; then
+@@ -21072,7 +21073,12 @@ $as_echo "yes" >&6; }
+ 
+   if test -z "$GSSAPI_INCS"; then
+      if test -f "$GSSAPI_ROOT/bin/krb5-config"; then
+-        GSSAPI_INCS=`$GSSAPI_ROOT/bin/krb5-config --cflags gssapi`
++		if $GSSAPI_ROOT/bin/krb5-config --cflags gssapi 2>&1 |	\
++			   grep "Unknown option" > /dev/null ; then
++			GSSAPI_INCS=`$GSSAPI_ROOT/bin/krb5-config --cflags`
++		else
++			GSSAPI_INCS=`$GSSAPI_ROOT/bin/krb5-config --cflags gssapi`
++		fi
+      elif test "$GSSAPI_ROOT" != "yes"; then
+         GSSAPI_INCS="-I$GSSAPI_ROOT/include"
+      fi
+@@ -21214,19 +21220,24 @@ $as_echo "#define HAVE_GSSAPI 1" >>confd
+         ;;
+      *)
+         if test -f "$GSSAPI_ROOT/bin/krb5-config"; then
+-                                 gss_libs=`$GSSAPI_ROOT/bin/krb5-config --libs gssapi`
++			if $GSSAPI_ROOT/bin/krb5-config --libs gssapi 2>&1 |	\
++			   grep "Unknown option" > /dev/null ; then
++					gss_libs="`$GSSAPI_ROOT/bin/krb5-config --libs` -lgss"
++			else
++					gss_libs=`$GSSAPI_ROOT/bin/krb5-config --libs gssapi`
++			fi
+            LIBS="$gss_libs $LIBS"
+         elif test "$GSSAPI_ROOT" != "yes"; then
+            LDFLAGS="$LDFLAGS -L$GSSAPI_ROOT/lib$libsuff"
+-           LIBS="-lgssapi $LIBS"
++           LIBS="-lgssapi -lkrb5 $LIBS"
+         else
+-           LIBS="-lgssapi $LIBS"
++           LIBS="-lgssapi -lkrb5 $LIBS"
+         fi
+         ;;
+      esac
+   else
+      LDFLAGS="$LDFLAGS $GSSAPI_LIB_DIR"
+-     LIBS="-lgssapi $LIBS"
++     LIBS="-lgssapi -lkrb5 $LIBS"
+   fi
+ else
+   CPPFLAGS="$save_CPPFLAGS"
+@@ -24793,19 +24804,19 @@ $as_echo "$as_me: WARNING: You need an l
+ $as_echo "yes" >&6; }
+         if test "x$OPENSSL_ENABLED" = "x1"; then
+           versioned_symbols_flavour="OPENSSL_"
+-        elif test "x$GNUTLS_ENABLED" == "x1"; then
++        elif test "x$GNUTLS_ENABLED" = "x1"; then
+           versioned_symbols_flavour="GNUTLS_"
+-        elif test "x$NSS_ENABLED" == "x1"; then
++        elif test "x$NSS_ENABLED" = "x1"; then
+           versioned_symbols_flavour="NSS_"
+-        elif test "x$POLARSSL_ENABLED" == "x1"; then
++        elif test "x$POLARSSL_ENABLED" = "x1"; then
+           versioned_symbols_flavour="POLARSSL_"
+-        elif test "x$CYASSL_ENABLED" == "x1"; then
++        elif test "x$CYASSL_ENABLED" = "x1"; then
+           versioned_symbols_flavour="CYASSL_"
+-        elif test "x$AXTLS_ENABLED" == "x1"; then
++        elif test "x$AXTLS_ENABLED" = "x1"; then
+           versioned_symbols_flavour="AXTLS_"
+-        elif test "x$WINSSL_ENABLED" == "x1"; then
++        elif test "x$WINSSL_ENABLED" = "x1"; then
+           versioned_symbols_flavour="WINSSL_"
+-        elif test "x$DARWINSSL_ENABLED" == "x1"; then
++        elif test "x$DARWINSSL_ENABLED" = "x1"; then
+           versioned_symbols_flavour="DARWINSSL_"
+         else
+           versioned_symbols_flavour=""

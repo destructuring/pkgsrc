@@ -1,0 +1,5 @@
+$NetBSD: distinfo,v 1.4 2013/10/02 08:06:11 wen Exp $
+
+SHA1 (Test-CheckDeps-0.008.tar.gz) = 67dd4a2f9670961a749530b560af22459a276b95
+RMD160 (Test-CheckDeps-0.008.tar.gz) = 5356dbfb70abd36f240baaa8239e7d94eba6fa7e
+Size (Test-CheckDeps-0.008.tar.gz) = 11303 bytes

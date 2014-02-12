@@ -1,0 +1,80 @@
+$NetBSD: CHANGES-pkgsrc-2013Q4,v 1.1.2.22 2014/02/06 09:12:39 tron Exp $
+
+Changes to the packages collection and infrastructure on the
+pkgsrc-2013Q4 branch:
+
+Created pkgsrc-2013Q4 branch [wiz 2013-12-31]
+
+Pullup ticket #4279 - requested by dholland
+chat/phone: build fix patch
+Pullup ticket #4280 - requested by dholland
+news/pan: build fix patch
+Pullup ticket #4281 - requested by obache
+graphics/cogl: bug fix patch
+Pullup ticket #4282 - requested by obache
+emulators/suse131_x11: bug fix update
+Pullup ticket #4283 - requested by obache
+emulators/suse131_openssl: security update
+Pullup ticket #4284 - requested by obache
+emulators/suse131_x11: security update
+Pullup ticket #4285 - requested by htodd
+mail/spamprobe: build fix
+Pullup ticket #4286 - requested by bsiegert
+lang/go: functionality update
+Pullup ticket #4287 - requested by wiz
+x11/libXfont: security patch
+Pullup ticket #4288 - requested by wiz
+graphics/graphviz: security patch
+Pullup ticket #4289 - requested by hauke
+sysutils/radmind: bug fix patch
+Pullup ticket #4291 - requested by fhajny
+lang/ruby200-base: bug fix patch
+Pullup ticket #4290 - requested by tron
+net/cacti: security update
+Pullup ticket #4293 - requested by tron
+security/openssl: security update
+Pullup ticket #4294 - requested by taca
+net/bind96: security update
+Pullup ticket #4295 - requested by taca
+net/bind98: security update
+Pullup ticket #4296 - requested by taca
+net/bind99: security update
+Pullup ticket #4297 - requested by obache
+net/mikutter: bug fix update
+Pullup ticket #4298 - requested by drochner
+graphics/graphviz: security patch
+Pullup ticket #4300 - requested by obache
+multimedia/adobe-flash-plugin11: security update
+Pullup ticket #4301 - requested by ryoon
+devel/nss: security update
+Pullup ticket #4302 - requested by jperkin
+graphics/graphviz: build fix
+Pullup ticket #4303 - requested by obache
+emulators/suse131_x11: security update
+Pullup ticket #4305 - requested by obache
+inputmethod/ibus-chewing: security update
+Pullup ticket #4306 - requested by obache
+emulators/suse131_openssl: security update
+Pullup ticket #4307 - requested by obache
+emulators/suse131_libpng: security update
+Pullup ticket #4299 - requested by tron
+Build fix for "ngrep" for GNU make 4.0.
+Pullup ticket #4308 - requested by schnoebe
+print/hplip: security update
+Pullup ticket #4309 - requested by obache
+emulators/suse131_qt4: security update
+Pullup ticket #4310 - requested by taca
+www/drupal6: security update
+Pullup ticket #4311 - requested by taca
+www/drupal7: security update
+Pullup ticket #4312 - requested by taca
+www/contao211: security update
+www/contao32: security update
+Pullup ticket #4313 - requested by pettai
+net/bind98: build fix
+Pullup ticket #4314 - requested by obache
+graphics/cogl: bug fix patch
+Pullup ticket #4315 - requested by obache
+emulators/dosbox: build fix
+Pullup ticket #4316 - requested by obache
+multimedia/adobe-flash-plugin11: security update

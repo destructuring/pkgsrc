@@ -1,0 +1,6 @@
+$NetBSD: distinfo,v 1.38 2013/12/06 12:02:46 wiz Exp $
+
+SHA1 (bison-3.0.2.tar.xz) = aeb1e3544007124009e5203afe86a5676580d444
+RMD160 (bison-3.0.2.tar.xz) = 0a945ce5710a79332fbe594255305f244c24dd74
+Size (bison-3.0.2.tar.xz) = 1927296 bytes
+SHA1 (patch-lib_isnan.c) = c5d2603447064c95e8bbc75a24c09366b752bad6

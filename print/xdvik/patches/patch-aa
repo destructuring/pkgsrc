@@ -1,0 +1,16 @@
+$NetBSD: patch-aa,v 1.3 2013/11/17 16:56:47 minskim Exp $
+
+- Do not install XDvi; it is installed by tex-xdvi.
+- Fix texmf paths for pkgsrc.
+
+--- Makefile.in.orig	2009-06-16 05:01:38.000000000 -0700
++++ Makefile.in
+@@ -1297,7 +1297,7 @@ info: info-recursive
+ 
+ info-am:
+ 
+-install-data-am: install-dist_pixmapDATA install-dist_xdviDATA \
++install-data-am: install-dist_pixmapDATA \
+ 	install-man
+ 	@$(NORMAL_INSTALL)
+ 	$(MAKE) $(AM_MAKEFLAGS) install-data-hook

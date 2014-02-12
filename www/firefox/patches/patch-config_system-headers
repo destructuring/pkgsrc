@@ -1,0 +1,9 @@
+$NetBSD: patch-config_system-headers,v 1.4 2013/12/15 13:54:37 ryoon Exp $
+
+--- config/system-headers.orig	2013-12-05 16:07:23.000000000 +0000
++++ config/system-headers
+@@ -1144,3 +1144,4 @@ unicode/unum.h
+ unicode/ustring.h
+ unicode/utypes.h
+ #endif
++libutil.h
