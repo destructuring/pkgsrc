@@ -77,7 +77,7 @@ CONFIGURE_ARGS+=	--with-mantype=man
 CONFIGURE_ARGS+=	--sysconfdir=${PKG_SYSCONFDIR:Q}
 CONFIGURE_ARGS+=	--with-pid-dir=${SSH_PID_DIR:Q}
 CONFIGURE_ARGS+=	--with-ssl-dir=${SSLBASE:Q}
-CONFIGURE_ARGS+=	--with-tcp-wrappers=${BUILDLINK_PREFIX.tcp_wrappers}
+CONFIGURE_ARGS+=	--without-tcp-wrappers
 
 .if ${OPSYS} != "Interix"
 CONFIGURE_ARGS+=	--with-privsep-path=${OPENSSH_CHROOT:Q}
