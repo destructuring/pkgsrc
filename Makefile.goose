@@ -58,6 +58,7 @@ packages: $(WRKOBJDIR)/.gitignore $(PACKAGES)/.gitignore
 	cd chat/irssi && $(BMAKE) package
 	cd textproc/libyaml && $(BMAKE) package
 	cd textproc/libxml2 && $(BMAKE) package
+	cd lang/python27 && $(BMAKE) package
 
 $(PKG_HOME)/bin/bmake:
 	tar xvfz $(PACKAGES)/bootstrap.tgz -C /
@@ -65,6 +66,7 @@ $(PKG_HOME)/bin/bmake:
 pkgsrc: $(PKG_HOME)/bin/bmake
 	$(PKGADD) getopt figlet coreutils runit irssi unzip bsdtar
 	$(PKGADD) libxml2 libyaml
+	$(PKGADD) python27
 
 cache: pkgsrc
 	$(PKGADD) squid openssh
