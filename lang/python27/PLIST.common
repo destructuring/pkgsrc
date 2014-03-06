@@ -1812,6 +1812,7 @@ lib/python${PY_VER_SUFFIX}/lib-dynload/_collections.so
 lib/python${PY_VER_SUFFIX}/lib-dynload/_csv.so
 lib/python${PY_VER_SUFFIX}/lib-dynload/_ctypes.so
 lib/python${PY_VER_SUFFIX}/lib-dynload/_ctypes_test.so
+lib/python${PY_VER_SUFFIX}/lib-dynload/_elementtree.so
 lib/python${PY_VER_SUFFIX}/lib-dynload/_functools.so
 lib/python${PY_VER_SUFFIX}/lib-dynload/_hashlib.so
 lib/python${PY_VER_SUFFIX}/lib-dynload/_heapq.so

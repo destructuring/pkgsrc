@@ -4,11 +4,9 @@ Disabled modules for normal build:
 bsddb
 curses
 curses_panel
-elementtree
 sqlite3
 tkinter
 gdbm
-pyexpat
 readline
 {linux,oss,sun}audiodev
 spwd
@@ -28,7 +26,7 @@ cygwin 2.7.3-no-libm.patch
  
  # This global variable is used to hold the list of modules to be disabled.
 -disabled_module_list = []
-+disabled_module_list = ["_bsddb", "_curses", "_curses_panel", "_elementtree", "_sqlite3", "_tkinter", "gdbm", "pyexpat", "readline", "linuxaudiodev", "ossaudiodev", "spwd", "sunaudiodev"]
++disabled_module_list = ["_bsddb", "_curses", "_curses_panel", "_sqlite3", "_tkinter", "gdbm", "readline", "linuxaudiodev", "ossaudiodev", "spwd", "sunaudiodev"]
  
  def add_dir_to_list(dirlist, dir):
      """Add the directory 'dir' to the list 'dirlist' (at the front) if
