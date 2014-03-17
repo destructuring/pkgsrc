@@ -61,6 +61,7 @@ packages: $(WRKOBJDIR)/.gitignore $(PACKAGES)/.gitignore
 	cd textproc/expat && $(BMAKE) package
 	cd lang/python27 && $(BMAKE) package
 	cd textproc/py-expat && $(BMAKE) package
+	cd lang/ocaml && $(BMAKE) package
 
 $(PKG_HOME)/bin/bmake:
 	tar xvfz $(PACKAGES)/bootstrap.tgz -C /
@@ -69,6 +70,7 @@ pkgsrc: $(PKG_HOME)/bin/bmake
 	$(PKGADD) getopt figlet coreutils runit irssi unzip bsdtar
 	$(PKGADD) libxml2 libyaml expat
 	$(PKGADD) python27 py27-expat
+	$(PKGADD) ocaml
 
 cache: pkgsrc
 	$(PKGADD) squid openssh
