@@ -62,6 +62,11 @@ packages: $(WRKOBJDIR)/.gitignore $(PACKAGES)/.gitignore
 	cd lang/python27 && $(BMAKE) package
 	cd textproc/py-expat && $(BMAKE) package
 	cd lang/ocaml && $(BMAKE) package
+	cd devel/swig && $(BMAKE) package
+	cd devel/py-msgpack && $(BMAKE) package
+	cd security/py-crypto && $(BMAKE) package
+	cd security/py-m2crypto && $(BMAKE) package
+	cd net/py-zmq && $(BMAKE) package
 
 $(PKG_HOME)/bin/bmake:
 	tar xvfz $(PACKAGES)/bootstrap.tgz -C /
@@ -69,7 +74,8 @@ $(PKG_HOME)/bin/bmake:
 pkgsrc: $(PKG_HOME)/bin/bmake
 	$(PKGADD) getopt figlet coreutils runit irssi unzip bsdtar
 	$(PKGADD) libxml2 libyaml expat
-	$(PKGADD) python27 py27-expat
+	$(PKGADD) swig
+	$(PKGADD) python27 py27-expat py27-msgpack py27-crypto py27-m2crypto py27-zmq
 	$(PKGADD) ocaml
 
 cache: pkgsrc
