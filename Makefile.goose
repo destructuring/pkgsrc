@@ -69,6 +69,9 @@ packages: $(WRKOBJDIR)/.gitignore $(PACKAGES)/.gitignore
 	cd security/py-m2crypto && $(BMAKE) package
 	cd net/py-zmq && $(BMAKE) package
 
+package:
+	cd $(PACKAGE) && $(BMAKE) package
+
 $(PKG_HOME)/bin/bmake:
 	tar xvfz $(PACKAGES)/bootstrap.tgz -C /
 
