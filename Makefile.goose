@@ -78,7 +78,7 @@ $(PKG_HOME)/bin/bmake:
 pkgsrc: $(PKG_HOME)/bin/bmake
 	$(PKGADD) getopt figlet coreutils runit irssi unzip bsdtar
 	$(PKGADD) libxml2 libyaml expat
-	$(PKGADD) swig autoconf
+	$(PKGADD) swig autoconf automake
 	$(PKGADD) python27 py27-expat py27-msgpack py27-crypto py27-m2crypto py27-zmq
 	$(PKGADD) ocaml
 
