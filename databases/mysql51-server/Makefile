@@ -1,6 +1,7 @@
-# $NetBSD: Makefile,v 1.18 2013/12/05 14:20:02 wiz Exp $
+# $NetBSD: Makefile,v 1.20 2014/03/11 14:34:36 jperkin Exp $
 
 PKGNAME=	${DISTNAME:S/-/-server-/}
+PKGREVISION=	1
 SVR4_PKGNAME=	mysqs
 COMMENT=	MySQL 5, a free SQL database (server)
 
@@ -51,6 +52,8 @@ PKG_HOME.${MYSQL_USER}=		${MYSQL_DATADIR}
 PKG_SHELL.${MYSQL_USER}=	${SH}
 
 RCD_SCRIPTS=		mysqld
+SMF_NAME=		mysql
+SMF_METHODS=		${RCD_SCRIPTS}
 
 FILES_SUBST+=		HOSTNAME_CMD=${HOSTNAME_CMD:Q} \
 			MYSQL_DATADIR=${MYSQL_DATADIR} \

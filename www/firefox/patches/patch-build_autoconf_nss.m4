@@ -1,4 +1,4 @@
-$NetBSD: patch-build_autoconf_nss.m4,v 1.2 2013/11/02 22:57:55 ryoon Exp $
+$NetBSD: patch-build_autoconf_nss.m4,v 1.4 2014/02/20 13:19:03 ryoon Exp $
 
 --- build/autoconf/nss.m4.orig	2013-10-25 22:27:10.000000000 +0000
 +++ build/autoconf/nss.m4

@@ -1,11 +1,8 @@
-# $NetBSD: Makefile,v 1.81 2013/09/12 11:18:40 jperkin Exp $
+# $NetBSD: Makefile,v 1.83 2014/03/12 20:28:30 asau Exp $
 #
 
-DISTNAME=	pkgdiff-1.4
-PKGREVISION=	2
+PKGNAME=	pkgdiff-1.5
 CATEGORIES=	pkgtools devel
-MASTER_SITES=	# empty
-DISTFILES=	# empty
 
 MAINTAINER=	wiz@NetBSD.org
 HOMEPAGE=	ftp://ftp.NetBSD.org/pub/NetBSD/packages/pkgsrc/doc/pkgsrc.html

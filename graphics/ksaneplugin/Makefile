@@ -1,6 +1,7 @@
-# $NetBSD: Makefile,v 1.18 2013/11/07 11:53:59 markd Exp $
+# $NetBSD: Makefile,v 1.21 2014/02/12 23:18:02 tron Exp $
 
 DISTNAME=	ksaneplugin-${_KDE_VERSION}
+PKGREVISION=	1
 CATEGORIES=	graphics
 COMMENT=	SANE Plugin for KDE
 

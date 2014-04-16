@@ -1,4 +1,4 @@
-$NetBSD: patch-configure,v 1.4.4.1 2014/01/14 09:49:00 tron Exp $
+$NetBSD: patch-configure,v 1.5 2014/01/13 17:28:22 taca Exp $
 
 --- configure.orig	2013-12-20 00:30:37.000000000 +0000
 +++ configure

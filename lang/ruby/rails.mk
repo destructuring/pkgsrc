@@ -1,4 +1,4 @@
-# $NetBSD: rails.mk,v 1.46.2.1 2014/03/11 15:13:13 tron Exp $
+# $NetBSD: rails.mk,v 1.47 2014/03/02 14:59:25 taca Exp $
 
 .if !defined(_RUBY_RAILS_MK)
 _RUBY_RAILS_MK=	# defined

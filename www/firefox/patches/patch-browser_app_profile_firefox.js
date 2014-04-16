@@ -1,4 +1,4 @@
-$NetBSD: patch-browser_app_profile_firefox.js,v 1.1 2013/09/19 12:37:49 ryoon Exp $
+$NetBSD: patch-browser_app_profile_firefox.js,v 1.3 2014/02/20 13:19:03 ryoon Exp $
 
 --- browser/app/profile/firefox.js.orig	2013-09-10 03:43:20.000000000 +0000
 +++ browser/app/profile/firefox.js

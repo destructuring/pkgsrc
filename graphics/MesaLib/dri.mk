@@ -1,4 +1,4 @@
-# $NetBSD: dri.mk,v 1.7.4.1 2014/03/14 13:59:47 tron Exp $
+# $NetBSD: dri.mk,v 1.8 2014/03/14 07:19:36 obache Exp $
 #
 # Currently, this is for convenience only.
 #

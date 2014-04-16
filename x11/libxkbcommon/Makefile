@@ -1,6 +1,6 @@
-# $NetBSD: Makefile,v 1.4 2013/12/18 19:12:03 wiz Exp $
+# $NetBSD: Makefile,v 1.7 2014/02/03 16:17:12 ryoon Exp $
 
-DISTNAME=	libxkbcommon-0.3.2
+DISTNAME=	libxkbcommon-0.4.0
 PKGREVISION=	1
 CATEGORIES=	x11
 MASTER_SITES=	http://xkbcommon.org/download/
@@ -17,7 +17,9 @@ USE_LIBTOOL=	yes
 
 PKGCONFIG_OVERRIDE+=	xkbcommon.pc.in
 
-CONFIGURE_ARGS+=	--with-xkb-config-root=${X11BASE}/lib/X11/xkb
-
 .include "options.mk"
+.include "../../devel/xorg-util-macros/buildlink3.mk"
+BUILDLINK_API_DEPENDS.libxcb+=	libxcb>=1.10
+.include "../../x11/libxcb/buildlink3.mk"
+.include "../../x11/xkeyboard-config/buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"

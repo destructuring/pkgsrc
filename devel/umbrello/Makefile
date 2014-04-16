@@ -1,9 +1,11 @@
-# $NetBSD: Makefile,v 1.15 2013/12/01 10:18:03 ryoon Exp $
+# $NetBSD: Makefile,v 1.20 2014/02/12 23:17:51 tron Exp $
 
 DISTNAME=	umbrello-${_KDE_VERSION}
-PKGREVISION=	3
+PKGREVISION=	1
 CATEGORIES=	devel
 COMMENT=	UML Modeller
+
+PYTHON_VERSIONS_INCOMPATIBLE=  33 # not yet ported as of 4.11.3
 
 .include "../../meta-pkgs/kde4/Makefile.kde4"
 

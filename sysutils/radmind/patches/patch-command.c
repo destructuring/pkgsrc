@@ -1,4 +1,4 @@
-$NetBSD: patch-command.c,v 1.1.2.2 2014/01/08 18:53:27 tron Exp $
+$NetBSD: patch-command.c,v 1.1 2014/01/08 11:54:04 hauke Exp $
 
 --- command.c.orig	2010-12-13 03:42:49.000000000 +0000
 +++ command.c

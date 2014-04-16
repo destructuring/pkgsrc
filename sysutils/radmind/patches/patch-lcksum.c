@@ -1,4 +1,4 @@
-$NetBSD: patch-lcksum.c,v 1.1.2.2 2014/01/08 18:53:27 tron Exp $
+$NetBSD: patch-lcksum.c,v 1.1 2014/01/08 11:54:04 hauke Exp $
 
 --- lcksum.c.orig	2010-12-13 03:42:49.000000000 +0000
 +++ lcksum.c

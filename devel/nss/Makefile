@@ -1,9 +1,9 @@
-# $NetBSD: Makefile,v 1.74.2.1 2014/01/15 21:44:09 tron Exp $
+# $NetBSD: Makefile,v 1.79 2014/03/23 07:48:03 richard Exp $
 
-DISTNAME=		nss-${NSS_RELEASE}
-NSS_RELEASE=		3.15.4
+DISTNAME=		nss-${NSS_RELEASE:S/.0$//}
+NSS_RELEASE=		3.16.0
 CATEGORIES=		security
-MASTER_SITES=		${MASTER_SITE_MOZILLA_ALL:=security/nss/releases/NSS_${NSS_RELEASE:S/./_/g}_RTM/src/}
+MASTER_SITES=		${MASTER_SITE_MOZILLA_ALL:=security/nss/releases/NSS_${NSS_RELEASE:S/.0$//:S/./_/g}_RTM/src/}
 
 MAINTAINER=		pkgsrc-users@NetBSD.org
 HOMEPAGE=		http://www.mozilla.org/projects/security/pki/nss/
@@ -15,6 +15,7 @@ CHECK_PORTABILITY_SKIP+=${MOZILLA_DIR}nss/tests/multinit/multinit.sh
 CHECK_PORTABILITY_SKIP+=${MOZILLA_DIR}js/src/configure
 CHECK_PORTABILITY_SKIP+=${MOZILLA_DIR}configure
 
+USE_GCC_RUNTIME=	yes
 USE_TOOLS+=		gmake perl pax pkg-config
 
 .include "../../mk/bsd.prefs.mk"
@@ -76,8 +77,8 @@ do-install:
 	set -e; \
 	{ ${ECHO} "Name: NSS"; \
 	  ${ECHO} "Description: Mozilla Network Security Services"; \
-	  ${ECHO} "Version: ${PKGVERSION_NOREV}"; \
-	  ${ECHO} "Requires: nspr >= 4.8.2"; \
+	  ${ECHO} "Version: ${NSS_RELEASE}"; \
+	  ${ECHO} "Requires: nspr >= 4.10.3"; \
 	  ${ECHO} "Cflags: -I${PREFIX}/include/nss/nss -I${PREFIX}/include/nss"; \
 	  ${ECHO} "Libs: -L${PREFIX}/lib/nss" \
 	      "${COMPILER_RPATH_FLAG}${PREFIX}/lib/nss" \

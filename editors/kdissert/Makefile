@@ -1,8 +1,7 @@
-# $NetBSD: Makefile,v 1.48 2013/10/09 17:39:08 wiz Exp $
-#
+# $NetBSD: Makefile,v 1.51 2014/02/12 23:17:52 tron Exp $
 
 DISTNAME=	kdissert-1.0.7
-PKGREVISION=	25
+PKGREVISION=	27
 CATEGORIES=	editors
 MASTER_SITES=	http://freehackers.org/~tnagy/kdissert/
 EXTRACT_SUFX=	.tar.bz2
@@ -17,6 +16,7 @@ USE_LANGUAGES=		c c++
 USE_LIBTOOL=		yes
 USE_TOOLS+=		msgfmt
 PYTHON_FOR_BUILD_ONLY=	yes
+PYTHON_VERSIONS_INCOMPATIBLE=	33 # not yet ported as of 1.0.7
 
 do-configure:
 	${RUN} ${_ULIMIT_CMD} \

@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.14 2013/10/10 14:42:18 ryoon Exp $
+# $NetBSD: Makefile,v 1.16 2014/02/12 23:18:04 tron Exp $
 
 PKGNAME=	${DISTNAME:S/mozc-/mozc-tool-/}
 PKGREVISION=	1

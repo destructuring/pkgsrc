@@ -1,7 +1,8 @@
-# $NetBSD: Makefile,v 1.33 2013/07/28 13:21:55 obache Exp $
+# $NetBSD: Makefile,v 1.37 2014/03/15 04:04:03 obache Exp $
 #
 
-DISTNAME=	milter-manager-2.0.0
+DISTNAME=	milter-manager-2.0.2
+PKGREVISION=	2
 CATEGORIES=	mail
 MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=milter-manager/}
 
@@ -24,6 +25,7 @@ CONFIGURE_ARGS+=	--with-default-pid-file=${VARBASE}/run/milter-manager/milter-ma
 CONFIGURE_ARGS+=	--with-libev=${BUILDLINK_PREFIX.libev}
 CONFIGURE_ARGS+=	--with-ruby=${RUBY}
 CONFIGURE_ARGS+=	--enable-ruby-milter=${PREFIX}/${RUBY_VENDORLIB}
+CONFIGURE_ARGS+=	--with-bundled-ruby-glib2=no
 
 PKG_SYSCONFSUBDIR=	${PKGBASE}
 

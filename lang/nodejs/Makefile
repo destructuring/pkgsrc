@@ -1,12 +1,11 @@
-# $NetBSD: Makefile,v 1.15 2013/12/20 14:36:27 fhajny Exp $
-#
+# $NetBSD: Makefile,v 1.21 2014/03/10 15:42:19 fhajny Exp $
 
-DISTNAME=	node-v0.10.24
+DISTNAME=	node-v0.10.26
 CATEGORIES=	devel
 MASTER_SITES=	http://nodejs.org/dist/${DISTNAME:S/node-//}/
 PKGNAME=	${DISTNAME:S/-v/js-/}
 
-MAINTAINER=	pkgsrc-users@NetBSD.org
+MAINTAINER=	filip@joyent.com
 HOMEPAGE=	http://nodejs.org/
 COMMENT=	V8 JavaScript for clients and servers
 LICENSE=	mit
@@ -15,6 +14,8 @@ HAS_CONFIGURE=	yes
 USE_TOOLS+=	pkg-config
 USE_TOOLS+=	gmake
 USE_LANGUAGES=	c c++
+
+PYTHON_VERSIONS_INCOMPATIBLE=	33 # not yet ported as of 0.10.24
 
 .include "../../mk/bsd.prefs.mk"
 .include "options.mk"
@@ -57,9 +58,11 @@ BUILD_DEPENDS+=	lockf-[0-9]*:../../sysutils/lockf
 
 pre-install:
 	${FIND} ${WRKSRC}/deps/npm -name '*.orig' | ${XARGS} ${RM} -f
+	${CHMOD} -R g-w ${WRKSRC}
 
 .if ${OPSYS} != "Darwin"
 .include "../../devel/libexecinfo/buildlink3.mk"
 .endif
 .include "../../lang/python/application.mk"
+.include "../../lang/python/tool.mk"
 .include "../../mk/bsd.pkg.mk"

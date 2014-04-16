@@ -1,9 +1,9 @@
-# $NetBSD: Makefile,v 1.33 2013/10/10 14:42:25 ryoon Exp $
+# $NetBSD: Makefile,v 1.35 2014/02/12 23:18:18 tron Exp $
 #
 
 DISTNAME=		mplayerplug-in-3.55
 PKGNAME=		mplayer-plugin-3.55
-PKGREVISION=		28
+PKGREVISION=		30
 CATEGORIES=		multimedia
 MASTER_SITES=		${MASTER_SITE_SOURCEFORGE:=mplayerplug-in/}
 

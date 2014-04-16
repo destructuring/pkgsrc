@@ -1,6 +1,7 @@
-# $NetBSD: Makefile,v 1.1 2013/12/13 14:38:36 ryoon Exp $
+# $NetBSD: Makefile,v 1.4 2014/02/12 23:18:56 tron Exp $
 
 PKGNAME=	qt5-qtxmlpatterns-${QTVERSION}
+PKGREVISION=	3
 COMMENT=	Qt5 module for XML Patterns
 
 .include "../../x11/qt5-qtbase/Makefile.common"

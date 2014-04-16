@@ -1,4 +1,4 @@
-$NetBSD: patch-pan_general_log.h,v 1.3.2.2 2014/01/02 22:20:55 tron Exp $
+$NetBSD: patch-pan_general_log.h,v 1.3 2014/01/01 12:10:00 wiz Exp $
 
 --- pan/general/log.h.orig	2012-06-29 22:24:54.000000000 +0000
 +++ pan/general/log.h

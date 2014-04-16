@@ -1,8 +1,7 @@
-# $NetBSD: Makefile,v 1.9 2013/10/19 09:06:57 adam Exp $
+# $NetBSD: Makefile,v 1.12 2014/02/05 17:36:37 drochner Exp $
 #
 
-DISTNAME=	grilo-0.2.6
-PKGREVISION=	1
+DISTNAME=	grilo-0.2.7
 CATEGORIES=	net
 MASTER_SITES=	ftp://ftp.gnome.org/pub/gnome/sources/grilo/0.2/
 EXTRACT_SUFX=	.tar.xz
@@ -14,7 +13,7 @@ LICENSE=	gnu-lgpl-v2
 
 GNU_CONFIGURE=	yes
 USE_LIBTOOL=	yes
-USE_TOOLS+=	pkg-config intltool
+USE_TOOLS+=	pkg-config intltool msgfmt
 USE_LANGUAGES=	c99
 SET_LIBDIR=	yes
 

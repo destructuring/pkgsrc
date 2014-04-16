@@ -1,7 +1,7 @@
-# $NetBSD: Makefile,v 1.92 2013/10/20 17:56:26 joerg Exp $
+# $NetBSD: Makefile,v 1.94 2014/02/12 23:18:30 tron Exp $
 
 DISTNAME=		scribus-1.3.3.14
-PKGREVISION=		18
+PKGREVISION=		19
 CATEGORIES=		print
 MASTER_SITES=		${MASTER_SITE_SOURCEFORGE:=scribus/}
 EXTRACT_SUFX=		.tar.bz2
@@ -20,6 +20,8 @@ SHLIBTOOL_OVERRIDE=	# empty
 USE_CMAKE=	yes
 
 LDFLAGS.DragonFly=	-lX11
+
+PYTHON_VERSIONS_INCOMPATIBLE=	33 # not yet ported as of 1.3.3.14
 
 CONFIGURE_ENV+=		FREETYPE_DIR=${BUILDLINK_PREFIX.freetype2}
 CONFIGURE_ARGS+=	--enable-cairo

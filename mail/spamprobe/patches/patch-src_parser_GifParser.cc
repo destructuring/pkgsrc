@@ -1,4 +1,4 @@
-$NetBSD: patch-src_parser_GifParser.cc,v 1.1.2.2 2014/01/05 20:39:43 spz Exp $
+$NetBSD: patch-src_parser_GifParser.cc,v 1.1 2014/01/05 00:29:35 htodd Exp $
 
 --- src/parser/GifParser.cc.orig	2006-11-17 07:24:49.000000000 +0000
 +++ src/parser/GifParser.cc

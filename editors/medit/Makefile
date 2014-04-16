@@ -1,8 +1,6 @@
-# $NetBSD: Makefile,v 1.14 2013/10/10 14:42:07 ryoon Exp $
-#
+# $NetBSD: Makefile,v 1.16 2014/03/21 07:13:45 obache Exp $
 
-DISTNAME=	medit-1.1.1
-PKGREVISION=	10
+DISTNAME=	medit-1.2.0
 CATEGORIES=	editors
 MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=mooedit/}
 EXTRACT_SUFX=	.tar.bz2
@@ -20,7 +18,9 @@ USE_LANGUAGES=	c c++
 USE_TOOLS+=	gmake pkg-config msgfmt intltool
 
 PYTHON_FOR_BUILD_ONLY=	yes
+PYTHON_VERSIONS_INCOMPATIBLE=	33 # not yet ported as of 1.2.0
 CONFIGURE_ARGS+=	--with-python=no
+CONFIGURE_ENV+=	MOO_PYTHON=${PYTHONBIN}
 
 .include "../../devel/gettext-lib/buildlink3.mk"
 .include "../../devel/glib2/buildlink3.mk"

@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.443 2013/12/05 08:48:38 adam Exp $
+# $NetBSD: Makefile,v 1.449 2014/03/14 14:55:17 taca Exp $
 
 COMMENT=	Databases
 
@@ -71,6 +71,7 @@ SUBDIR+=	luma
 SUBDIR+=	maatkit
 SUBDIR+=	metakit-lib
 SUBDIR+=	myodbc
+SUBDIR+=	mysql-connector-c++
 SUBDIR+=	mysql-workbench
 SUBDIR+=	mysql51-client
 SUBDIR+=	mysql51-server
@@ -331,12 +332,15 @@ SUBDIR+=	py-mysqldb
 SUBDIR+=	py-pgnotify
 SUBDIR+=	py-postgresql
 SUBDIR+=	py-psycopg2
+SUBDIR+=	py-python-sql
+SUBDIR+=	py-redis-py
 SUBDIR+=	py-sqlalchemy
 SUBDIR+=	py-sqlalchemy-migrate
 SUBDIR+=	py-sqlite
 SUBDIR+=	py-sqlite2
 SUBDIR+=	py-sqlite3
 SUBDIR+=	py-sqlparse
+SUBDIR+=	py-sqlsoup
 SUBDIR+=	py-sybase
 SUBDIR+=	py-table
 SUBDIR+=	py-tokyocabinet
@@ -399,6 +403,7 @@ SUBDIR+=	ruby-do_sqlite3
 SUBDIR+=	ruby-gdbm
 SUBDIR+=	ruby-hiera
 SUBDIR+=	ruby-ldap
+SUBDIR+=	ruby-moneta
 SUBDIR+=	ruby-mysql
 SUBDIR+=	ruby-mysql2
 SUBDIR+=	ruby-odbc
@@ -414,6 +419,7 @@ SUBDIR+=	ruby-tokyotyrant
 SUBDIR+=	ruby-vapor
 SUBDIR+=	sdbm
 SUBDIR+=	shared-mime-info
+SUBDIR+=	skytools
 SUBDIR+=	slony1
 SUBDIR+=	soci
 SUBDIR+=	sqlite

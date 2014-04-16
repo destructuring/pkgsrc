@@ -1,12 +1,11 @@
-# $NetBSD: Makefile,v 1.3.2.1 2014/01/05 21:04:20 spz Exp $
+# $NetBSD: Makefile,v 1.6 2014/03/03 15:41:12 bsiegert Exp $
 
-DISTNAME=	go1.2.src
-PKGNAME=	go-1.2
-PKGREVISION=	1
+VERSION=	1.2.1
+DISTNAME=	go${VERSION}.src
+PKGNAME=	go-${VERSION}
 CATEGORIES=	lang
 MASTER_SITES=	https://go.googlecode.com/files/
 PATCH_SITES=	https://codereview.appspot.com/download/
-FETCH_USING?=	curl
 
 MAINTAINER=	bsiegert@NetBSD.org
 HOMEPAGE=	http://golang.org/

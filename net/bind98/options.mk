@@ -1,4 +1,4 @@
-# $NetBSD: options.mk,v 1.7.4.1 2014/02/04 22:48:05 tron Exp $
+# $NetBSD: options.mk,v 1.9 2014/01/27 21:25:21 pettai Exp $
 
 PKG_OPTIONS_VAR=        PKG_OPTIONS.bind98
 PKG_SUPPORTED_OPTIONS=  bind-dig-sigchase bind-xml-statistics-server

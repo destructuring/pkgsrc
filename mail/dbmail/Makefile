@@ -1,7 +1,7 @@
-# $NetBSD: Makefile,v 1.41 2013/10/19 09:07:07 adam Exp $
+# $NetBSD: Makefile,v 1.43 2014/02/13 11:39:05 fhajny Exp $
 
 DISTNAME=	dbmail-2.2.17
-PKGREVISION=	15
+PKGREVISION=	17
 CATEGORIES=	mail
 MASTER_SITES=	http://www.dbmail.org/download/2.2/
 

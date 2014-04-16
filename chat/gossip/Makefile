@@ -1,8 +1,8 @@
-# $NetBSD: Makefile,v 1.92 2013/10/10 14:42:02 ryoon Exp $
+# $NetBSD: Makefile,v 1.94 2014/02/12 23:17:36 tron Exp $
 #
 
 DISTNAME=	gossip-0.10.2
-PKGREVISION=	37
+PKGREVISION=	39
 CATEGORIES=	chat
 MASTER_SITES=	${MASTER_SITE_GNOME:=sources/gossip/0.10/}
 EXTRACT_SUFX=	.tar.bz2

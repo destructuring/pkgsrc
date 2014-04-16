@@ -1,6 +1,6 @@
 #! /bin/sh
 
-# $NetBSD: bootstrap,v 1.200 2013/10/03 01:24:57 joerg Exp $
+# $NetBSD: bootstrap,v 1.204 2014/03/14 21:52:13 ryoon Exp $
 #
 # Copyright (c) 2001-2011 Alistair Crooks <agc@NetBSD.org>
 # All rights reserved.
@@ -147,6 +147,15 @@ get_compiler()
 		done
 		IFS="${save_IFS}"
 	fi
+
+	# Clang compiler pretends to be GCC, so we have to check that
+	cat >${wrkdir}/$$.c <<EOF
+#ifdef __clang__
+indeed
+#endif
+EOF
+	compiler_is_clang=`${testcc:-cc} -E ${wrkdir}/$$.c 2>/dev/null | grep -c indeed`
+	rm -f ${wrkdir}/$$.c
 
 	cat >${wrkdir}/$$.c <<EOF
 #ifdef __GNUC__
@@ -473,6 +482,7 @@ root_user=root
 bmakexenv=
 bmakexargs=
 need_extras=no
+set_machine_arch=no
 use_bsdinstall=
 case "$opsys" in
 AIX)
@@ -548,6 +558,7 @@ FreeBSD)
 	need_sed=no
 	set_opsys=no
 	machine_arch=`uname -p`
+	check_compiler=yes
 	;;
 FreeMiNT)
 	root_group=root
@@ -672,6 +683,12 @@ Linux)
 	need_sed=no
 	set_opsys=no
 	machine_arch=`uname -m | sed -e 's/i.86/i386/'`
+	# Support multiarch systems.
+	if [ "$machine_arch" = "x86_64" -a "$abi" = "32" ]; then
+		machine_arch=i386
+		set_machine_arch=yes
+		bmakexargs="MACHINE_ARCH=$machine_arch"
+	fi
 	;;
 Minix)
 	root_group=operator
@@ -743,6 +760,17 @@ QNX)
 	groupsprog="id -gn"
 	whoamiprog="id -un"
 	machine_arch=`uname -p | sed -e 's/x86/i386/'`
+	;;
+SCO_SV)
+	root_group=root
+	need_awk=yes
+	need_bsd_install=yes
+	need_sed=yes
+	set_opsys=no
+	whoamiprog='id -u'
+	groupsprog='id -g'
+	# /bin/sh under OpenServer 5.0.7/3.2 breaks bmake tests.
+	#bmakexargs="$bmakexargs --with-defshell=/bin/ksh"
 	;;
 SunOS)
 	root_group=root
@@ -863,7 +891,10 @@ echo "Working directory is: ${wrkdir}"
 
 if [ "$compiler" = "" ] && [ x"$check_compiler" = x"yes" ]; then
 	get_compiler
-	if [ $compiler_is_gnu -gt 0 ]; then
+	# Clang pretends to be GCC, so we have to check it first.
+	if [ $compiler_is_clang -gt 0 ]; then
+		compiler="clang"
+	elif [ $compiler_is_gnu -gt 0 ]; then
 		compiler="gcc"
 	else
 		case "$opsys" in
@@ -933,6 +964,9 @@ fi
 
 if [ -n "$abi" ]; then
 	echo "ABI=			$abi" >> ${TARGET_MKCONF}
+fi
+if [ "$set_machine_arch" = "yes" ]; then
+	echo "MACHINE_ARCH=		$machine_arch" >> ${TARGET_MKCONF}
 fi
 if [ "$compiler" != "" ]; then
 	echo "PKGSRC_COMPILER=	$compiler" >> ${TARGET_MKCONF}
@@ -1176,8 +1210,8 @@ fi
 echo ".endif			# end pkgsrc settings" >> ${TARGET_MKCONF}
 echo ".endif			# end pkgsrc settings" >> ${BOOTSTRAP_MKCONF}
 
-# register packages
-# usage: register_package <packagedirectory> [additional arguments]
+# build and register packages
+# usage: build_package <packagedirectory> [additional arguments]
 build_package() {
 	run_cmd "(cd $pkgsrcdir/$1 && $bmake USE_DESTDIR=no -DPKG_PRESERVE MAKECONF=${BOOTSTRAP_MKCONF} install)"
 }

@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.14 2013/12/11 23:26:49 markd Exp $
+# $NetBSD: Makefile,v 1.17 2014/02/12 23:18:15 tron Exp $
 
 DISTNAME=	nepomuk-core-${_KDE_VERSION}
 PKGREVISION=	1

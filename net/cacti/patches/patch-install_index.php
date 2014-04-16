@@ -1,4 +1,4 @@
-$NetBSD: patch-install_index.php,v 1.1.1.1.18.1 2014/01/09 23:14:33 spz Exp $
+$NetBSD: patch-install_index.php,v 1.2 2014/01/08 20:51:28 tron Exp $
 
 - Find utilites in PREFIX first.
 - Fix-up hard coded user and path (documentaion only).

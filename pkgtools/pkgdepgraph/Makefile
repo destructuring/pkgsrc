@@ -1,11 +1,9 @@
-# $NetBSD: Makefile,v 1.32 2013/09/12 11:18:40 jperkin Exp $
+# $NetBSD: Makefile,v 1.35 2014/03/03 05:06:43 obache Exp $
 #
 
-DISTNAME=	pkgdepgraph-2.8
+PKGNAME=	pkgdepgraph-2.8
 PKGREVISION=	2
 CATEGORIES=	pkgtools devel
-MASTER_SITES=	# empty
-DISTFILES=	# empty
 
 MAINTAINER=	pkgsrc-users@NetBSD.org
 HOMEPAGE=	ftp://ftp.NetBSD.org/pub/NetBSD/packages/pkgsrc/doc/pkgsrc.html
@@ -19,9 +17,13 @@ USE_TOOLS+=	perl:run
 
 NO_CONFIGURE=	yes
 
-DISTVER=	${DISTNAME:S/pkgdepgraph-//}
+DISTVER=	${PKGVERSION_NOREV}
 
 .include "../../mk/bsd.prefs.mk"
+
+.if ${OPSYS} == "SunOS" || ${OPSYS} == "AIX"
+USE_TOOLS+=	nroff
+.endif
 
 INSTALLATION_DIRS=	bin ${PKGMANDIR}/cat1 ${PKGMANDIR}/man1
 
@@ -36,6 +38,7 @@ do-build:
 		-e 's|@PKG_DBDIR@|${PKG_DBDIR}|g'	\
 		-e 's|@PKGSRCDIR@|${PKGSRCDIR}|g'	\
 		-e 's|@DISTVER@|${DISTVER}|g'		\
+		-e 's|@PERL5@|${PERL5}|g'		\
 		< ${WRKSRC}/${file}.pl 		\
 		> ${WRKSRC}/${file}
 .endfor

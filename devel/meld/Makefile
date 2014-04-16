@@ -1,13 +1,13 @@
-# $NetBSD: Makefile,v 1.44 2013/10/18 21:40:54 wiz Exp $
+# $NetBSD: Makefile,v 1.49 2014/02/24 12:25:00 wiz Exp $
 
-DISTNAME=		meld-1.8.2
+DISTNAME=		meld-1.8.4
 CATEGORIES=		devel
 MASTER_SITES=		${MASTER_SITE_GNOME:=sources/meld/1.8/}
 EXTRACT_SUFX=		.tar.xz
 
 MAINTAINER=		wiz@NetBSD.org
 HOMEPAGE=		http://meldmerge.org/
-COMMENT=		Visual diff and merge tool
+COMMENT=		Visual diff and merge tool (GTK2 version)
 LICENSE=		gnu-gpl-v2
 
 DEPENDS+=		${PYPKGPREFIX}-gtk2>=2.14.0:../../x11/py-gtk2
@@ -17,7 +17,8 @@ USE_TOOLS+=			gmake msgfmt intltool
 MAKE_FLAGS+=			prefix=${PREFIX}
 MAKE_FLAGS+=			localedir=${PREFIX}/${PKGLOCALEDIR}/locale
 MAKE_FLAGS+=			PYTHON=${PYTHONBIN}
-PYTHON_PATCH_SCRIPTS=		bin/meld
+REPLACE_PYTHON=		bin/meld
+PYTHON_VERSIONS_INCOMPATIBLE=	33 # py-gtk2
 
 # remove unnecessarily created empty dirs
 post-install:

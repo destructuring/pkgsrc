@@ -1,4 +1,4 @@
-$NetBSD: patch-ab,v 1.28.18.1 2014/03/18 12:42:57 tron Exp $
+$NetBSD: patch-ab,v 1.29 2014/03/03 08:15:10 obache Exp $
 
 --- ../examples/smb.conf.default.orig	2010-01-14 10:12:10.000000000 +0000
 +++ ../examples/smb.conf.default

@@ -1,6 +1,6 @@
-# $NetBSD: Makefile,v 1.48 2013/10/11 14:54:05 joerg Exp $
+# $NetBSD: Makefile,v 1.50 2014/01/28 21:19:00 wiz Exp $
 
-DISTNAME=	jpegsrc.v9
+DISTNAME=	jpegsrc.v9a
 PKGNAME=	${DISTNAME:S/src.v/-/}
 PKGREVISION=	1
 CATEGORIES=	graphics

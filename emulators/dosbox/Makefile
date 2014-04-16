@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.37.2.1 2014/02/05 19:45:10 tron Exp $
+# $NetBSD: Makefile,v 1.38 2014/02/05 08:40:11 obache Exp $
 
 DISTNAME=	dosbox-0.74
 PKGREVISION=	4

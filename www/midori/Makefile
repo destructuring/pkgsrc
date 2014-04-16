@@ -1,7 +1,7 @@
-# $NetBSD: Makefile,v 1.65 2013/10/19 09:07:13 adam Exp $
+# $NetBSD: Makefile,v 1.67 2014/01/25 10:30:27 wiz Exp $
 
 DISTNAME=	midori-0.4.9
-PKGREVISION=	10
+PKGREVISION=	11
 CATEGORIES=	www
 MASTER_SITES=	http://archive.xfce.org/src/apps/midori/0.4/
 
@@ -21,6 +21,7 @@ CHECK_PORTABILITY_SKIP+= win32/x86-mingw32-opensuse/install.sh
 CHECK_PORTABILITY_SKIP+= win32/makedist/makedist.midori
 
 PYTHON_FOR_BUILD_ONLY=	yes
+PYTHON_VERSIONS_INCOMPATIBLE=	33 # not yet ported as of 0.4.9
 
 REPLACE_PYTHON=		waf wscript docs/api/wscript_build
 REPLACE_PYTHON+=	tests/wscript_build extensions/wscript_build

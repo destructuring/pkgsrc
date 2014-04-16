@@ -1,5 +1,4 @@
-# $NetBSD: Makefile,v 1.38 2013/10/19 09:06:56 adam Exp $
-#
+# $NetBSD: Makefile,v 1.40 2014/03/03 04:34:53 obache Exp $
 
 DISTNAME=	PackageKit-0.4.0
 PKGREVISION=	30
@@ -10,6 +9,7 @@ MASTER_SITES=	http://www.packagekit.org/releases/
 MAINTAINER=	pkgsrc-users@NetBSD.org
 HOMEPAGE=	http://www.packagekit.org/
 COMMENT=	System activated daemon for managing software updates
+LICENSE=	gnu-gpl-v2
 
 GNU_CONFIGURE=	yes
 USE_LIBTOOL=	yes
@@ -48,6 +48,7 @@ PKGCONFIG_OVERRIDE+=	data/packagekit-qt.pc.in
 PKGCONFIG_OVERRIDE+=	data/packagekit-glib.pc.in
 
 PY_PATCHPLIST=	yes
+PYTHON_VERSIONS_INCOMPATIBLE=	33 # not yet ported as of 0.4.0
 
 REPLACE_PYTHON=	backends/test/helpers/PackageKitDbusTest.py	\
 		lib/python/packagekit/client.py		\

@@ -1,8 +1,7 @@
-# $NetBSD: Makefile,v 1.13 2013/07/12 10:45:04 jperkin Exp $
+# $NetBSD: Makefile,v 1.15 2014/03/11 14:34:40 jperkin Exp $
 #
 
 DISTNAME=	apache-tomcat-${TOMCAT_VER}
-PKGREVISION=	1
 CATEGORIES=	www
 MASTER_SITES=	${MASTER_SITE_APACHE:=tomcat/tomcat-6/v${TOMCAT_VER}/bin/}
 
@@ -24,11 +23,12 @@ PKG_DESTDIR_SUPPORT=	destdir
 
 .include "../../mk/bsd.prefs.mk"
 
-TOMCAT_VER=		6.0.37
+TOMCAT_VER=		6.0.39
 TOMCAT_HOME=		${PREFIX}/share/tomcat
 EGDIR=			${PREFIX}/share/examples/tomcat
 DOCDIR=			${PREFIX}/share/doc/tomcat
 RCD_SCRIPTS=		tomcat
+SMF_NAME=		tomcat
 TOMCAT_USER?=		tomcat
 TOMCAT_GROUP?=		tomcat
 USERGROUP_PHASE=	pre-install

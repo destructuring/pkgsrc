@@ -1,4 +1,4 @@
-$NetBSD: distinfo,v 1.5.2.1 2014/02/11 20:50:43 tron Exp $
+$NetBSD: distinfo,v 1.6 2014/02/04 15:38:16 pettai Exp $
 
 SHA1 (DenyHosts-2.6.tar.gz) = 02143843cb7c37c986c222b7acc11f7b75eb7373
 RMD160 (DenyHosts-2.6.tar.gz) = cab4206af992f5405ed1c9b302341c7b5649c71a

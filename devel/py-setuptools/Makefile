@@ -1,6 +1,6 @@
-# $NetBSD: Makefile,v 1.36 2013/11/04 21:33:08 wiz Exp $
+# $NetBSD: Makefile,v 1.41 2014/03/12 10:14:19 wiz Exp $
 
-EGG_VERSION=		1.3
+EGG_VERSION=		3.1
 DISTNAME=		setuptools-${EGG_VERSION}
 EGG_NAME=		setuptools-${EGG_VERSION}
 PKGNAME=		${PYPKGPREFIX}-setuptools-${EGG_VERSION}
@@ -13,7 +13,6 @@ COMMENT=		New Python packaging system
 LICENSE=		python-software-foundation OR zpl
 
 PYDISTUTILSPKG=			yes
-PYTHON_VERSIONS_INCLUDE_3X=	yes
 
 PLIST_SUBST+=	PYVERSSUFFIX=${PYVERSSUFFIX} PYPKGPREFIX=${PYPKGPREFIX}
 PLIST_SUBST+=	EGG_NAME=${EGGNAME}

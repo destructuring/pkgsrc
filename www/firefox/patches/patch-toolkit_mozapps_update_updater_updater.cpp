@@ -1,4 +1,4 @@
-$NetBSD: patch-toolkit_mozapps_update_updater_updater.cpp,v 1.1 2013/08/22 21:19:01 joerg Exp $
+$NetBSD: patch-toolkit_mozapps_update_updater_updater.cpp,v 1.3 2014/02/20 13:19:03 ryoon Exp $
 
 --- toolkit/mozapps/update/updater/updater.cpp.orig	2013-08-20 13:38:52.000000000 +0000
 +++ toolkit/mozapps/update/updater/updater.cpp

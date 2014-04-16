@@ -1,4 +1,4 @@
-# $NetBSD: options.mk,v 1.27 2013/12/05 14:37:01 taca Exp $
+# $NetBSD: options.mk,v 1.29 2014/03/29 10:30:15 taca Exp $
 
 .include "../../mk/bsd.prefs.mk"
 
@@ -16,14 +16,19 @@ CONFIGURE_ENV+=		ac_cv_search_k_hasafs=no
 .endif
 
 .if !empty(PKG_OPTIONS:Mhpn-patch)
-PATCHFILES=		openssh-6.4p1-hpn14v2.diff.gz
+PATCHFILES=		openssh-6.6p1-hpnssh14v4.diff.gz
 PATCH_SITES=		ftp://ftp.NetBSD.org/pub/NetBSD/misc/openssh/
+PATCH_DIST_STRIP=	-p1
 .endif
+
+PLIST_VARS+=	pam
 
 .if !empty(PKG_OPTIONS:Mpam)
 .include "../../mk/pam.buildlink3.mk"
 CONFIGURE_ARGS+=	--with-pam
-PLIST_SRC+=		${.CURDIR}/PLIST.pam
 MESSAGE_SRC+=		${.CURDIR}/MESSAGE.pam
 MESSAGE_SUBST+=		EGDIR=${EGDIR}
+.if ${OPSYS} == "Linux"
+PLIST.pam=	yes
+.endif
 .endif

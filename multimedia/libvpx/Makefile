@@ -1,15 +1,17 @@
-# $NetBSD: Makefile,v 1.32 2013/12/01 23:26:25 bsiegert Exp $
+# $NetBSD: Makefile,v 1.40 2014/02/19 09:44:56 jperkin Exp $
 
-DISTNAME=	libvpx-v1.2.0
-PKGNAME=	${DISTNAME:S/-v/-/}
+DISTNAME=	libvpx_1.3.0.orig
+PKGNAME=	${DISTNAME:S/_/-/:S/.orig//}
 CATEGORIES=	multimedia
-MASTER_SITES=	http://webm.googlecode.com/files/
+MASTER_SITES=	${MASTER_SITE_DEBIAN:=pool/main/libv/libvpx/}
 EXTRACT_SUFX=	.tar.bz2
 
 MAINTAINER=	ryoon@NetBSD.org
 HOMEPAGE=	http://code.google.com/p/webm/
 COMMENT=	On2 VP8 library from Google
 LICENSE=	modified-bsd
+
+WRKSRC=		${WRKDIR}/${PKGNAME_NOREV}
 
 USE_LANGUAGES=		c c++
 USE_LIBTOOL=		yes
@@ -25,6 +27,11 @@ CONFIGURE_ARGS+=	--disable-unit-tests
 .include "../../mk/bsd.prefs.mk"
 
 .if ${MACHINE_ARCH} == "i386" || ${MACHINE_ARCH} == "x86_64"
+. if ${PKGSRC_COMPILER} == "gcc" && (${OPSYS} == "NetBSD" || ${OPSYS} == "SunOS")
+# PR pkg/48508: GCC 4.4 or later is required to compile ssse3 code on NetBSD & Solaris.
+GCC_REQD+=	4.4
+. endif
+
 BUILD_DEPENDS+=		yasm-[0-9]*:../../devel/yasm
 .endif
 
@@ -62,6 +69,12 @@ CONFIGURE_ARGS+=	--target=x86_64-darwin10-gcc
 .    else
 CONFIGURE_ARGS+=	--target=x86_64-darwin9-gcc
 .    endif
+.  elif ${MACHINE_ARCH} == "powerpc"
+.    if !empty(OS_VERSION:M9.*)
+CONFIGURE_ARGS+=	--target=ppc32-darwin9-gcc
+.    else
+CONFIGURE_ARGS+=	--target=ppc32-darwin8-gcc
+.    endif
 .  endif
 .endif
 
@@ -87,10 +100,23 @@ CONFIGURE_ENV+=		RTCD_OPTIONS='--disable-sse2 --disable-sse3 --disable-ssse3 --d
 CONFIGURE_ARGS+=	--disable-runtime-cpu-detect
 .endif
 
+# Under Solaris 10 its /usr/xpg4/bin/tr is not sufficient. PR pkg/48508
+.if !empty(MACHINE_PLATFORM:MSunOS-5.10*)
+BUILD_DEPENDS=		coreutils-[0-9]*:../../sysutils/coreutils
+FIND_PREFIX:=		GTRDIR=coreutils
+.include "../../mk/find-prefix.mk"
+TOOLS_PLATFORM.tr=	${GTRDIR}/bin/gtr
+.endif
+
 BUILD_TARGET=	# none
 
 post-extract:
 	${CP} ${FILESDIR}/strip_fPIC.sh ${WRKSRC}
 
+# PR pkg/48508: newer gas from binutils is required to compile ssse3 code.
+.if !empty(MACHINE_PLATFORM:MNetBSD-5.*) || !empty(MACHINE_PLATFORM:MSunOS-5.10*)
+.include "../../devel/binutils/buildlink3.mk"
+.include "../../devel/binutils/override-as.mk"
+.endif
 .include "../../mk/pthread.buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"

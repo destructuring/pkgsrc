@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.13 2013/11/19 14:19:58 taca Exp $
+# $NetBSD: Makefile,v 1.14.2.1 2014/04/09 10:59:14 tron Exp $
 #
 
 DISTNAME=	${CT_VERSION}

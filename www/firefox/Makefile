@@ -1,17 +1,18 @@
-# $NetBSD: Makefile,v 1.149 2013/12/30 00:24:07 dholland Exp $
+# $NetBSD: Makefile,v 1.156 2014/03/20 21:02:00 ryoon Exp $
 
 FIREFOX_VER=	${MOZ_BRANCH}${MOZ_BRANCH_MINOR}
-MOZ_BRANCH=	26.0
+MOZ_BRANCH=	28.0
 MOZ_BRANCH_MINOR=	
 
 DISTNAME=	firefox-${FIREFOX_VER}.source
 PKGNAME=	firefox-${MOZ_BRANCH}${MOZ_BRANCH_MINOR:S/b/beta/:S/esr//}
 CATEGORIES=	www
 MASTER_SITES=	${MASTER_SITE_MOZILLA:=firefox/releases/${FIREFOX_VER}/source/}
-#MASTER_SITES+=	${MASTER_SITE_MOZILLA_ALL:=firefox/releases/${FIREFOX_VER}/source/}
+MASTER_SITES+=	${MASTER_SITE_MOZILLA_ALL:=firefox/releases/${FIREFOX_VER}/source/}
 EXTRACT_SUFX=	.tar.bz2
 
 WRKSRC=		${WRKDIR}/mozilla-release
+#WRKSRC=		${WRKDIR}/mozilla-beta
 
 MAINTAINER=	ryoon@NetBSD.org
 HOMEPAGE=	http://www.mozilla.com/en-US/firefox/
@@ -46,8 +47,6 @@ LDFLAGS.Linux=		-lnspr4
 
 .include "mozilla-common.mk"
 .include "options.mk"
-
-CHECK_PORTABILITY_SKIP+=	js/src/tests/update-test262.sh
 
 CHECK_INTERPRETER_SKIP+=lib/firefox-sdk/sdk/bin/header.py
 CHECK_INTERPRETER_SKIP+=lib/firefox-sdk/sdk/bin/typelib.py

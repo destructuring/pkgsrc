@@ -1,7 +1,7 @@
-# $NetBSD: Makefile,v 1.70 2013/12/09 05:22:09 dholland Exp $
+# $NetBSD: Makefile,v 1.73 2014/02/12 23:18:28 tron Exp $
 
 DISTNAME=		advi-1.10.1
-PKGREVISION=		30
+PKGREVISION=		32
 CATEGORIES=		print
 MASTER_SITES=		http://gallium.inria.fr/advi/
 
@@ -24,7 +24,7 @@ DEPENDS+=		tex-cyrillic-bin>=2013:../../print/tex-cyrillic-bin
 USE_PKGLOCALEDIR=	yes
 GNU_CONFIGURE=		yes
 USE_TOOLS+=		gmake gs:run
-CONFIGURE_ARGS+=	--libdir=${PREFIX}/share/texmf-dist
+GNU_CONFIGURE_LIBDIR=	${PREFIX}/share/texmf-dist
 CONFIGURE_ARGS+=	--with-gs=${PREFIX}/bin/gs
 
 INSTALL_UNSTRIPPED=	yes

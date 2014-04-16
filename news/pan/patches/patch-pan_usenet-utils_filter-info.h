@@ -1,4 +1,4 @@
-$NetBSD: patch-pan_usenet-utils_filter-info.h,v 1.3.2.2 2014/01/02 22:20:55 tron Exp $
+$NetBSD: patch-pan_usenet-utils_filter-info.h,v 1.3 2014/01/01 12:10:00 wiz Exp $
 
 --- pan/usenet-utils/filter-info.h.orig	2013-12-21 12:30:49.000000000 +0000
 +++ pan/usenet-utils/filter-info.h

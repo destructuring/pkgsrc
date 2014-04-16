@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.216 2013/09/11 07:57:35 obache Exp $
+# $NetBSD: Makefile,v 1.221 2014/02/02 15:24:54 rodent Exp $
 #
 
 COMMENT=	Multimedia utilities
@@ -92,8 +92,10 @@ SUBDIR+=	kmix
 SUBDIR+=	kmplayer
 SUBDIR+=	kmplayer-kde3
 SUBDIR+=	kscd
+SUBDIR+=	libaacs
 SUBDIR+=	libass
 SUBDIR+=	libassetml
+SUBDIR+=	libbdplus
 SUBDIR+=	libdv
 SUBDIR+=	libdv-tools
 SUBDIR+=	libdvbpsi
@@ -111,6 +113,7 @@ SUBDIR+=	libkate
 SUBDIR+=	libkcddb
 SUBDIR+=	libkcompactdisc
 SUBDIR+=	libmatroska
+SUBDIR+=	libmediainfo
 SUBDIR+=	libmp4v2
 SUBDIR+=	libmpeg2
 SUBDIR+=	libmpeg3
@@ -161,10 +164,12 @@ SUBDIR+=	py-ming
 SUBDIR+=	realplayer-codecs
 SUBDIR+=	regionset
 SUBDIR+=	replex
+SUBDIR+=	ruby-gnome2-clutter-gstreamer
 SUBDIR+=	ruby-gnome2-gstreamer
 SUBDIR+=	ruby-ming
 SUBDIR+=	schroedinger
 SUBDIR+=	smpeg
+SUBDIR+=	smpeg2
 SUBDIR+=	subtitleeditor
 SUBDIR+=	swfdec
 SUBDIR+=	swfdec-gnome

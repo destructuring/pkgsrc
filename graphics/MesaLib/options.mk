@@ -1,4 +1,4 @@
-# $NetBSD: options.mk,v 1.25.4.1 2014/03/14 13:59:47 tron Exp $
+# $NetBSD: options.mk,v 1.26 2014/03/14 07:19:36 obache Exp $
 
 PKG_OPTIONS_VAR=	PKG_OPTIONS.MesaLib
 PKG_SUPPORTED_OPTIONS=

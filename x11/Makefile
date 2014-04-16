@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.723 2013/12/19 04:15:52 jnemeth Exp $
+# $NetBSD: Makefile,v 1.729 2014/03/13 07:28:38 jnemeth Exp $
 #
 
 COMMENT=	Packages to support the X window system
@@ -48,7 +48,6 @@ SUBDIR+=	ede
 SUBDIR+=	editres
 SUBDIR+=	eekboard
 SUBDIR+=	efltk
-SUBDIR+=	egtk
 SUBDIR+=	elementary
 SUBDIR+=	elementary-icon-theme
 SUBDIR+=	enlightenment
@@ -106,6 +105,7 @@ SUBDIR+=	gtk2-engines-murrine
 SUBDIR+=	gtk2-theme-switch
 SUBDIR+=	gtk3
 SUBDIR+=	gtkada
+SUBDIR+=	gtkdatabox
 SUBDIR+=	gtkglarea
 SUBDIR+=	gtkglarea2
 SUBDIR+=	gtkmm
@@ -349,6 +349,7 @@ SUBDIR+=	pixman
 SUBDIR+=	presentproto
 SUBDIR+=	printproto
 SUBDIR+=	py-Pmw
+SUBDIR+=	py-Pmw2
 SUBDIR+=	py-Tk
 SUBDIR+=	py-Xlib
 SUBDIR+=	py-gnome2
@@ -451,6 +452,7 @@ SUBDIR+=	tint2
 SUBDIR+=	tk
 SUBDIR+=	tk-BWidget
 SUBDIR+=	tk-Tix
+SUBDIR+=	tk85
 SUBDIR+=	tkinfo
 SUBDIR+=	tktable
 SUBDIR+=	transset
@@ -548,7 +550,6 @@ SUBDIR+=	xf86-video-mga
 SUBDIR+=	xf86-video-neomagic
 SUBDIR+=	xf86-video-newport
 SUBDIR+=	xf86-video-nv
-SUBDIR+=	xf86-video-nvxbox
 SUBDIR+=	xf86-video-openchrome
 SUBDIR+=	xf86-video-r128
 SUBDIR+=	xf86-video-rendition

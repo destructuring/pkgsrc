@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.1 2013/08/05 17:51:45 kleink Exp $
+# $NetBSD: Makefile,v 1.3 2014/01/25 10:30:28 wiz Exp $
 
 DISTNAME=	Flask-Mail-0.9.0
 PKGNAME=	${PYPKGPREFIX}-${DISTNAME:tl}
@@ -11,9 +11,6 @@ COMMENT=	Flask extension for sending email
 LICENSE=	modified-bsd
 
 USE_LANGUAGES=	# empty
-
-PYTHON_VERSIONS_INCLUDE_3X=	yes
-PYTHON_VERSIONS_INCOMPATIBLE=	31 32
 
 EGG_NAME=	${DISTNAME:S/-/_/}
 

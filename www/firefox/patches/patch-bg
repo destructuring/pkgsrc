@@ -1,4 +1,4 @@
-$NetBSD: patch-bg,v 1.2 2013/11/02 22:57:55 ryoon Exp $
+$NetBSD: patch-bg,v 1.4 2014/02/20 13:19:03 ryoon Exp $
 
 --- storage/src/SQLiteMutex.h.orig	2013-10-25 22:27:40.000000000 +0000
 +++ storage/src/SQLiteMutex.h

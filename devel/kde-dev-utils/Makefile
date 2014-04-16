@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.2 2013/12/15 08:36:12 markd Exp $
+# $NetBSD: Makefile,v 1.5 2014/02/12 23:17:47 tron Exp $
 
 DISTNAME=	kde-dev-utils-${_KDE_VERSION}
 PKGREVISION=	1

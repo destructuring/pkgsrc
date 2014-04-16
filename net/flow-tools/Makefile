@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.32 2013/10/13 21:52:44 sbd Exp $
+# $NetBSD: Makefile,v 1.34 2014/02/16 21:37:06 wiedi Exp $
 
 DISTNAME=	flow-tools-0.68
 PKGREVISION=	6
@@ -11,6 +11,8 @@ COMMENT=	Collect and store NetFlow data
 
 USE_TOOLS+=	lex
 GNU_CONFIGURE=	YES
+
+CPPFLAGS.SunOS+=	-Du_int8_t=uint8_t -Du_int32_t=uint32_t
 
 PKG_SYSCONFSUBDIR=	flow-tools
 CONFIGURE_ARGS+=	--sysconfdir=${PKG_SYSCONFDIR:Q}
@@ -49,7 +51,7 @@ PLIST_VARS+=		python
 .if !empty(PKG_OPTIONS:Mpython)
 .  include "../../lang/python/application.mk"
 
-PYTHON_PATCH_SCRIPTS=	bin/flow-rpt2rrd bin/flow-log2rrd bin/flow-rptfmt
+REPLACE_PYTHON=	bin/flow-rpt2rrd bin/flow-log2rrd bin/flow-rptfmt
 PLIST.python=		yes
 
 post-install:

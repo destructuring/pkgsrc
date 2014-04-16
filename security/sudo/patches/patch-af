@@ -1,4 +1,4 @@
-$NetBSD: patch-af,v 1.30.4.1 2014/03/08 20:33:47 spz Exp $
+$NetBSD: patch-af,v 1.31 2014/03/08 11:51:56 kim Exp $
 
 * Add "--with-nbsdops" option, NetBSD standard options.
 * Link with util(3) in the case of DragonFly, too.

@@ -1,4 +1,4 @@
-$NetBSD: patch-pc,v 1.2 2013/08/07 12:17:54 ryoon Exp $
+$NetBSD: patch-pc,v 1.4 2014/02/20 13:19:03 ryoon Exp $
 
 --- xulrunner/installer/libxul-embedding.pc.in.orig	2013-07-30 00:59:18.000000000 +0000
 +++ xulrunner/installer/libxul-embedding.pc.in

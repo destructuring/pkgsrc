@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.82.2.1 2014/01/02 22:20:55 tron Exp $
+# $NetBSD: Makefile,v 1.83 2014/01/01 12:10:00 wiz Exp $
 
 DISTNAME=		pan-0.139
 PKGREVISION=		13

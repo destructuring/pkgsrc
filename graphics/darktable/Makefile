@@ -1,6 +1,7 @@
-# $NetBSD: Makefile,v 1.40 2013/12/04 13:02:08 drochner Exp $
+# $NetBSD: Makefile,v 1.44 2014/02/19 09:44:56 jperkin Exp $
 
 DISTNAME=	darktable-1.2.3
+PKGREVISION=	2
 CATEGORIES=	graphics
 MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=darktable/}
 EXTRACT_SUFX=	.tar.xz
@@ -40,7 +41,7 @@ LDFLAGS+=	${COMPILER_RPATH_FLAG}${PREFIX}/lib/darktable
 .include "../../mk/bsd.fast.prefs.mk"
 .if ${MACHINE_ARCH} == "i386"
 # SSE alignment issues
-GCC_REQD=	4.2
+GCC_REQD+=	4.2
 CFLAGS+=	-mstackrealign -msse2 -march=i686
 .endif
 
@@ -65,6 +66,7 @@ BUILDLINK_API_DEPENDS.sqlite3+= sqlite3>=3.7.14.1nb1
 .include "../../devel/glib2/buildlink3.mk"
 .include "../../devel/libgphoto2/buildlink3.mk"
 .include "../../devel/zlib/buildlink3.mk"
+.include "../../graphics/GraphicsMagick/buildlink3.mk"
 .include "../../graphics/exiv2/buildlink3.mk"
 .include "../../graphics/gegl/buildlink3.mk"
 .include "../../graphics/lensfun/buildlink3.mk"

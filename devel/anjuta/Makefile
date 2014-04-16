@@ -1,7 +1,7 @@
-# $NetBSD: Makefile,v 1.111 2013/12/06 21:51:32 joerg Exp $
+# $NetBSD: Makefile,v 1.116 2014/03/27 20:19:43 jperkin Exp $
 
 DISTNAME=	anjuta-3.10.0
-PKGREVISION=	4
+PKGREVISION=	7
 CATEGORIES=	devel
 MASTER_SITES=	${MASTER_SITE_GNOME:=sources/anjuta/3.10/}
 EXTRACT_SUFX=	.tar.xz
@@ -23,7 +23,7 @@ USE_LANGUAGES=		c c++
 USE_LIBTOOL=		yes
 USE_PKGLOCALEDIR=	yes
 USE_TOOLS+=		gmake:run intltool pkg-config:run msgfmt:run perl:run sh:run
-USE_TOOLS+=		bash:run bison
+USE_TOOLS+=		bash:run bison flex
 GNU_CONFIGURE=		yes
 
 CONFIGURE_ARGS+=	--disable-plugin-valgrind
@@ -63,7 +63,9 @@ BUILDLINK_API_DEPENDS.gtk2+=	gtk2+>=2.12.0
 
 .include "../../mk/bsd.prefs.mk"
 
+.if ${OPSYS} == "NetBSD" && !exists(/var/shm)
 CPPFLAGS+=	-Dshm_open=open -Dshm_unlink=unlink
+.endif
 
 .include "../../databases/libgda/buildlink3.mk"
 #.include "../../devel/devhelp/buildlink3.mk"

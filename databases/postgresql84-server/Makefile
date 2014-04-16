@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.23 2013/12/10 22:34:22 adam Exp $
+# $NetBSD: Makefile,v 1.27 2014/03/12 17:01:57 gdt Exp $
 
 PKGNAME=	${DISTNAME:C/-/84-server-/}
 COMMENT=	PostgreSQL database server programs
@@ -43,9 +43,6 @@ DL_LIBS+=	-lltdl
 # PGGROUP	group of the database administrator
 # PGHOME	home directory of the database administrator and location of
 #		the databases
-PGUSER?=		pgsql
-PGGROUP?=		pgsql
-PGHOME?=		${VARBASE}/${PGUSER}
 FILES_SUBST+=		PGUSER=${PGUSER}
 FILES_SUBST+=		PGGROUP=${PGGROUP}
 FILES_SUBST+=		PGHOME=${PGHOME}
@@ -60,6 +57,8 @@ PKG_GECOS.${PGUSER}=	PostgreSQL database administrator
 PKG_HOME.${PGUSER}=	${PGHOME}
 
 RCD_SCRIPTS=		pgsql
+SMF_METHODS=		postgresql
+SMF_NAME=		postgresql
 
 .include "../../databases/postgresql84-client/buildlink3.mk"
 .include "../../security/openssl/buildlink3.mk"

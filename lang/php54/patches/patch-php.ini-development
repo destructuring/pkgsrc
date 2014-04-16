@@ -1,4 +1,4 @@
-$NetBSD: patch-php.ini-development,v 1.1.14.1 2014/03/11 16:24:53 tron Exp $
+$NetBSD: patch-php.ini-development,v 1.2 2014/01/11 17:03:57 taca Exp $
 
 --- php.ini-development.orig	2014-01-08 02:57:08.000000000 +0000
 +++ php.ini-development

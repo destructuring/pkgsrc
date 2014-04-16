@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.47 2013/10/03 07:52:32 prlw1 Exp $
+# $NetBSD: Makefile,v 1.49 2014/03/13 11:08:52 jperkin Exp $
 
 DISTNAME=	libxml2-2.9.1
 PKGNAME=	${PYPKGPREFIX}-${DISTNAME}
@@ -11,10 +11,10 @@ HOMEPAGE=	http://xmlsoft.org/
 COMMENT=	Python wrapper for libxml2
 LICENSE=	modified-bsd
 
+USE_GCC_RUNTIME=	yes
+
 WRKSRC=		${WRKDIR}/${DISTNAME}/python
 NO_CONFIGURE=	YES
-
-PYTHON_VERSIONS_INCLUDE_3X=	yes
 
 SUBST_CLASSES+=		setup
 SUBST_MESSAGE.setup=	Fixing hardcoded paths.

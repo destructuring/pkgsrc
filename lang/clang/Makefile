@@ -1,17 +1,19 @@
-# $NetBSD: Makefile,v 1.23 2013/12/24 05:57:44 richard Exp $
+# $NetBSD: Makefile,v 1.26 2014/02/27 17:35:35 adam Exp $
 
-DISTNAME=	clang-3.3
+DISTNAME=	clang-3.4
+PKGREVISION=	1
 CATEGORIES=	lang
 MASTER_SITES=	http://llvm.org/releases/${PKGVERSION_NOREV}/
 DISTFILES=	llvm-${PKGVERSION_NOREV}.src.tar.gz \
-		cfe-${PKGVERSION_NOREV}.src.tar.gz
+		libcxx-${PKGVERSION_NOREV}.src.tar.gz \
+		clang-${PKGVERSION_NOREV}.src.tar.gz
 
 MAINTAINER=	adam.hoka@gmail.com
 HOMEPAGE=	http://llvm.org/
 COMMENT=	Low Level Virtual Machine compiler infrastructure
 LICENSE=	modified-bsd
 
-WRKSRC=			${WRKDIR}/llvm-${PKGVERSION_NOREV}.src
+WRKSRC=			${WRKDIR}/llvm-${PKGVERSION_NOREV}
 
 USE_LANGUAGES=		c c++
 USE_TOOLS+=		chown gmake groff pod2html pod2man
@@ -56,7 +58,7 @@ TEST_ILLUMOS_3849!=\
 #
 #CFLAGS.SunOS+=		-mimpure-text
 
-SUBST_CLASSES+=				fix-paths
+SUBST_CLASSES+=			fix-paths
 SUBST_STAGE.fix-paths=		pre-configure
 SUBST_MESSAGE.fix-paths=	Fixing absolute gcc paths for SunOS.
 SUBST_FILES.fix-paths=		tools/clang/lib/Driver/Tools.cpp
@@ -67,7 +69,8 @@ LIBGCCDIR!=	${CC} -print-libgcc-file-name
 ARCHDIR:=	${LIBGCCDIR:H}
 SUBST_SED.fix-paths=		-e 's,/usr/gcc/4.5/lib/gcc/,${ARCHDIR}/,g'
 .  endif
-SUBST_SED.fix-paths+=		-e '/^.*i386.*getVendorName.*$$/{N;d;}'
+SUBST_SED.fix-paths+=		-e '/^.*i386.*getVendorName.*$$/{d;}'
+SUBST_SED.fix-paths+=		-e '/^.*GCCLibPath +=$$/d'
 SUBST_SED.fix-paths+=		-e 's,/4.5.2/amd64/,amd64/,g'
 SUBST_SED.fix-paths+=		-e 's,"as","gas",g'
 .  if exists(/usr/bin/ld)
@@ -81,7 +84,8 @@ SUBST_SED.fix-paths+=		-e 's,^.*cxa_finalize.*$$,		; //cxa_finalize.o,g'
 .endif
 
 post-extract:
-	mv ${WRKDIR}/cfe-${PKGVERSION_NOREV}.src ${WRKSRC}/tools/clang
+	mv ${WRKDIR}/libcxx-${PKGVERSION_NOREV} ${WRKSRC}/projects/libcxx
+	mv ${WRKDIR}/clang-${PKGVERSION_NOREV} ${WRKSRC}/tools/clang
 .if ${OPSYS} == "SunOS"
 	${ECHO} "int sun_ld_needs_a_symbol=0;" >> ${WRKSRC}/lib/Target/NVPTX/InstPrinter/NVPTXInstPrinter.cpp
 .endif

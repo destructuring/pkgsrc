@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.3 2013/08/12 18:17:22 kleink Exp $
+# $NetBSD: Makefile,v 1.5 2014/01/25 10:30:20 wiz Exp $
 
 DISTNAME=	itsdangerous-0.23
 PKGNAME=	${PYPKGPREFIX}-${DISTNAME}
@@ -11,9 +11,6 @@ COMMENT=	Helpers to pass trusted data to untrusted environments and back
 LICENSE=	modified-bsd
 
 USE_LANGUAGES=	# empty
-
-PYTHON_VERSIONS_INCLUDE_3X=	yes
-PYTHON_VERSIONS_INCOMPATIBLE=	31 32
 
 .include "../../lang/python/egg.mk"
 .include "../../mk/bsd.pkg.mk"

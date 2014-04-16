@@ -1,7 +1,7 @@
-# $NetBSD: Makefile,v 1.21 2013/10/19 09:07:01 adam Exp $
+# $NetBSD: Makefile,v 1.24 2014/03/11 14:34:36 jperkin Exp $
 #
 
-DISTNAME=		apache-couchdb-1.4.0
+DISTNAME=		apache-couchdb-1.5.0
 PKGNAME=		${DISTNAME:S/apache-//}
 PKGREVISION=		1
 CATEGORIES=		databases
@@ -42,6 +42,10 @@ COUCH_RUNDIR?=		${VARBASE}/spool/couchdb
 COUCH_RUNDIR?=		${VARBASE}/run/couchdb
 .endif
 
+FILES_SUBST+=		COUCH_USER=${COUCH_USER}
+FILES_SUBST+=		COUCH_GROUP=${COUCH_GROUP}
+FILES_SUBST+=		COUCH_DBDIR=${COUCH_DBDIR}
+
 OWN_DIRS=		${COUCH_LOGDIR} ${COUCH_DBDIR} ${COUCH_RUNDIR} ${PKG_SYSCONFDIR}
 OWN_DIRS_PERMS+=	${COUCH_DBDIR} ${COUCH_USER} ${COUCH_GROUP} 0770
 OWN_DIRS_PERMS+=	${COUCH_LOGDIR} ${COUCH_USER} ${COUCH_GROUP} 0770
@@ -69,9 +73,8 @@ SUBST_CLASSES+=		paths
 SUBST_MESSAGE.paths=	Setting standard paths
 SUBST_STAGE.paths=	pre-configure
 SUBST_FILES.paths+=	configure bin/couchdb.tpl.in
-SUBST_SED.paths=	-e 's,@EGDIR@,${COUCH_EGDIR},g'
-SUBST_SED.paths+=	-e 's,@RUNDIR@,${COUCH_RUNDIR},g'
-SUBST_SED.paths+=	-e 's,@ERLANG_PREFIX@,${BUILDLINK_PREFIX.erlang},g'
+SUBST_VARS.paths=	COUCH_EGDIR COUCH_DBDIR COUCH_LOGDIR COUCH_RUNDIR
+SUBST_SED.paths=	-e 's,@ERLANG_PREFIX@,${BUILDLINK_PREFIX.erlang},g'
 
 # This works around libtool abuse installing "couchspawnkillable". Will
 # hopefully get fixed properly upstream.

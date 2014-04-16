@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.85.2.1 2014/03/12 09:41:09 tron Exp $
+# $NetBSD: Makefile,v 1.89 2014/03/12 00:24:35 jym Exp $
 
 DISTNAME=		stunnel-5.00
 CATEGORIES=		security

@@ -1,4 +1,4 @@
-$NetBSD: patch-media_webrtc_signaling_signaling.gyp,v 1.2 2013/12/15 13:54:37 ryoon Exp $
+$NetBSD: patch-media_webrtc_signaling_signaling.gyp,v 1.4 2014/02/20 13:19:03 ryoon Exp $
 
 --- media/webrtc/signaling/signaling.gyp.orig	2013-12-05 16:07:48.000000000 +0000
 +++ media/webrtc/signaling/signaling.gyp

@@ -1,4 +1,4 @@
-$NetBSD: patch-logging.c,v 1.3.20.1 2014/03/08 20:33:47 spz Exp $
+$NetBSD: patch-logging.c,v 1.4 2014/03/08 11:51:56 kim Exp $
 
 Make sure CODESET is actually defined, for the sake of
 old NetBSD versions

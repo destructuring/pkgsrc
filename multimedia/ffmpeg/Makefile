@@ -1,7 +1,6 @@
-# $NetBSD: Makefile,v 1.116 2013/10/20 21:53:54 wiz Exp $
+# $NetBSD: Makefile,v 1.119 2014/03/13 11:08:51 jperkin Exp $
 
-PKGNAME=	ffmpeg-20131006.${DISTVERSION}
-PKGREVISION=	1
+PKGNAME=	ffmpeg-20140305.${DISTVERSION}
 MAINTAINER=	pkgsrc-users@NetBSD.org
 HOMEPAGE=	http://ffmpeg.mplayerhq.hu/
 COMMENT=	Decoding, encoding and streaming software
@@ -14,6 +13,9 @@ INSTALLATION_DIRS=	lib share/examples/ffmpeg share/doc/ffmpeg
 
 CONF_FILES+=	${PREFIX}/share/examples/ffmpeg/ffserver.conf \
 		${PKG_SYSCONFDIR}/ffserver.conf
+
+# Needs to come before bsd.prefs.mk or compiler.mk, USE_LIBTOOL is set too late.
+USE_GCC_RUNTIME=	yes
 
 .include "../../mk/bsd.prefs.mk"
 

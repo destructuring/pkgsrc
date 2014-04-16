@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.14 2013/12/05 14:20:02 wiz Exp $
+# $NetBSD: Makefile,v 1.15.2.1 2014/04/14 15:29:21 tron Exp $
 
 PKGNAME=	${DISTNAME:S/-/-client-/}
 SVR4_PKGNAME=	mysqc

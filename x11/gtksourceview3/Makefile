@@ -1,11 +1,10 @@
-# $NetBSD: Makefile,v 1.16 2013/12/12 01:28:45 prlw1 Exp $
+# $NetBSD: Makefile,v 1.18 2014/02/12 11:07:18 drochner Exp $
 #
 
-DISTNAME=	gtksourceview-3.6.0
+DISTNAME=	gtksourceview-3.10.2
 PKGNAME=	${DISTNAME:S/gtksourceview/gtksourceview3/}
-PKGREVISION=	6
-CATEGORIES=	x11
-MASTER_SITES=	${MASTER_SITE_GNOME:=sources/gtksourceview/3.6/}
+CATEGORIES=	x11 gnome
+MASTER_SITES=	${MASTER_SITE_GNOME:=sources/gtksourceview/${PKGVERSION_NOREV:R}/}
 EXTRACT_SUFX=	.tar.xz
 
 MAINTAINER=	prlw1@cam.ac.uk
@@ -17,7 +16,7 @@ GNU_CONFIGURE=		yes
 USE_LIBTOOL=		yes
 USE_TOOLS+=		gmake gsed intltool msgfmt pkg-config
 USE_PKGLOCALEDIR=	yes
-CONFIGURE_ARGS+=	--disable-deprecations
+#CONFIGURE_ARGS+=	--disable-deprecations
 CONFIGURE_ARGS+=	--disable-maintainer-mode
 
 PKGCONFIG_OVERRIDE+=	gtksourceview-3.0.pc.in

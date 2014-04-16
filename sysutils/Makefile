@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.590 2013/11/14 05:13:51 jnemeth Exp $
+# $NetBSD: Makefile,v 1.592 2014/02/17 11:23:01 fhajny Exp $
 #
 
 COMMENT=	System utilities
@@ -19,7 +19,6 @@ SUBDIR+=	amanda-server
 SUBDIR+=	amtterm
 SUBDIR+=	ansible
 SUBDIR+=	apcupsd
-SUBDIR+=	aperture
 SUBDIR+=	asapm
 SUBDIR+=	atitvout
 SUBDIR+=	bacula
@@ -56,6 +55,18 @@ SUBDIR+=	checkpassword
 SUBDIR+=	checkpassword-pam
 SUBDIR+=	checkperms
 SUBDIR+=	clex
+SUBDIR+=	collectd
+SUBDIR+=	collectd-amqp
+SUBDIR+=	collectd-curl
+SUBDIR+=	collectd-dbi
+SUBDIR+=	collectd-dns
+SUBDIR+=	collectd-memcached
+SUBDIR+=	collectd-mysql
+SUBDIR+=	collectd-network
+SUBDIR+=	collectd-notify-email
+SUBDIR+=	collectd-postgresql
+SUBDIR+=	collectd-rrdtool
+SUBDIR+=	collectd-snmp
 SUBDIR+=	conky
 SUBDIR+=	consolekit
 SUBDIR+=	coreutils

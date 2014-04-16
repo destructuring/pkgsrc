@@ -1,4 +1,4 @@
-@comment $NetBSD: PLIST,v 1.3.2.1 2014/01/05 21:04:20 spz Exp $
+@comment $NetBSD: PLIST,v 1.5 2014/03/03 15:41:12 bsiegert Exp $
 bin/go
 bin/gofmt
 go/AUTHORS
@@ -2016,6 +2016,7 @@ go/src/pkg/net/mockserver_test.go
 go/src/pkg/net/multicast_test.go
 go/src/pkg/net/net.go
 go/src/pkg/net/net_test.go
+go/src/pkg/net/net_windows_test.go
 go/src/pkg/net/packetconn_test.go
 go/src/pkg/net/parse.go
 go/src/pkg/net/parse_test.go

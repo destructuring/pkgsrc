@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.5 2013/09/15 16:34:40 taca Exp $
+# $NetBSD: Makefile,v 1.7 2014/03/15 15:15:06 taca Exp $
 
 DISTNAME=	treetop-1.4.15
 CATEGORIES=	textproc

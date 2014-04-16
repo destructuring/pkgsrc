@@ -1,4 +1,4 @@
-# $NetBSD: bsd.prefs.mk,v 1.339 2013/12/19 23:50:29 tron Exp $
+# $NetBSD: bsd.prefs.mk,v 1.344 2014/03/14 22:05:18 ryoon Exp $
 #
 # This file includes the mk.conf file, which contains the user settings.
 #
@@ -240,7 +240,7 @@ MAKEFLAGS+=		LOWER_ARCH=${LOWER_ARCH:Q}
 LOWER_VENDOR?=		debian
 .  elif exists(/etc/mandrake-release)
 LOWER_VENDOR?=		mandrake
-.  elif exists(/etc/redhat-version)
+.  elif exists(/etc/redhat-version) || exists(/etc/redhat-release)
 LOWER_VENDOR?=		redhat
 .  elif exists(/etc/slackware-version)
 LOWER_VENDOR?=		slackware
@@ -293,8 +293,21 @@ LOWER_OPSYS_VERSUFFIX=	2.${OS_VERSION:C/5.//}
 _UNAME_V!=		${UNAME} -v
 .  if !empty(_UNAME_V:Mjoyent_*)
 OS_VARIANT=		SmartOS
-.  else if !empty(_UNAME_V:Momnios-*)
+.  elif !empty(_UNAME_V:Momnios-*)
 OS_VARIANT=		OmniOS
+.  endif
+
+.elif ${OPSYS} == "SCO_SV"
+SCO_RELEASE!=		${UNAME} -r
+SCO_VERSION!=		${UNAME} -v
+LOWER_VENDOR?=		pc
+LOWER_OPSYS?=		sco${SCO_RELEASE}v${SCO_VERSION}
+MACHINE_GNU_PLATFORM?=	${MACHINE_GNU_ARCH}-${LOWER_VENDOR}-${LOWER_OPSYS}
+_UNAME_V!=		${UNAME} -v
+.  if !empty(_UNAME_V:M5.0*)
+OS_VARIANT=		SCOOSR5
+.  elif !empty(_UNAME_V:M6.0*)
+OS_VARIANT=		SCOOSR6
 .  endif
 
 .elif ${OPSYS} == "Minix"
@@ -581,6 +594,8 @@ X11BASE?=	/opt/X11
 X11BASE?=	/usr/X11R7
 .  elif exists(/usr/X11R7/lib/libX11.so)
 X11BASE?=	/usr/X11R7
+.  elif exists(/usr/lib/libX11.so) || exists(/usr/lib64/libX11.so)
+X11BASE?=	/usr
 .  else
 X11BASE?=	/usr/X11R6
 .  endif
@@ -678,6 +693,8 @@ USE_TOOLS+=	awk:pkgsrc cut:pkgsrc echo:pkgsrc pwd:pkgsrc		\
 FETCH_USING=	fetch
 .  elif defined(TOOLS_PLATFORM.curl)
 FETCH_USING=	curl
+.  elif defined(TOOLS_PLATFORM.wget)
+FETCH_USING=	wget
 .  else
 FETCH_USING=	ftp
 .  endif

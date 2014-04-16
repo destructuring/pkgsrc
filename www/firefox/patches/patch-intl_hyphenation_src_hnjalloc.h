@@ -1,4 +1,4 @@
-$NetBSD: patch-intl_hyphenation_src_hnjalloc.h,v 1.1 2013/07/17 11:00:13 jperkin Exp $
+$NetBSD: patch-intl_hyphenation_src_hnjalloc.h,v 1.3 2014/02/20 13:19:03 ryoon Exp $
 
 --- intl/hyphenation/src/hnjalloc.h.orig	2013-05-11 19:19:31.000000000 +0000
 +++ intl/hyphenation/src/hnjalloc.h

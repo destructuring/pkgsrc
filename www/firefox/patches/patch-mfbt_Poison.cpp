@@ -1,4 +1,4 @@
-$NetBSD: patch-mfbt_Poison.cpp,v 1.2 2013/09/21 10:33:34 ryoon Exp $
+$NetBSD: patch-mfbt_Poison.cpp,v 1.4 2014/02/20 13:19:03 ryoon Exp $
 
 * Use posix_madvise(3) instead of madvise(3) for Solaris/SunOS.
   Solaris/SunOS's madvise(3) is not enabled in this context,

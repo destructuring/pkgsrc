@@ -1,8 +1,8 @@
-# $NetBSD: Makefile,v 1.4 2013/08/04 09:22:25 adam Exp $
+# $NetBSD: Makefile,v 1.5.2.1 2014/04/11 11:50:10 tron Exp $
 
-DISTNAME=	jbigkit-2.0
+DISTNAME=	jbigkit-2.1
 CATEGORIES=	graphics
-MASTER_SITES=	http://www.cl.cam.ac.uk/~mgk25/download/
+MASTER_SITES=	http://www.cl.cam.ac.uk/~mgk25/jbigkit/download/
 
 MAINTAINER=	obache@NetBSD.org
 HOMEPAGE=	http://www.cl.cam.ac.uk/~mgk25/jbigkit/
@@ -12,12 +12,7 @@ LICENSE=	gnu-gpl-v2
 USE_LIBTOOL=	yes
 USE_TOOLS+=	gmake
 
-WRKSRC=		${WRKDIR}/jbigkit
-
 TEST_TARGET=	test
-
-CFLAGS+=	-I../libjbig
-MAKEFLAGS+=	CC=${CC:Q} CFLAGS=${CFLAGS:Q}
 
 INSTALLATION_DIRS=	bin include lib ${PKGMANDIR}/man1 share/doc/jbig
 

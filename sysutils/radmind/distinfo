@@ -1,4 +1,4 @@
-$NetBSD: distinfo,v 1.18.26.1 2014/01/08 18:53:27 tron Exp $
+$NetBSD: distinfo,v 1.19 2014/01/08 11:54:04 hauke Exp $
 
 SHA1 (radmind-1.14.1.tar.gz) = 26f37f1c002384a9c609e688d6cee2fa15b6d0d2
 RMD160 (radmind-1.14.1.tar.gz) = 6b925083ef9dce2de21ebb0ffef287b1ffe9173d

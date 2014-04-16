@@ -1,4 +1,4 @@
-$NetBSD: patch-af,v 1.2.2.1 2014/02/11 20:50:43 tron Exp $
+$NetBSD: patch-af,v 1.3 2014/02/04 15:38:16 pettai Exp $
 
 Fix for CVE-2013-6890 (See http://seclists.org/oss-sec/2013/q4/535)
 Added DSA-2826-2 fix for regression (See http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=734329)

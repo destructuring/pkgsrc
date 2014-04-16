@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.5.2.1 2014/01/09 21:00:17 tron Exp $
+# $NetBSD: Makefile,v 1.10 2014/03/13 18:00:02 taca Exp $
 #
 
 DISTNAME=	${RUBY_DISTNAME}
@@ -113,11 +113,9 @@ CONFIGURE_ENV+=	ac_cv_header_ucontext_h=no
 .endif
 
 #
-# work around for Linux and Cygwin
+# prevent unwanted mkdir recorded in rbconfig.rb
 #
-.if ${OPSYS} == "Linux" || ${OPSYS} == "Cygwin"
-CONFIGURE_ENV+=	MKDIR_P=${MKDIR:Q}
-.endif
+CONFIGURE_ENV+= MKDIR_P=${MKDIR:Q}
 
 DOCS=		COPYING COPYING.ja ChangeLog NEWS README \
 		README.EXT README.EXT.ja README.ja \
@@ -151,7 +149,7 @@ pre-configure:
 	${RM} -f ${WRKSRC}/ext/tk/extconf.rb
 
 pre-install:
-	cd ${WRKSRC}/bin; for f in *; do ${LN} -f $$f $${f}${RUBY_VER}; done
+	cd ${WRKSRC}/bin; for f in *; do ${LN} -f $$f $${f}${RUBY_SUFFIX}; done
 	cd ${WRKSRC}/lib; \
 		${FIND} . \( -name '*.orig' -o -name '*.orig_dist' \) \
 		-exec ${RM} -f {} \;

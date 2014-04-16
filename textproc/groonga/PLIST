@@ -1,4 +1,4 @@
-@comment $NetBSD: PLIST,v 1.17 2013/12/04 14:01:15 obache Exp $
+@comment $NetBSD: PLIST,v 1.19 2014/01/29 09:00:15 obache Exp $
 bin/groonga
 bin/groonga-benchmark
 bin/groonga-suggest-create-dataset
@@ -58,6 +58,7 @@ share/doc/groonga/en/html/_sources/news/1.2.x.txt
 share/doc/groonga/en/html/_sources/news/senna.txt
 share/doc/groonga/en/html/_sources/reference.txt
 share/doc/groonga/en/html/_sources/reference/api.txt
+share/doc/groonga/en/html/_sources/reference/api/global_configurations.txt
 share/doc/groonga/en/html/_sources/reference/api/grn_cache.txt
 share/doc/groonga/en/html/_sources/reference/api/grn_column.txt
 share/doc/groonga/en/html/_sources/reference/api/grn_command_version.txt
@@ -112,9 +113,6 @@ share/doc/groonga/en/html/_sources/reference/commands/table_list.txt
 share/doc/groonga/en/html/_sources/reference/commands/table_remove.txt
 share/doc/groonga/en/html/_sources/reference/commands/tokenize.txt
 share/doc/groonga/en/html/_sources/reference/commands/truncate.txt
-share/doc/groonga/en/html/_sources/reference/commands_not_implemented/add.txt
-share/doc/groonga/en/html/_sources/reference/commands_not_implemented/get.txt
-share/doc/groonga/en/html/_sources/reference/commands_not_implemented/set.txt
 share/doc/groonga/en/html/_sources/reference/executables.txt
 share/doc/groonga/en/html/_sources/reference/executables/grnslap.txt
 share/doc/groonga/en/html/_sources/reference/executables/groonga-benchmark.txt
@@ -125,6 +123,7 @@ share/doc/groonga/en/html/_sources/reference/executables/groonga-suggest-httpd.t
 share/doc/groonga/en/html/_sources/reference/executables/groonga-suggest-learner.txt
 share/doc/groonga/en/html/_sources/reference/executables/groonga.txt
 share/doc/groonga/en/html/_sources/reference/function.txt
+share/doc/groonga/en/html/_sources/reference/functions/between.txt
 share/doc/groonga/en/html/_sources/reference/functions/edit_distance.txt
 share/doc/groonga/en/html/_sources/reference/functions/geo_distance.txt
 share/doc/groonga/en/html/_sources/reference/functions/geo_in_circle.txt
@@ -244,6 +243,7 @@ share/doc/groonga/en/html/news/senna.html
 share/doc/groonga/en/html/objects.inv
 share/doc/groonga/en/html/reference.html
 share/doc/groonga/en/html/reference/api.html
+share/doc/groonga/en/html/reference/api/global_configurations.html
 share/doc/groonga/en/html/reference/api/grn_cache.html
 share/doc/groonga/en/html/reference/api/grn_column.html
 share/doc/groonga/en/html/reference/api/grn_command_version.html
@@ -298,9 +298,6 @@ share/doc/groonga/en/html/reference/commands/table_list.html
 share/doc/groonga/en/html/reference/commands/table_remove.html
 share/doc/groonga/en/html/reference/commands/tokenize.html
 share/doc/groonga/en/html/reference/commands/truncate.html
-share/doc/groonga/en/html/reference/commands_not_implemented/add.html
-share/doc/groonga/en/html/reference/commands_not_implemented/get.html
-share/doc/groonga/en/html/reference/commands_not_implemented/set.html
 share/doc/groonga/en/html/reference/executables.html
 share/doc/groonga/en/html/reference/executables/grnslap.html
 share/doc/groonga/en/html/reference/executables/groonga-benchmark.html
@@ -311,6 +308,7 @@ share/doc/groonga/en/html/reference/executables/groonga-suggest-httpd.html
 share/doc/groonga/en/html/reference/executables/groonga-suggest-learner.html
 share/doc/groonga/en/html/reference/executables/groonga.html
 share/doc/groonga/en/html/reference/function.html
+share/doc/groonga/en/html/reference/functions/between.html
 share/doc/groonga/en/html/reference/functions/edit_distance.html
 share/doc/groonga/en/html/reference/functions/geo_distance.html
 share/doc/groonga/en/html/reference/functions/geo_in_circle.html
@@ -407,6 +405,7 @@ share/doc/groonga/ja/html/_sources/news/1.2.x.txt
 share/doc/groonga/ja/html/_sources/news/senna.txt
 share/doc/groonga/ja/html/_sources/reference.txt
 share/doc/groonga/ja/html/_sources/reference/api.txt
+share/doc/groonga/ja/html/_sources/reference/api/global_configurations.txt
 share/doc/groonga/ja/html/_sources/reference/api/grn_cache.txt
 share/doc/groonga/ja/html/_sources/reference/api/grn_column.txt
 share/doc/groonga/ja/html/_sources/reference/api/grn_command_version.txt
@@ -461,9 +460,6 @@ share/doc/groonga/ja/html/_sources/reference/commands/table_list.txt
 share/doc/groonga/ja/html/_sources/reference/commands/table_remove.txt
 share/doc/groonga/ja/html/_sources/reference/commands/tokenize.txt
 share/doc/groonga/ja/html/_sources/reference/commands/truncate.txt
-share/doc/groonga/ja/html/_sources/reference/commands_not_implemented/add.txt
-share/doc/groonga/ja/html/_sources/reference/commands_not_implemented/get.txt
-share/doc/groonga/ja/html/_sources/reference/commands_not_implemented/set.txt
 share/doc/groonga/ja/html/_sources/reference/executables.txt
 share/doc/groonga/ja/html/_sources/reference/executables/grnslap.txt
 share/doc/groonga/ja/html/_sources/reference/executables/groonga-benchmark.txt
@@ -474,6 +470,7 @@ share/doc/groonga/ja/html/_sources/reference/executables/groonga-suggest-httpd.t
 share/doc/groonga/ja/html/_sources/reference/executables/groonga-suggest-learner.txt
 share/doc/groonga/ja/html/_sources/reference/executables/groonga.txt
 share/doc/groonga/ja/html/_sources/reference/function.txt
+share/doc/groonga/ja/html/_sources/reference/functions/between.txt
 share/doc/groonga/ja/html/_sources/reference/functions/edit_distance.txt
 share/doc/groonga/ja/html/_sources/reference/functions/geo_distance.txt
 share/doc/groonga/ja/html/_sources/reference/functions/geo_in_circle.txt
@@ -593,6 +590,7 @@ share/doc/groonga/ja/html/news/senna.html
 share/doc/groonga/ja/html/objects.inv
 share/doc/groonga/ja/html/reference.html
 share/doc/groonga/ja/html/reference/api.html
+share/doc/groonga/ja/html/reference/api/global_configurations.html
 share/doc/groonga/ja/html/reference/api/grn_cache.html
 share/doc/groonga/ja/html/reference/api/grn_column.html
 share/doc/groonga/ja/html/reference/api/grn_command_version.html
@@ -647,9 +645,6 @@ share/doc/groonga/ja/html/reference/commands/table_list.html
 share/doc/groonga/ja/html/reference/commands/table_remove.html
 share/doc/groonga/ja/html/reference/commands/tokenize.html
 share/doc/groonga/ja/html/reference/commands/truncate.html
-share/doc/groonga/ja/html/reference/commands_not_implemented/add.html
-share/doc/groonga/ja/html/reference/commands_not_implemented/get.html
-share/doc/groonga/ja/html/reference/commands_not_implemented/set.html
 share/doc/groonga/ja/html/reference/executables.html
 share/doc/groonga/ja/html/reference/executables/grnslap.html
 share/doc/groonga/ja/html/reference/executables/groonga-benchmark.html
@@ -660,6 +655,7 @@ share/doc/groonga/ja/html/reference/executables/groonga-suggest-httpd.html
 share/doc/groonga/ja/html/reference/executables/groonga-suggest-learner.html
 share/doc/groonga/ja/html/reference/executables/groonga.html
 share/doc/groonga/ja/html/reference/function.html
+share/doc/groonga/ja/html/reference/functions/between.html
 share/doc/groonga/ja/html/reference/functions/edit_distance.html
 share/doc/groonga/ja/html/reference/functions/geo_distance.html
 share/doc/groonga/ja/html/reference/functions/geo_in_circle.html

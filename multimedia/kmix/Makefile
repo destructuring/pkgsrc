@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.12 2013/11/25 12:00:48 wiz Exp $
+# $NetBSD: Makefile,v 1.15 2014/02/12 23:18:17 tron Exp $
 
 DISTNAME=	kmix-${_KDE_VERSION}
 PKGREVISION=	1

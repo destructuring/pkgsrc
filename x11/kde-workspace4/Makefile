@@ -1,10 +1,12 @@
-# $NetBSD: Makefile,v 1.30 2013/12/12 00:14:26 markd Exp $
+# $NetBSD: Makefile,v 1.35 2014/03/26 13:24:52 jperkin Exp $
 
 DISTNAME=	kde-workspace-${_KDE_VERSION}
 PKGNAME=	${DISTNAME:S/-4/4-4/}
-PKGREVISION=	2
+PKGREVISION=	1
 CATEGORIES=	x11
 COMMENT=	Base workspace for the KDE 4 integrated X11 desktop
+
+PYTHON_VERSIONS_INCOMPATIBLE=	33 # not yet ported as of 4.11.3
 
 .include "../../meta-pkgs/kde4/Makefile.kde4"
 
@@ -63,6 +65,11 @@ PLIST_VARS+=	utempter noutempter
 PLIST.utempter=		yes
 .else
 PLIST.noutempter=	yes
+.endif
+
+PLIST_VARS+=	gles
+.if ${OPSYS} == "Linux" && exists(/usr/include/GLES2/gl2.h)
+PLIST.gles=		yes
 .endif
 
 .if ${OPSYS} == "Linux"

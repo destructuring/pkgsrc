@@ -1,4 +1,4 @@
-# $NetBSD: options.mk,v 1.2.2.2 2014/03/17 09:30:55 tron Exp $
+# $NetBSD: options.mk,v 1.2 2014/03/14 19:39:52 drochner Exp $
 
 PKG_OPTIONS_VAR=	PKG_OPTIONS.freetype2
 PKG_SUPPORTED_OPTIONS=	png subpixel

@@ -1,4 +1,4 @@
-$NetBSD: patch-js_src_jsmath.cpp,v 1.2 2013/09/19 12:37:50 ryoon Exp $
+$NetBSD: patch-js_src_jsmath.cpp,v 1.4 2014/02/20 13:19:03 ryoon Exp $
 
 --- js/src/jsmath.cpp.orig	2013-09-10 03:43:36.000000000 +0000
 +++ js/src/jsmath.cpp

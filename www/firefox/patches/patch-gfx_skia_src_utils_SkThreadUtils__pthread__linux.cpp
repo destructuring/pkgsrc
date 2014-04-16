@@ -1,4 +1,4 @@
-$NetBSD: patch-gfx_skia_src_utils_SkThreadUtils__pthread__linux.cpp,v 1.3 2013/11/05 14:40:49 ryoon Exp $
+$NetBSD: patch-gfx_skia_src_utils_SkThreadUtils__pthread__linux.cpp,v 1.5 2014/02/20 13:19:03 ryoon Exp $
 
 * Use cpuset(3) for NetBSD. From rmind@.
 

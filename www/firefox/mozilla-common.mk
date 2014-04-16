@@ -1,4 +1,4 @@
-# $NetBSD: mozilla-common.mk,v 1.23 2013/12/26 13:12:05 ryoon Exp $
+# $NetBSD: mozilla-common.mk,v 1.27 2014/03/12 23:41:33 ryoon Exp $
 #
 # common Makefile fragment for mozilla packages based on gecko 2.0.
 #
@@ -26,6 +26,8 @@ GCC_REQD+=		4.5
 
 CHECK_PORTABILITY_SKIP+=${MOZILLA_DIR}security/nss/tests/libpkix/libpkix.sh
 CHECK_PORTABILITY_SKIP+=${MOZILLA_DIR}security/nss/tests/multinit/multinit.sh
+CHECK_PORTABILITY_SKIP+=${MOZILLA_DIR}js/src/tests/update-test262.sh
+
 
 CONFIGURE_ARGS+=	--disable-tests
 CONFIGURE_ARGS+=	--disable-pedantic
@@ -91,6 +93,7 @@ CONFIG_SUB_OVERRIDE+=		${MOZILLA_DIR}/js/ctypes/libffi/config.sub
 
 PYTHON_VERSIONS_ACCEPTED=	27
 PYTHON_FOR_BUILD_ONLY=		yes
+PYTHON_VERSIONS_INCOMPATIBLE=	33 # py-sqlite2
 .include "../../lang/python/application.mk"
 CONFIGURE_ENV+=		PYTHON=${PYTHONBIN:Q}
 
@@ -163,7 +166,7 @@ PREFER.bzip2?=	pkgsrc
 .endif
 
 .include "../../archivers/bzip2/buildlink3.mk"
-BUILDLINK_API_DEPENDS.sqlite3+=	sqlite3>=3.7.17
+BUILDLINK_API_DEPENDS.sqlite3+=	sqlite3>=3.8.0.2
 CONFIGURE_ENV+=	ac_cv_sqlite_secure_delete=yes	# c.f. patches/patch-al
 .include "../../databases/sqlite3/buildlink3.mk"
 BUILDLINK_API_DEPENDS.libevent+=	libevent>=1.1
@@ -172,7 +175,7 @@ BUILDLINK_API_DEPENDS.libevent+=	libevent>=1.1
 BUILDLINK_API_DEPENDS.nspr+=	nspr>=4.10.2
 .include "../../devel/nspr/buildlink3.mk"
 .include "../../textproc/icu/buildlink3.mk"
-BUILDLINK_API_DEPENDS.nss+=	nss>=3.15.3
+BUILDLINK_API_DEPENDS.nss+=	nss>=3.15.4
 .include "../../devel/nss/buildlink3.mk"
 .include "../../devel/zlib/buildlink3.mk"
 .include "../../mk/jpeg.buildlink3.mk"

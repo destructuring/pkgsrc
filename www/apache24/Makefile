@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.24.2.1 2014/03/21 08:02:35 spz Exp $
+# $NetBSD: Makefile,v 1.26 2014/03/18 20:09:08 adam Exp $
 
 DISTNAME=	httpd-2.4.9
 PKGNAME=	${DISTNAME:S/httpd/apache/}

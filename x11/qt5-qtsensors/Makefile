@@ -1,6 +1,7 @@
-# $NetBSD: Makefile,v 1.2 2013/12/15 09:42:44 ryoon Exp $
+# $NetBSD: Makefile,v 1.5 2014/02/12 23:18:56 tron Exp $
 
 PKGNAME=	qt5-qtsensors-${QTVERSION}
+PKGREVISION=	3
 COMMENT=	Qt5 module for Sensors
 
 .include "../../x11/qt5-qtbase/Makefile.common"

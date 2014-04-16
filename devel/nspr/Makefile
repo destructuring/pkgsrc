@@ -1,8 +1,8 @@
-# $NetBSD: Makefile,v 1.66 2013/11/21 15:22:58 ryoon Exp $
+# $NetBSD: Makefile,v 1.69 2014/03/13 11:08:50 jperkin Exp $
 #
 
 DISTNAME=	nspr-${NSPR_RELEASE}
-NSPR_RELEASE=	4.10.2
+NSPR_RELEASE=	4.10.4
 CATEGORIES=	devel
 MASTER_SITES=	${MASTER_SITE_MOZILLA_ALL:=nspr/releases/v${NSPR_RELEASE}/src/}
 
@@ -20,6 +20,7 @@ GNU_CONFIGURE=		yes
 GNU_CONFIGURE_LIBSUBDIR=nspr
 CONFIGURE_DIRS=		nspr
 
+USE_GCC_RUNTIME=	yes
 USE_TOOLS+=		autoconf213 gmake perl
 REPLACE_PERL+=		nspr/pr/src/misc/compile-et.pl
 

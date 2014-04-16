@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.2 2013/10/28 09:50:30 kleink Exp $
+# $NetBSD: Makefile,v 1.4 2014/01/25 10:30:29 wiz Exp $
 
 DISTNAME=	webassets-0.9
 PKGNAME=	${PYPKGPREFIX}-${DISTNAME}
@@ -11,9 +11,6 @@ COMMENT=	Asset management for Python web development
 LICENSE=	modified-bsd
 
 USE_LANGUAGES=	# empty
-
-PYTHON_VERSIONS_INCLUDE_3X=	yes
-PYTHON_VERSIONS_INCOMPATIBLE=	31 32
 
 REPLACE_PYTHON+=src/webassets/filter/rjsmin/rjsmin.py
 

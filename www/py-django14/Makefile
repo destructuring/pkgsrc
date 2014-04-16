@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.1 2013/11/14 21:27:01 joerg Exp $
+# $NetBSD: Makefile,v 1.3 2014/01/25 10:30:28 wiz Exp $
 
 DISTNAME=	Django-1.4.10
 PKGNAME=	${PYPKGPREFIX}-${DISTNAME:tl}
@@ -19,7 +19,8 @@ REPLACE_PYTHON+=	${WRKSRC}/django/contrib/admin/bin/*.py
 REPLACE_PYTHON+=	${WRKSRC}/django/contrib/admin/static/admin/js/*.py
 REPLACE_PYTHON+=	${WRKSRC}/django/conf/project_template/*.py
 
-DEPENDS+=	${PYPKGPREFIX}-flup-[0-9]*:../../www/py-flup
+PYTHON_VERSIONED_DEPENDENCIES=	flup
+PYTHON_VERSIONS_INCOMPATIBLE=	33 # use py-django if you want python-3.x support
 
 .include "options.mk"
 
@@ -47,4 +48,5 @@ PRINT_PLIST_AWK+=	{ gsub("^${BACKEND_PATH}/sqlite3/", "$${PLIST.sqlite}${BACKEND
 
 .include "../../lang/python/application.mk"
 .include "../../lang/python/distutils.mk"
+.include "../../lang/python/versioned_dependencies.mk"
 .include "../../mk/bsd.pkg.mk"

@@ -1,4 +1,4 @@
-$NetBSD: patch-media_webrtc_trunk_webrtc_build_common.gypi,v 1.4 2013/12/15 13:54:37 ryoon Exp $
+$NetBSD: patch-media_webrtc_trunk_webrtc_build_common.gypi,v 1.6 2014/02/20 13:19:03 ryoon Exp $
 
 --- media/webrtc/trunk/webrtc/build/common.gypi.orig	2013-12-05 16:07:49.000000000 +0000
 +++ media/webrtc/trunk/webrtc/build/common.gypi

@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.128 2013/11/06 00:35:53 khorben Exp $
+# $NetBSD: Makefile,v 1.133 2014/02/01 20:13:28 rodent Exp $
 #
 
 COMMENT=	Clocks, calendars, daily planners and other time related applications
@@ -50,6 +50,7 @@ SUBDIR+=	p5-Calendar-Simple
 SUBDIR+=	p5-Convert-NLS_DATE_FORMAT
 SUBDIR+=	p5-Data-ICal
 SUBDIR+=	p5-Data-ICal-DateTime
+SUBDIR+=	p5-Date-Extract
 SUBDIR+=	p5-Date-ICal
 SUBDIR+=	p5-Date-Leapyear
 SUBDIR+=	p5-DateTime
@@ -118,10 +119,13 @@ SUBDIR+=	polclock
 SUBDIR+=	projclock
 SUBDIR+=	ptimetracker
 SUBDIR+=	py-dateutil
+SUBDIR+=	py-dateutil2
+SUBDIR+=	py-goocalendar
 SUBDIR+=	py-icalendar
 SUBDIR+=	py-mxDateTime
 SUBDIR+=	py-parsedatetime
 SUBDIR+=	py-pytz
+SUBDIR+=	py-trytond-calendar
 SUBDIR+=	rclock
 SUBDIR+=	rem2ics
 SUBDIR+=	remind

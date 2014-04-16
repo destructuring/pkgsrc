@@ -1,6 +1,7 @@
-# $NetBSD: Makefile,v 1.19 2013/11/07 10:42:25 markd Exp $
+# $NetBSD: Makefile,v 1.22 2014/02/12 23:17:45 tron Exp $
 
 DISTNAME=	cervisia-${_KDE_VERSION}
+PKGREVISION=	1
 CATEGORIES=	devel
 COMMENT=	CVS frontend
 

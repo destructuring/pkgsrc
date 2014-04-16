@@ -1,8 +1,8 @@
-# $NetBSD: Makefile,v 1.54 2013/11/20 20:04:37 adam Exp $
+# $NetBSD: Makefile,v 1.56 2014/02/12 23:17:58 tron Exp $
 #
 
 DISTNAME=		aqsis-1.8.1
-PKGREVISION=		16
+PKGREVISION=		17
 CATEGORIES=		graphics
 MASTER_SITES=		${MASTER_SITE_SOURCEFORGE:=aqsis/}
 
@@ -14,6 +14,8 @@ LICENSE=		gnu-gpl-v2 AND gnu-lgpl-v2.1 AND modified-bsd
 USE_CMAKE=		yes
 USE_LANGUAGES=		c c++
 USE_TOOLS+=		pkg-config flex bison
+
+LIBS.SunOS=		-lsocket -lnsl
 
 #
 # Insists on being built in a separate directory.

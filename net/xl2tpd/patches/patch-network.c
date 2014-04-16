@@ -1,31 +1,60 @@
-$NetBSD: patch-network.c,v 1.1 2013/07/02 00:22:17 christos Exp $
+$NetBSD: patch-network.c,v 1.3 2014/02/15 15:36:35 christos Exp $
 
 Handle not having IP_PKTINFO
+Handle not having SO_NO_CHECK
 Don't set control buf if controllen == 0
+Avoid pointer aliasing issue and fix test that was done in the wrong
+byte order
 
---- network.c.orig	2013-06-17 06:17:24.000000000 -0400
-+++ network.c	2013-06-26 17:15:55.000000000 -0400
-@@ -85,14 +85,15 @@
+--- network.c.orig	2014-01-16 17:02:04.000000000 -0500
++++ network.c	2014-02-15 10:33:31.000000000 -0500
+@@ -85,24 +85,26 @@
  
  	    gconfig.ipsecsaref=0;
      }
 -    
-+#else
-+	l2tp_log(LOG_INFO, "No attempt being made to use IPsec SAref's since we're not on a Linux machine.\n");
-+
-+#endif    
-+#ifdef IP_PKTINFO
-     arg=1;
-     if(setsockopt(server_socket, IPPROTO_IP, IP_PKTINFO, (char*)&arg, sizeof(arg)) != 0) {
- 	    l2tp_log(LOG_CRIT, "setsockopt IP_PKTINFO: %s\n", strerror(errno));
+-    arg=1;
+-    if(setsockopt(server_socket, IPPROTO_IP, IP_PKTINFO, (char*)&arg, sizeof(arg)) != 0) {
+-	    l2tp_log(LOG_CRIT, "setsockopt IP_PKTINFO: %s\n", strerror(errno));
+-    }
+ #else
+     {
+ 	l2tp_log(LOG_INFO, "No attempt being made to use IPsec SAref's since we're not on a Linux machine.\n");
      }
--#else
--	l2tp_log(LOG_INFO, "No attempt being made to use IPsec SAref's since we're not on a Linux machine.\n");
 -
++#endif
++#ifdef IP_PKTINFO    
++    arg=1;
++    if(setsockopt(server_socket, IPPROTO_IP, IP_PKTINFO, (char*)&arg, sizeof(arg)) != 0) {
++	    l2tp_log(LOG_CRIT, "setsockopt IP_PKTINFO: %s\n", strerror(errno));
++    }
  #endif
  
+     /* turn off UDP checksums */
++#ifdef SO_NO_CHECK
+     arg=1;
+     if (setsockopt(server_socket, SOL_SOCKET, SO_NO_CHECK , (void*)&arg,
+                    sizeof(arg)) ==-1) {
+       l2tp_log(LOG_INFO, "unable to turn off UDP checksums");
+     }
++#endif
+ 
  #ifdef USE_KERNEL
-@@ -271,12 +272,18 @@
+     if (gconfig.forceuserspace)
+@@ -160,10 +162,8 @@
+     /*
+      * Fix the byte order of the header
+      */
+-
+-    struct payload_hdr *p = (struct payload_hdr *) buf;
+-    _u16 ver = ntohs (p->ver);
+-    if (CTBIT (p->ver))
++    _u16 ver = ntohs (*(_u16 *)buf);
++    if (CTBIT (ver))
+     {
+         /*
+          * Control headers are always
+@@ -280,12 +280,18 @@
  void udp_xmit (struct buffer *buf, struct tunnel *t)
  {
      struct cmsghdr *cmsg;
@@ -45,7 +74,7 @@ Don't set control buf if controllen == 0
      int finallen;
      
      /*
-@@ -303,7 +310,7 @@
+@@ -312,7 +318,7 @@
  	
  	finallen = cmsg->cmsg_len;
      }
@@ -54,7 +83,7 @@ Don't set control buf if controllen == 0
      if (t->my_addr.ipi_addr.s_addr){
  
  	if ( ! cmsg) {
-@@ -322,7 +329,9 @@
+@@ -331,7 +337,9 @@
  	
  	finallen += cmsg->cmsg_len;
      }
@@ -65,7 +94,7 @@ Don't set control buf if controllen == 0
      msgh.msg_controllen = finallen;
      
      iov.iov_base = buf->start;
-@@ -417,7 +426,9 @@
+@@ -426,7 +434,9 @@
       * our network socket.  Control handling is no longer done here.
       */
      struct sockaddr_in from;
@@ -75,7 +104,7 @@ Don't set control buf if controllen == 0
      unsigned int fromlen;
      int tunnel, call;           /* Tunnel and call */
      int recvsize;               /* Length of data received */
-@@ -497,7 +508,9 @@
+@@ -506,7 +516,9 @@
              buf->len -= PAYLOAD_BUF;
  
  	    memset(&from, 0, sizeof(from));
@@ -85,7 +114,7 @@ Don't set control buf if controllen == 0
  	    
  	    fromlen = sizeof(from);
  	    
-@@ -548,13 +561,16 @@
+@@ -557,13 +569,16 @@
  		for (cmsg = CMSG_FIRSTHDR(&msgh);
  			cmsg != NULL;
  			cmsg = CMSG_NXTHDR(&msgh,cmsg)) {
@@ -103,7 +132,16 @@ Don't set control buf if controllen == 0
  			&& cmsg->cmsg_type == gconfig.sarefnum) {
  				unsigned int *refp;
  				
-@@ -618,9 +634,11 @@
+@@ -592,6 +607,8 @@
+ 
+ 	    if (gconfig.packet_dump)
+ 	    {
++    struct payload_hdr *p = (struct payload_hdr *) buf->start;
++		l2tp_log(LOG_DEBUG, "ver = 0x%x\n", p->ver);
+ 		do_packet_dump (buf);
+ 	    }
+ 	    if (!
+@@ -627,9 +644,11 @@
  	    }
  	    else
  	    {

@@ -1,7 +1,7 @@
-# $NetBSD: Makefile,v 1.45 2013/10/10 14:42:27 ryoon Exp $
+# $NetBSD: Makefile,v 1.48 2014/02/15 03:29:55 obache Exp $
 
 DISTNAME=		jigdo-0.7.3
-PKGREVISION=		24
+PKGREVISION=		25
 CATEGORIES=		net
 MASTER_SITES=		http://atterer.org/sites/atterer/files/2009-08/jigdo/
 EXTRACT_SUFX=		.tar.bz2
@@ -9,12 +9,11 @@ EXTRACT_SUFX=		.tar.bz2
 MAINTAINER=		pkgsrc-users@NetBSD.org
 HOMEPAGE=		http://atterer.org/jigdo/
 COMMENT=		Tool to ease downloading of large files from the Internet
-
-DEPENDS+=		wget-[0-9]*:../../net/wget
+LICENSE=		gnu-gpl-v2
 
 MAKE_JOBS_SAFE=		no
 
-USE_TOOLS+=		pkg-config
+USE_TOOLS+=		pkg-config wget:run
 USE_LANGUAGES=		c c++
 GNU_CONFIGURE=		yes
 CONFIGURE_ARGS+=	--without-libdb

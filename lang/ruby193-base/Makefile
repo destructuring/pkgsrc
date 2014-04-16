@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.36 2013/11/24 14:17:19 taca Exp $
+# $NetBSD: Makefile,v 1.42 2014/03/13 17:53:36 taca Exp $
 #
 
 DISTNAME=	${RUBY_DISTNAME}
@@ -14,6 +14,7 @@ LICENSE=	${RUBY_LICENSE}
 RUBY_VERSION_SUPPORTED=	193
 
 MAKE_JOBS_SAFE=		no
+USE_GCC_RUNTIME=	yes
 USE_LANGUAGES=		c
 USE_TOOLS+=		pax yacc
 GNU_CONFIGURE=		yes
@@ -142,7 +143,7 @@ pre-configure:
 	${RM} -f ${WRKSRC}/ext/tk/extconf.rb
 
 pre-install:
-	cd ${WRKSRC}/bin; for f in *; do ${LN} -f $$f $${f}${RUBY_VER}; done
+	cd ${WRKSRC}/bin; for f in *; do ${LN} -f $$f $${f}${RUBY_SUFFIX}; done
 	cd ${WRKSRC}/lib; \
 		${FIND} . \( -name '*.orig' -o -name '*.orig_dist' \) \
 		-exec ${RM} -f {} \;

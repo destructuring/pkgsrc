@@ -1,4 +1,4 @@
-$NetBSD: patch-makedist,v 1.1.4.1 2014/03/11 16:24:53 tron Exp $
+$NetBSD: patch-makedist,v 1.2 2014/02/07 15:35:05 taca Exp $
 
 --- makedist.orig	2014-02-05 10:00:36.000000000 +0000
 +++ makedist

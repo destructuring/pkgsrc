@@ -1,4 +1,4 @@
-$NetBSD: patch-memory_mozalloc_mozalloc.cpp,v 1.1 2013/11/29 13:00:32 joerg Exp $
+$NetBSD: patch-memory_mozalloc_mozalloc.cpp,v 1.3 2014/02/20 13:19:03 ryoon Exp $
 
 https://bugzilla.mozilla.org/show_bug.cgi?id=928808
 

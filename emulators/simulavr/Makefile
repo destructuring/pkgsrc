@@ -1,6 +1,7 @@
-# $NetBSD: Makefile,v 1.20 2013/11/29 12:57:28 joerg Exp $
+# $NetBSD: Makefile,v 1.22 2014/02/22 03:26:53 mef Exp $
 #
 DISTNAME=		simulavr-1.0.0
+PKGREVISION=		1
 CATEGORIES=		emulators
 MASTER_SITES=		http://download.savannah.gnu.org/releases/simulavr/
 
@@ -88,6 +89,6 @@ BUILDLINK_TRANSFORM+=	rm:-Werror
 .include "../../mk/curses.buildlink3.mk"
 .include "../../lang/python/pyversion.mk"
 .include "../../lang/${PYPACKAGE}/buildlink3.mk"
-.include "../../lang/tcl-itcl/buildlink3.mk"
+#include "../../lang/tcl-itcl/buildlink3.mk"
 .include "../../lang/tcl/buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"

@@ -1,7 +1,7 @@
-# $NetBSD: Makefile,v 1.36 2013/11/23 18:37:40 gls Exp $
-#
+# $NetBSD: Makefile,v 1.40 2014/01/26 08:18:29 wiz Exp $
 
 DISTNAME=		asciidoc-8.6.9
+PKGREVISION=		2
 CATEGORIES=		textproc
 MASTER_SITES=		${MASTER_SITE_SOURCEFORGE:=asciidoc/}
 
@@ -14,12 +14,12 @@ DEPENDS+=		docbook-xsl-[0-9]*:../../textproc/docbook-xsl
 DEPENDS+=		getopt-[0-9]*:../../misc/getopt
 
 USE_TOOLS+=		pax
-PYTHON_PATCH_SCRIPTS=	a2x.py asciidoc.py asciidocapi.py
-PYTHON_PATCH_SCRIPTS+=	filters/code/code-filter.py
-PYTHON_PATCH_SCRIPTS+=	filters/latex/latex2png.py
-PYTHON_PATCH_SCRIPTS+=	filters/music/music2png.py
-PYTHON_PATCH_SCRIPTS+=	filters/graphviz/graphviz2png.py
-PYTHON_PATCH_SCRIPTS+=	tests/testasciidoc.py tests/asciidocapi.py
+REPLACE_PYTHON=	a2x.py asciidoc.py asciidocapi.py
+REPLACE_PYTHON+=	filters/code/code-filter.py
+REPLACE_PYTHON+=	filters/latex/latex2png.py
+REPLACE_PYTHON+=	filters/music/music2png.py
+REPLACE_PYTHON+=	filters/graphviz/graphviz2png.py
+REPLACE_PYTHON+=	tests/testasciidoc.py tests/asciidocapi.py
 
 NO_BUILD=		yes
 
@@ -29,10 +29,18 @@ SUBST_MESSAGE.ad=	Fixing hard-coded config file paths.
 SUBST_FILES.ad=		a2x.py asciidoc.py
 SUBST_SED.ad=		-e 's,^\(CONF_DIR\).*=.*,\1="${PREFIX}/share/asciidoc",'
 
-REPLACE_INTERPRETER+=	python
-REPLACE.python.old=	/usr/bin/env python
-REPLACE.python.new=	${PYTHONBIN}
-REPLACE_FILES.python=	a2x.py asciidoc.conf html5.conf xhtml11.conf xhtml11-quirks.conf
+REPLACE_PYTHON+=	a2x.py
+REPLACE_PYTHON+=	asciidoc.py
+REPLACE_PYTHON+=	asciidocapi.py
+REPLACE_PYTHON+=	filters/code/code-filter.py
+REPLACE_PYTHON+=	filters/latex/latex2png.py
+REPLACE_PYTHON+=	filters/music/music2png.py
+REPLACE_PYTHON+=	filters/graphviz/graphviz2png.py
+REPLACE_PYTHON+=	tests/testasciidoc.py
+REPLACE_PYTHON+=	tests/asciidocapi.py
+REPLACE_PYTHON+=	html5.conf xhtml11.conf xhtml11-quirks.conf
+
+PYTHON_VERSIONS_INCOMPATIBLE=	33 # not yet ported as of 8.6.9 (as seen e.g. in git-docs)
 
 INSTALLATION_DIRS=	bin share/asciidoc share/asciidoc/filters \
 			share/asciidoc/docbook-xsl share/asciidoc/stylesheets \

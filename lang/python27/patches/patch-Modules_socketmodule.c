@@ -1,4 +1,4 @@
-$NetBSD: patch-Modules_socketmodule.c,v 1.1.2.2 2014/02/10 18:13:44 spz Exp $
+$NetBSD: patch-Modules_socketmodule.c,v 1.1 2014/02/09 09:02:50 tron Exp $
 
 Fix vulnerability reported in SA56624. Patch taken from here:
 

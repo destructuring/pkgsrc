@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.140.8.1 2014/03/08 20:33:47 spz Exp $
+# $NetBSD: Makefile,v 1.142 2014/03/08 11:51:56 kim Exp $
 #
 
 DISTNAME=		sudo-1.7.10p8

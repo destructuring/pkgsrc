@@ -1,10 +1,9 @@
-# $NetBSD: Makefile,v 1.4.2.2 2014/02/06 09:02:48 tron Exp $
+# $NetBSD: Makefile,v 1.7 2014/01/26 08:44:04 obache Exp $
 #
 
-DISTNAME=	cogl-1.14.0
-PKGREVISION=	5
+DISTNAME=	cogl-1.16.2
 CATEGORIES=	graphics
-MASTER_SITES=	${MASTER_SITE_GNOME:=sources/cogl/1.14/}
+MASTER_SITES=	${MASTER_SITE_GNOME:=sources/cogl/1.16/}
 EXTRACT_SUFX=	.tar.xz
 
 MAINTAINER=	pkgsrc-users@NetBSD.org
@@ -31,7 +30,7 @@ PKGCONFIG_OVERRIDE+=	cogl/cogl-2.0-experimental.pc.in
 .include "../../devel/gettext-lib/buildlink3.mk"
 BUILDLINK_API_DEPENDS.glib2+=	glib2>=2.32.0
 .include "../../devel/glib2/buildlink3.mk"
-BUILDLINK_API_DEPENDS.pango+=	pango>=1.30.0
+BUILDLINK_API_DEPENDS.pango+=	pango>=1.20.0
 .include "../../devel/pango/buildlink3.mk"
 BUILDLINK_API_DEPENDS.cairo+=	cairo>=1.10.0
 .include "../../graphics/cairo/buildlink3.mk"

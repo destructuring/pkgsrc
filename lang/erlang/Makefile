@@ -1,7 +1,7 @@
-# $NetBSD: Makefile,v 1.59 2013/12/24 15:00:44 is Exp $
+# $NetBSD: Makefile,v 1.61 2014/03/11 14:34:37 jperkin Exp $
 
 DISTNAME=		otp_src_${DIST_VERSION_MAJOR}${DIST_VERSION_MINOR:D-${DIST_VERSION_MINOR}}
-PKGREVISION=		1
+PKGREVISION=		2
 PKGNAME=		erlang-${ERLANG_VERSION}
 CATEGORIES=		lang
 MASTER_SITES=		http://www.erlang.org/download/
@@ -67,6 +67,8 @@ SUBST_MESSAGE.target=	Fixing target name.
 TEST_TARGET=		tests
 TEST_MAKE_FLAGS=	ERL_TOP=${WRKSRC}
 REPLACE_PERL+=		make/make_emakefile
+
+SMF_NAME=		epmd
 
 PLIST_SRC=		PLIST
 

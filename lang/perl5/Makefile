@@ -1,9 +1,9 @@
-# $NetBSD: Makefile,v 1.214 2013/12/09 14:17:48 obache Exp $
+# $NetBSD: Makefile,v 1.219 2014/03/14 22:41:10 ryoon Exp $
 
 .include "license.mk"
 .include "Makefile.common"
 
-PKGREVISION=	3
+PKGREVISION=	1
 COMMENT=	Practical Extraction and Report Language
 
 CONFLICTS+=	perl-base-[0-9]* perl-thread-[0-9]*
@@ -96,6 +96,9 @@ SUPERSEDES+=	p5-Tie-File<=0.99
 SUPERSEDES+=	p5-Memoize<=1.03
 SUPERSEDES+=	p5-I18N-LangTags<=0.39
 SUPERSEDES+=	p5-Locale-Maketext<=1.23
+
+# XXX: requires that gcc use an external perl to avoid circular dependencies
+USE_GCC_RUNTIME=	yes
 
 .include "../../mk/bsd.prefs.mk"
 
@@ -206,6 +209,7 @@ LIBSWANTED.NetBSD=	m crypt
 LIBSWANTED.OpenBSD=	m crypt
 LIBSWANTED.SunOS=	m crypt dl socket nsl
 LIBSWANTED.AIX=		m crypt dl socket nsl bind c
+LIBSWANTED.SCO_SV=	m crypt socket
 LIBSWANTED=		${LIBSWANTED.${OPSYS}}
 SUBST_VARS.policysh+=	LIBSWANTED
 
@@ -224,6 +228,7 @@ SYSLIBPATH.NetBSD=	/usr/lib
 SYSLIBPATH.OpenBSD=	/usr/lib
 SYSLIBPATH.SunOS=	/usr/lib
 SYSLIBPATH.AIX=		/usr/lib
+SYSLIBPATH.SCO_SV=	/usr/lib
 SYSLIBPATH=		${SYSLIBPATH.${OPSYS}}
 SUBST_VARS.policysh+=	SYSLIBPATH
 
@@ -282,6 +287,8 @@ post-extract:
 		cp ${FILESDIR}/Policy.sh ${WRKSRC}/Policy.sh
 		cp ${FILESDIR}/cpan-DB_File-hints-netbsd.pl \
 			${WRKSRC}/cpan/DB_File/hints/netbsd.pl
+		cp ${FILESDIR}/cpan-DB_File-hints-openbsd.pl \
+			${WRKSRC}/cpan/DB_File/hints/openbsd.pl
 
 pre-configure:
 	cd ${WRKSRC} && find `pwd` -name "*.orig" -type f -exec ${RM} -f {} \;

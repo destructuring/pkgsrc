@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.49 2013/09/04 12:31:26 obache Exp $
+# $NetBSD: Makefile,v 1.51 2014/03/13 11:08:52 jperkin Exp $
 #
 
 DISTNAME=		nagios-3.5.0
@@ -19,6 +19,8 @@ LICENSE=		gnu-gpl-v2
 .include "../../net/nagios-base/Makefile.common"
 .include "options.mk"
 
+USE_GCC_RUNTIME=	yes
+
 CONFIGURE_ARGS+=	--with-gd-lib=${PREFIX}/lib
 CONFIGURE_ARGS+=	--with-gd-inc=${PREFIX}/include
 CONFIGURE_ARGS+=	--enable-embedded-perl
@@ -35,7 +37,10 @@ USE_TOOLS+=		mail:run perl
 CONFIGURE_ARGS+=	--with-mail=${TOOLS_PLATFORM.mail:Q}
 
 RCD_SCRIPTS+=		nagios
+SMF_NAME=		nagios
 FILES_SUBST+=		NAGIOS_USER=${NAGIOS_USER}
+FILES_SUBST+=		NAGIOS_GROUP=${NAGIOS_GROUP}
+FILES_SUBST+=		NAGIOSDIR=${NAGIOSDIR}
 
 INSTALL_TARGET=		install install-config
 

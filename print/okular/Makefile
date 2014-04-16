@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.28 2013/12/06 13:23:46 wiz Exp $
+# $NetBSD: Makefile,v 1.31 2014/02/12 23:18:30 tron Exp $
 
 DISTNAME=	okular-${_KDE_VERSION}
 PKGREVISION=	1

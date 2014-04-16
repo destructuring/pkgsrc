@@ -1,4 +1,4 @@
-@comment $NetBSD: PLIST,v 1.7.6.1 2014/02/04 21:40:10 tron Exp $
+@comment $NetBSD: PLIST,v 1.8 2014/01/11 17:06:37 taca Exp $
 share/doc/drupal/CHANGELOG.txt
 share/doc/drupal/COPYRIGHT.txt
 share/doc/drupal/INSTALL.mysql.txt

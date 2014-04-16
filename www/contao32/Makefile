@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.2 2013/12/21 02:46:25 taca Exp $
+# $NetBSD: Makefile,v 1.4 2014/03/13 13:55:07 taca Exp $
 #
 
 DISTNAME=	${CT_VERSION}
@@ -41,7 +41,7 @@ MAKE_DIRS+=	${CT_WEBDIR}/files/tiny_templates
 REPLACE_BASH=	system/bin/minify
 
 .for f in ${EG_TEMPLATES}
-REQD_FILES+=	${CT_EGDIR}/files/${f} ${CT_WEBDIR}/tl_files/${f}
+REQD_FILES+=	${CT_EGDIR}/files/${f} ${CT_WEBDIR}/files/${f}
 .endfor
 
 .for f in ${WWW_EG_FILES}

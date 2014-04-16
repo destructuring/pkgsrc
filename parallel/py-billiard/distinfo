@@ -1,5 +1,5 @@
-$NetBSD: distinfo,v 1.3 2013/09/20 12:21:48 rodent Exp $
+$NetBSD: distinfo,v 1.5 2014/02/18 02:53:37 rodent Exp $
 
-SHA1 (billiard-2.7.3.32.tar.gz) = 6e92a145c3171fa8ece75412bd87888f73215281
-RMD160 (billiard-2.7.3.32.tar.gz) = 10772370b06da7147608c0ece7dadc39d1da6c69
-Size (billiard-2.7.3.32.tar.gz) = 134769 bytes
+SHA1 (billiard-3.3.0.16.tar.gz) = e8300652601320de36ad51a66df2fbac66ca174c
+RMD160 (billiard-3.3.0.16.tar.gz) = ac2e88325e366eac38133be6b0d1739ffe7d24d3
+Size (billiard-3.3.0.16.tar.gz) = 150922 bytes

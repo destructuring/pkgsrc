@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.5 2013/12/08 22:29:05 joerg Exp $
+# $NetBSD: Makefile,v 1.7 2014/03/18 15:34:04 mef Exp $
 .include		"../../cross/nios2/Makefile.common"
 PKGNAME=		nios2-binutils-${PKG_VERSION}
 PKG_VERSION=		2.23
@@ -19,7 +19,7 @@ BUILD_DEFS+=		${NIOS_INFO_DIR}
 
 CONFIGURE_ARGS+=	--disable-nls
 # install libiberty by architecture
-CONFIGURE_ARGS+=	--libdir=${PREFIX}/${NIOS2_TARGET}/lib
+GNU_CONFIGURE_LIBDIR=	${PREFIX}/${NIOS2_TARGET}/lib
 
 .include "../../mk/compiler.mk"
 .if !empty(PKGSRC_COMPILER:Mclang)
@@ -39,9 +39,9 @@ GNU_CONFIGURE_INFODIR=	${NIOS_INFO_DIR}
 .include "options.mk"
 
 do-extract:
-	(cd ${WRKDIR}; tar zxf ${DISTDIR}/${DISTNAME}${EXTRACT_SUFX}	\
+	(cd ${WRKDIR}; tar jxf ${DISTDIR}/${DISTNAME}${EXTRACT_SUFX}	\
 	        sourceryg++-2013.05-43-nios2-linux-gnu/binutils-2013.05-43.tar.bz2;\
-	tar zxf sourceryg++-2013.05-43-nios2-linux-gnu/binutils-2013.05-43.tar.bz2;\
+	tar jxf sourceryg++-2013.05-43-nios2-linux-gnu/binutils-2013.05-43.tar.bz2;\
 	)
 
 # following file installed is reference only, not used at all for the moment

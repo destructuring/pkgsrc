@@ -1,4 +1,4 @@
-# $NetBSD: buildlink3.mk,v 1.36.6.3 2014/03/22 18:21:02 spz Exp $
+# $NetBSD: buildlink3.mk,v 1.44 2014/03/19 10:16:33 jperkin Exp $
 
 BUILDLINK_TREE+=	freetype2
 

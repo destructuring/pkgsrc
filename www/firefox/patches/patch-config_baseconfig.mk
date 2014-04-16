@@ -1,4 +1,4 @@
-$NetBSD: patch-config_baseconfig.mk,v 1.3 2013/12/15 13:54:37 ryoon Exp $
+$NetBSD: patch-config_baseconfig.mk,v 1.5 2014/02/20 13:19:03 ryoon Exp $
 
 --- config/baseconfig.mk.orig	2013-12-05 16:07:23.000000000 +0000
 +++ config/baseconfig.mk

@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.1.2.2 2014/03/13 14:21:15 tron Exp $
+# $NetBSD: Makefile,v 1.3 2014/03/13 11:33:47 obache Exp $
 
 DISTNAME=	suse_libpng-${SUSE_VERSION}
 PKGREVISION=	2

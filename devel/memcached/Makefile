@@ -1,9 +1,9 @@
-# $NetBSD: Makefile,v 1.34 2013/07/12 10:44:55 jperkin Exp $
+# $NetBSD: Makefile,v 1.37 2014/03/11 14:34:37 jperkin Exp $
 
-DISTNAME=	memcached-1.4.15
-PKGREVISION=	3
+DISTNAME=	memcached-1.4.17
+PKGREVISION=	1
 CATEGORIES=	devel
-MASTER_SITES=	http://memcached.googlecode.com/files/
+MASTER_SITES=	http://www.memcached.org/files/
 
 MAINTAINER=	pkgsrc-users@NetBSD.org
 HOMEPAGE=	http://www.memcached.org/
@@ -29,6 +29,7 @@ PKG_USERS=		${MEMCACHED_USER}:${MEMCACHED_GROUP}
 PKG_GROUPS_VARS+=	MEMCACHED_GROUP
 PKG_USERS_VARS+=	MEMCACHED_USER
 FILES_SUBST+=		MEMCACHED_USER=${MEMCACHED_USER}
+FILES_SUBST+=		MEMCACHED_GROUP=${MEMCACHED_GROUP}
 
 TEST_TARGET=		test
 

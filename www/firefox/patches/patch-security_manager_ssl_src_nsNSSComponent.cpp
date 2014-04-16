@@ -1,4 +1,4 @@
-$NetBSD: patch-security_manager_ssl_src_nsNSSComponent.cpp,v 1.2 2013/09/19 12:37:50 ryoon Exp $
+$NetBSD: patch-security_manager_ssl_src_nsNSSComponent.cpp,v 1.4 2014/02/20 13:19:03 ryoon Exp $
 
 --- security/manager/ssl/src/nsNSSComponent.cpp.orig	2013-09-10 03:43:51.000000000 +0000
 +++ security/manager/ssl/src/nsNSSComponent.cpp

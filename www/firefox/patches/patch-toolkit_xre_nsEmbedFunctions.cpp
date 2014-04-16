@@ -1,4 +1,4 @@
-$NetBSD: patch-toolkit_xre_nsEmbedFunctions.cpp,v 1.1 2013/07/17 11:00:13 jperkin Exp $
+$NetBSD: patch-toolkit_xre_nsEmbedFunctions.cpp,v 1.3 2014/02/20 13:19:03 ryoon Exp $
 
 --- toolkit/xre/nsEmbedFunctions.cpp.orig	2013-05-11 19:19:55.000000000 +0000
 +++ toolkit/xre/nsEmbedFunctions.cpp

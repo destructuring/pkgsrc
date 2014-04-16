@@ -1,9 +1,9 @@
-# $NetBSD: Makefile,v 1.33.2.1 2014/02/10 18:13:44 spz Exp $
+# $NetBSD: Makefile,v 1.39.2.1 2014/04/14 11:38:44 tron Exp $
 
 .include "dist.mk"
 
 PKGNAME=	python27-${PY_DISTVERSION}
-PKGREVISION=	1
+PKGREVISION=	3
 CATEGORIES=	lang python
 
 MAINTAINER=	pkgsrc-users@NetBSD.org
@@ -94,16 +94,6 @@ PLIST_VARS+=	dl
 PLIST.dl=	yes
 .endif
 
-# builds additional modules if OpenSSL < 0.9.8
-PLIST_VARS+=		openssl097
-CHECK_BUILTIN.openssl:=	yes
-.include "../../security/openssl/builtin.mk"
-CHECK_BUILTIN.openssl:=	no
-.if !empty(USE_BUILTIN.openssl:M[yY][eE][sS]) && \
-    !empty(BUILTIN_PKG.openssl:Mopenssl-0.9.[67]*)
-PLIST.openssl097=	yes
-.endif
-
 # setup.py causes some modules to be built if the platform is *not* 64bit.
 PLIST_VARS+=	extra-so
 .if !empty(IS_64BIT_PLATFORM:M[nN][oO])
@@ -172,8 +162,14 @@ SUBST_STAGE.findlib=	pre-configure
 SUBST_FILES.findlib=	Lib/distutils/unixccompiler.py
 SUBST_SED.findlib=	-e 's,/usr/local,${PREFIX},'
 
+SUBST_CLASSES+=		sslbase
+SUBST_MESSAGE.sslbase=	Fixing find-file for openssl with SSLBASE.
+SUBST_STAGE.sslbase=	pre-configure
+SUBST_FILES.sslbase=	setup.py
+SUBST_VARS.sslbase=	SSLBASE
+
 post-extract:
-	${MV} ${WRKSRC}/Lib/smtpd.py ${WRKSRC}/Lib/smtpd${PY_VER_SUFFIX}.py
+	${LN} -s ${WRKSRC}/Lib/smtpd.py ${WRKSRC}/Tools/scripts/smtpd${PY_VER_SUFFIX}.py
 	${MV} ${WRKSRC}/Tools/scripts/pydoc ${WRKSRC}/Tools/scripts/pydoc${PY_VER_SUFFIX}
 	${MV} ${WRKSRC}/Tools/scripts/2to3 ${WRKSRC}/Tools/scripts/2to3-${PY_VER_SUFFIX}
 

@@ -1,4 +1,4 @@
-$NetBSD: patch-memory_mozalloc_fallible.h,v 1.1 2013/11/29 13:00:32 joerg Exp $
+$NetBSD: patch-memory_mozalloc_fallible.h,v 1.3 2014/02/20 13:19:03 ryoon Exp $
 
 --- memory/mozalloc/fallible.h.orig	2013-11-18 16:22:30.000000000 +0000
 +++ memory/mozalloc/fallible.h

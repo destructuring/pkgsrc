@@ -1,7 +1,8 @@
-# $NetBSD: Makefile,v 1.76 2013/11/02 20:22:02 adam Exp $
+# $NetBSD: Makefile,v 1.80 2014/03/13 11:08:53 jperkin Exp $
 
 DISTNAME=	tk${TK_VERSION}-src
 PKGNAME=	tk-${TK_VERSION}
+PKGREVISION=	2
 CATEGORIES=	x11 lang
 MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=tcl/}
 
@@ -16,6 +17,8 @@ PKG_INSTALLATION_TYPES=	overwrite pkgviews
 
 WRKSRC=			${WRKDIR}/tk${TK_VERSION}
 
+USE_GCC_RUNTIME=	yes
+
 GNU_CONFIGURE=		yes
 CONFIGURE_DIRS=		unix
 BUILD_DIRS=		${CONFIGURE_DIRS}
@@ -24,6 +27,8 @@ CONFIGURE_ARGS+=	--x-includes=${X11BASE}/include
 CONFIGURE_ARGS+=	--x-libraries=${X11BASE}/lib${LIBABISUFFIX:Q}
 CONFIGURE_ENV+=		LIB_RUNTIME_DIR=${PREFIX}/lib
 PTHREAD_OPTS+=		require
+
+PKGCONFIG_OVERRIDE+=	unix/tk.pc.in
 
 TEST_TARGET=		test
 
@@ -42,17 +47,8 @@ SUBST_SED.tk-config+=	-e "s|${WRKSRC}|${PREFIX}/include/tk|"
 PLIST_SUBST+=		SONUM=${TK_SONUM}
 PLIST_SUBST+=		BASEVER=${TK_BASEVER}
 
-.include "../../mk/bsd.prefs.mk"
-
-PLIST_SRC=		PLIST
-.if ${OPSYS} == "Darwin" && ${X11_TYPE} == "native"
-CONFIGURE_ARGS+=	--enable-aqua
-PLIST_SRC+=		PLIST.aqua
-.else
+.include "../../lang/tcl/buildlink3.mk"
 .include "../../x11/libX11/buildlink3.mk"
 .include "../../x11/libXext/buildlink3.mk"
-.endif
-
-.include "../../lang/tcl/buildlink3.mk"
 .include "../../mk/pthread.buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"

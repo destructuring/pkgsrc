@@ -1,8 +1,8 @@
-# $NetBSD: Makefile,v 1.51 2013/10/19 09:07:10 adam Exp $
+# $NetBSD: Makefile,v 1.54 2014/02/12 23:18:27 tron Exp $
 #
 
 DISTNAME=	vinagre-3.6.2
-PKGREVISION=	15
+PKGREVISION=	17
 CATEGORIES=	x11
 MASTER_SITES=	${MASTER_SITE_GNOME:=sources/vinagre/3.6/}
 EXTRACT_SUFX=	.tar.xz
@@ -41,6 +41,11 @@ CONFIGURE_ARGS+= --with-telepathy
 PLIST.telepathy= yes
 .else
 CONFIGURE_ARGS+= --without-telepathy
+.endif
+
+.if ${OPSYS} == "NetBSD"
+# Interface conflicts with glibc's version
+CONFIGURE_ARGS+=	ac_cv_func_ptsname_r=no
 .endif
 
 .include "../../databases/shared-mime-info/mimedb.mk"

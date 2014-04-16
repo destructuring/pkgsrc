@@ -1,4 +1,4 @@
-# $NetBSD: replace.mk,v 1.265 2013/11/16 07:58:00 shattered Exp $
+# $NetBSD: replace.mk,v 1.269 2014/03/13 17:06:43 taca Exp $
 #
 # Copyright (c) 2005 The NetBSD Foundation, Inc.
 # All rights reserved.
@@ -430,11 +430,11 @@ MAKEFLAGS+=			TOOLS_IGNORE.gem=
 .    if !defined(RUBY_VER) || !empty(RUBY_VER:M18)
 TOOLS_DEPENDS.gem?=		${RUBY_PKGPREFIX}-rubygems-[0-9]*:../../misc/rubygems
 .    else
-TOOLS_DEPENDS.gem?=		${RUBY_BASE}>=${RUBY_VERSION}:../../lang/${RUBY_BASE}
+TOOLS_DEPENDS.gem?=		${RUBY_BASE}>=${RUBY_VERSION}:${RUBY_SRCDIR}
 .    endif
 TOOLS_CREATE+=			gem
 TOOLS_FIND_PREFIX+=		TOOLS_PREFIX.gem=gem
-TOOLS_PATH.gem=			${TOOLS_PREFIX.gem}/bin/gem${RUBY_VER}
+TOOLS_PATH.gem=			${TOOLS_PREFIX.gem}/bin/gem${RUBY_SUFFIX}
 .  endif
 .endif
 
@@ -855,6 +855,16 @@ TOOLS_PATH.unzoo=		${TOOLS_PREFIX.unzoo}/bin/unzoo
 .  endif
 .endif
 
+.if !defined(TOOLS_IGNORE.wget) && !empty(_USE_TOOLS:Mwget)
+.  if !empty(PKGPATH:Mnet/wget)
+MAKEFLAGS+=			TOOLS_IGNORE.wget=
+.  elif !empty(_TOOLS_USE_PKGSRC.wget:M[yY][eE][sS])
+TOOLS_DEPENDS.wget?=		wget-[0-9]*:../../net/wget
+TOOLS_FIND_PREFIX+=		TOOLS_PREFIX.wget=wget
+TOOLS_PATH.wget=		${TOOLS_PREFIX.wget}/bin/wget
+.  endif
+.endif
+
 .if !defined(TOOLS_IGNORE.wish) && !empty(_USE_TOOLS:Mwish)
 .  if !empty(PKGPATH:Mx11/tk)
 MAKEFLAGS+=			TOOLS_IGNORE.wish=
@@ -952,9 +962,9 @@ TOOLS_PATH.${_t_}=		${TOOLS_PREFIX.${_t_}}/bin/${_t_}
 # there is no native tool available.
 #
 _TOOLS.coreutils=	basename cat chgrp chmod chown cp cut date	\
-			dirname echo env expr false head hostname id install	\
-			ln ls mkdir mv nice printf pwd readlink rm rmdir	\
-			sleep sort tail tee test touch tr true tsort wc
+		dirname echo env expr false head hostname id install	\
+		ln ls mkdir mv nice numfmt printf pwd readlink realpath \
+		rm rmdir sleep sort tail tee test touch tr true tsort wc
 
 .for _t_ in ${_TOOLS.coreutils}
 .  if !defined(TOOLS_IGNORE.${_t_}) && !empty(_USE_TOOLS:M${_t_})
@@ -1182,7 +1192,7 @@ TOOLS_PATH.mkfontscale=		${TOOLS_PREFIX.mkfontscale}/bin/mkfontscale
 MAKEFLAGS+=		TOOLS_IGNORE.bdftopcf=
 .  elif !empty(_TOOLS_USE_PKGSRC.bdftopcf:M[yY][eE][sS])
 TOOLS_CREATE+=			bdftopcf
-.    if !empty(X11_TYPE:Mnative)
+.    if !empty(X11_TYPE:Mnative) && exists(${X11BASE}/bin/bdftopcf)
 TOOLS_PATH.bdftopcf=	${X11BASE}/bin/bdftopcf
 .    else
 TOOLS_DEPENDS.bdftopcf?=	bdftopcf-[0-9]*:../../fonts/bdftopcf

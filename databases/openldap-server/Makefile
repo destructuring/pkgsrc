@@ -1,12 +1,14 @@
-# $NetBSD: Makefile,v 1.38 2013/08/20 15:26:27 adam Exp $
+# $NetBSD: Makefile,v 1.40 2014/03/25 22:36:58 asau Exp $
 
 PKGNAME=	${DISTNAME:S/-/-server-/}
+PKGREVISION=	1
 COMMENT=	Lightweight Directory Access Protocol server suite
 
 CONFLICTS+=	openldap<2.3.23nb1
 
 DEPENDS+=	openldap-client>=2.3.27nb1:../../databases/openldap-client
 
+CFLAGS.FreeBSD+=	-DMDB_DSYNC=O_SYNC
 CFLAGS.DragonFly+=	-DMDB_DSYNC=O_SYNC -DMDB_FDATASYNC=fsync
 
 # slapd options

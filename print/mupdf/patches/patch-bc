@@ -1,7 +1,7 @@
-$NetBSD: patch-bc,v 1.1.2.2 2014/02/20 12:23:28 tron Exp $
+$NetBSD: patch-bc,v 1.1 2014/02/14 17:49:41 drochner Exp $
 
---- xps/xps_gradient.c.orig	2013-08-14 12:41:20.000000000 +0000
-+++ xps/xps_gradient.c
+--- source/xps/xps-gradient.c.orig	2013-08-14 12:41:20.000000000 +0000
++++ source/xps/xps-gradient.c
 @@ -38,7 +38,7 @@ xps_parse_gradient_stops(xps_document *d
  	struct stop *stops, int maxcount)
  {

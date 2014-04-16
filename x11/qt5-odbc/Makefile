@@ -1,6 +1,7 @@
-# $NetBSD: Makefile,v 1.1 2013/12/13 14:38:35 ryoon Exp $
+# $NetBSD: Makefile,v 1.5 2014/02/12 23:18:55 tron Exp $
 
 PKGNAME=	qt5-odbc-${QTVERSION}
+PKGREVISION=	3
 COMMENT=	Qt5 odbc plugin
 
 .include "../../x11/qt5-qtbase/Makefile.common"
@@ -21,9 +22,11 @@ INSTALLATION_DIRS+=	qt5/plugins/sqldrivers
 
 LIBS+=			-lltdl
 
-post-configure:
+qmake-odbc-configure:
 	cd ${WRKSRC}/${BUILD_DIRS} && \
 		${QTDIR}/bin/qmake "sql-plugins=odbc" -o Makefile
+
+post-configure: qmake-odbc-configure
 
 do-install:
 	${LIBTOOL} --mode=install ${INSTALL_PROGRAM} \

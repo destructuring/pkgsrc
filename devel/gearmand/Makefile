@@ -1,8 +1,7 @@
-# $NetBSD: Makefile,v 1.4 2013/11/20 20:04:36 adam Exp $
-#
+# $NetBSD: Makefile,v 1.6 2014/02/12 23:17:46 tron Exp $
 
 DISTNAME=	gearmand-1.0.6
-PKGREVISION=	3
+PKGREVISION=	4
 CATEGORIES=	devel
 MASTER_SITES=	https://launchpad.net/gearmand/1.0/1.0.6/+download/
 
@@ -10,7 +9,6 @@ MAINTAINER=	filip@joyent.com
 HOMEPAGE=	http://gearman.org/
 COMMENT=	Gearman C Server and Library
 LICENSE=	modified-bsd
-FETCH_USING=	curl
 
 GNU_CONFIGURE=	yes
 USE_TOOLS+=	gmake pkg-config

@@ -1,4 +1,4 @@
-@comment $NetBSD: PLIST,v 1.42.2.1 2014/03/11 12:47:11 tron Exp $
+@comment $NetBSD: PLIST,v 1.43 2013/12/31 11:48:03 adam Exp $
 bin/curl
 bin/curl-config
 include/curl/curl.h

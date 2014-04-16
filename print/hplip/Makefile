@@ -1,7 +1,6 @@
-# $NetBSD: Makefile,v 1.29.2.1 2014/01/24 14:27:11 tron Exp $
-#
+# $NetBSD: Makefile,v 1.33 2014/03/13 14:56:46 schnoebe Exp $
 
-DISTNAME=		hplip-3.14.1
+DISTNAME=		hplip-3.14.3
 CATEGORIES=		print
 MASTER_SITES=		${MASTER_SITE_SOURCEFORGE:=hplip/}
 
@@ -17,6 +16,8 @@ FILES_SUBST+=           CUPS_GROUP=${CUPS_GROUP}
 
 PKG_GROUPS_VARS+=       CUPS_GROUP
 PKG_USERS_VARS+=        CUPS_USER
+
+PYTHON_VERSIONS_INCOMPATIBLE=	33 # py-xml
 
 BUILD_DEFS+=            CUPS_USER CUPS_GROUP VARBASE
 

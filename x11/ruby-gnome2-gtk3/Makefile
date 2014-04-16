@@ -1,9 +1,8 @@
-# $NetBSD: Makefile,v 1.11 2013/10/10 14:41:57 ryoon Exp $
+# $NetBSD: Makefile,v 1.13 2014/03/11 12:11:46 obache Exp $
 #
 
 PKGNAME=		${RUBY_PKGPREFIX}-gnome2-gtk3-${VERSION}
 COMMENT=		Ruby binding of GTK+-3.x
-PKGREVISION=		2
 CATEGORIES=		x11
 
 CONFLICTS+=		ruby[0-9][0-9]-gnome2-gtk3-[0-9]*
@@ -19,8 +18,6 @@ do-test:
 
 BUILDLINK_API_DEPENDS.ruby-gnome2-glib+=	${RUBY_PKGPREFIX}-gnome2-glib>=${VERSION}
 .include "../../devel/ruby-gnome2-glib/buildlink3.mk"
-BUILDLINK_API_DEPENDS.ruby-gnome2-gio+=	${RUBY_PKGPREFIX}-gnome2-gio>=${VERSION}
-.include "../../devel/ruby-gnome2-gio/buildlink3.mk"
 BUILDLINK_API_DEPENDS.ruby-gnome2-pango+=	${RUBY_PKGPREFIX}-gnome2-pango>=${VERSION}
 .include "../../devel/ruby-gnome2-pango/buildlink3.mk"
 .include "../../graphics/ruby-rcairo/buildlink3.mk"

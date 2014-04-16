@@ -1,4 +1,4 @@
-$NetBSD: patch-ab,v 1.6.62.1 2014/01/24 00:48:51 schnoebe Exp $
+$NetBSD: patch-ab,v 1.7 2014/01/14 22:43:19 tron Exp $
 
 1.) Install manual pages in correct directory.
 2.) Fix build with version 4.0 of GNU make.

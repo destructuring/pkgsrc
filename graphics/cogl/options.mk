@@ -1,9 +1,9 @@
-# $NetBSD: options.mk,v 1.1.4.1 2014/02/05 14:25:40 tron Exp $
+# $NetBSD: options.mk,v 1.3 2014/01/26 08:43:29 obache Exp $
 #
 
 PKG_OPTIONS_VAR=	PKG_OPTIONS.cogl
 PKG_SUPPORTED_OPTIONS=	introspection x11
-PKG_SUGGESTED_OPTIONS=	x11
+PKG_SUGGESTED_OPTIONS=	introspection x11
 
 .include "../../mk/bsd.options.mk"
 
@@ -28,8 +28,11 @@ CONFIGURE_ARGS+=	--with-gl-libname=libGL
 .include "../../x11/libX11/buildlink3.mk"
 .include "../../x11/libXext/buildlink3.mk"
 .include "../../x11/libXdamage/buildlink3.mk"
+BUILDLINK_API_DEPENDS.libXfixes+=	libXfixes>=3
 .include "../../x11/libXfixes/buildlink3.mk"
+BUILDLINK_API_DEPENDS.libXcomposite+=	libXcomposite>=0.4
 .include "../../x11/libXcomposite/buildlink3.mk"
+BUILDLINK_API_DEPENDS.libXrandr+=	libXrandr>=1.2
 .include "../../x11/libXrandr/buildlink3.mk"
 .include "../../graphics/gdk-pixbuf2/buildlink3.mk"
 .else

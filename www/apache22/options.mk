@@ -1,9 +1,9 @@
-# $NetBSD: options.mk,v 1.10 2013/09/08 03:10:14 manu Exp $
+# $NetBSD: options.mk,v 1.12 2014/02/17 17:32:55 adam Exp $
 
 PKG_OPTIONS_VAR=		PKG_OPTIONS.apache
 PKG_OPTIONS_REQUIRED_GROUPS=	mpm
 PKG_OPTIONS_GROUP.mpm=		apache-mpm-event apache-mpm-prefork apache-mpm-worker
-PKG_SUPPORTED_OPTIONS=		apache-shared-modules suexec ecc
+PKG_SUPPORTED_OPTIONS=		apache-shared-modules suexec
 PKG_SUGGESTED_OPTIONS=		apache-shared-modules apache-mpm-prefork
 
 .include "../../mk/bsd.options.mk"
@@ -66,12 +66,4 @@ BUILD_DEFS+=		APACHE_SUEXEC_CONFIGURE_ARGS
 BUILD_TARGET=		all suexec
 PLIST.suexec=		yes
 SPECIAL_PERMS+=		sbin/suexec ${REAL_ROOT_USER} ${APACHE_GROUP} 4510
-.endif
-
-PLIST_VARS+=		ecc
-.if !empty(PKG_OPTIONS:Mecc)
-USE_TOOLS+=     patch
-ECC_PATCH=     ${FILESDIR}/ecc2224.patch
-post-patch:
-	${PATCH} -d ${WRKSRC} --forward --quiet  < ${ECC_PATCH}
 .endif

@@ -1,9 +1,9 @@
-# $NetBSD: Makefile,v 1.4 2013/11/26 20:25:42 wiz Exp $
+# $NetBSD: Makefile,v 1.6 2014/03/21 14:06:01 wiz Exp $
 
 DISTNAME=	v0.7.2
 PROPERNAME=	${DISTNAME:S/v/xattr-/}
 PKGNAME=	${PYPKGPREFIX}-${PROPERNAME}
-PKGREVISION=	1
+PKGREVISION=	2
 CATEGORIES=	sysutils
 MASTER_SITES=	https://github.com/xattr/xattr/archive/
 
@@ -22,13 +22,7 @@ EGG_NAME=	${PROPERNAME}
 USE_LANGUAGES=	c
 REPLACE_PYTHON=	xattr/tool.py
 
-.include "../../lang/python/pyversion.mk"
-
-.if ${PYPKGPREFIX} == "py27"
-PLIST_SUBST+=	SONAME=_cffi__xf4c78acfx6ee6f75
-.elif ${PYPKGPREFIX} == "py26"
-PLIST_SUBST+=	SONAME=_cffi__x9365fd4fx6ee6f75
-.endif
+PYTHON_VERSIONS_INCOMPATIBLE=	33
 
 .include "../../lang/python/application.mk"
 .include "../../lang/python/egg.mk"

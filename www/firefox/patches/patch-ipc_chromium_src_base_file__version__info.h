@@ -1,4 +1,4 @@
-$NetBSD: patch-ipc_chromium_src_base_file__version__info.h,v 1.1 2013/09/21 09:58:49 ryoon Exp $
+$NetBSD: patch-ipc_chromium_src_base_file__version__info.h,v 1.3 2014/02/20 13:19:03 ryoon Exp $
 
 * Treat Solaris/SunOS like Linux, fix build.
 

@@ -1,8 +1,8 @@
-# $NetBSD: Makefile,v 1.10 2013/10/19 09:06:59 adam Exp $
+# $NetBSD: Makefile,v 1.14 2014/02/12 23:17:38 tron Exp $
 #
 
 DISTNAME=	idzebra-2.0.47
-PKGREVISION=	8
+PKGREVISION=	11
 CATEGORIES=	databases
 MASTER_SITES=	http://ftp.indexdata.dk/pub/zebra/
 
@@ -14,6 +14,8 @@ LICENSE=	gnu-gpl-v2
 GNU_CONFIGURE=	yes
 USE_LIBTOOL=	yes
 TEST_TARGET=	check
+
+CPPFLAGS+=	-DUSE_INTERP_RESULT -DUSE_INTERP_ERRORLINE
 
 .include "../../archivers/bzip2/buildlink3.mk"
 .include "../../converters/libiconv/buildlink3.mk"

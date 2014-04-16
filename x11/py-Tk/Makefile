@@ -1,7 +1,7 @@
-# $NetBSD: Makefile,v 1.57 2013/08/09 15:18:58 adam Exp $
+# $NetBSD: Makefile,v 1.60 2014/03/13 11:08:53 jperkin Exp $
 
 PKGNAME=	${PYPKGPREFIX}-Tk-${PY_DISTVERSION}
-PKGREVISION=	3
+PKGREVISION=	4
 CATEGORIES=	x11 python
 
 MAINTAINER=	pkgsrc-users@NetBSD.org
@@ -9,7 +9,7 @@ HOMEPAGE=	http://wiki.python.org/moin/TkInter
 COMMENT=	Tkinter -- Python interface to Tcl/Tk
 LICENSE=	python-software-foundation
 
-PYTHON_VERSIONS_INCLUDE_3X=	yes
+USE_GCC_RUNTIME=	yes
 
 EXTRACT_ELEMENTS=	${PYSUBDIR}/Modules/_tkinter.c \
 			${PYSUBDIR}/Modules/tkappinit.c

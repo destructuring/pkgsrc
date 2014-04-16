@@ -1,4 +1,4 @@
-$NetBSD: patch-doc_ssl_SSL__accept.pod,v 1.1.6.1 2014/01/10 18:00:40 spz Exp $
+$NetBSD: patch-doc_ssl_SSL__accept.pod,v 1.2 2014/01/10 14:32:42 tron Exp $
 
 Fix openssl pod docs to work with the very picky pod2man from perl-5.18.0.
 

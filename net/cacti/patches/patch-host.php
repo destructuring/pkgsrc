@@ -1,4 +1,4 @@
-$NetBSD: patch-host.php,v 1.1.2.2 2014/01/09 23:14:33 spz Exp $
+$NetBSD: patch-host.php,v 1.1 2014/01/08 20:51:28 tron Exp $
 
 Fix vulnerability reported in SA54531. Patch taken from here:
 

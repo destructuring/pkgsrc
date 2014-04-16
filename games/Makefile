@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.367 2013/12/07 17:20:03 dholland Exp $
+# $NetBSD: Makefile,v 1.369 2014/02/02 23:22:35 rodent Exp $
 #
 
 COMMENT=	Games
@@ -86,6 +86,8 @@ SUBDIR+=	fillets-ng-data
 SUBDIR+=	finalbattle
 SUBDIR+=	fire
 SUBDIR+=	fkiss
+SUBDIR+=	flare-engine
+SUBDIR+=	flare-game
 SUBDIR+=	flightgear
 SUBDIR+=	flightgear-data
 SUBDIR+=	fltk-sudoku
@@ -168,6 +170,7 @@ SUBDIR+=	kigo
 SUBDIR+=	killbots
 SUBDIR+=	kiriki
 SUBDIR+=	kjumpingcube
+SUBDIR+=	klavaro
 SUBDIR+=	klickety
 SUBDIR+=	klines
 SUBDIR+=	kmahjongg

@@ -1,6 +1,6 @@
-# $NetBSD: Makefile,v 1.4 2013/09/09 14:05:03 fhajny Exp $
+# $NetBSD: Makefile,v 1.7 2014/03/11 14:34:37 jperkin Exp $
 
-DISTNAME=	redis-2.6.16
+DISTNAME=	redis-2.8.7
 CATEGORIES=	databases
 MASTER_SITES=	http://download.redis.io/releases/
 
@@ -42,6 +42,8 @@ PKG_GECOS.${REDIS_USER}= Redis daemon user
 PKG_HOME.${REDIS_USER}=	${REDIS_DBDIR}
 
 FILES_SUBST+=		REDIS_USER=${REDIS_USER}
+FILES_SUBST+=		REDIS_GROUP=${REDIS_GROUP}
+FILES_SUBST+=		REDIS_DATADIR=${REDIS_DATADIR}
 
 SUBST_CLASSES+=		fix-paths
 SUBST_STAGE.fix-paths=	post-patch

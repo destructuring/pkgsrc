@@ -1,4 +1,4 @@
-@comment $NetBSD: PLIST.common,v 1.7 2013/11/12 18:57:25 adam Exp $
+@comment $NetBSD: PLIST.common,v 1.9 2014/03/12 12:40:57 obache Exp $
 bin/2to3-${PY_VER_SUFFIX}
 bin/pydoc${PY_VER_SUFFIX}
 bin/python${PY_VER_SUFFIX}
@@ -1823,8 +1823,6 @@ lib/python${PY_VER_SUFFIX}/lib-dynload/_lsprof.so
 lib/python${PY_VER_SUFFIX}/lib-dynload/_multibytecodec.so
 lib/python${PY_VER_SUFFIX}/lib-dynload/_multiprocessing.so
 lib/python${PY_VER_SUFFIX}/lib-dynload/_random.so
-${PLIST.openssl097}lib/python${PY_VER_SUFFIX}/lib-dynload/_sha256.so
-${PLIST.openssl097}lib/python${PY_VER_SUFFIX}/lib-dynload/_sha512.so
 lib/python${PY_VER_SUFFIX}/lib-dynload/_socket.so
 lib/python${PY_VER_SUFFIX}/lib-dynload/_ssl.so
 lib/python${PY_VER_SUFFIX}/lib-dynload/_struct.so
@@ -2455,9 +2453,9 @@ lib/python${PY_VER_SUFFIX}/site-packages/README
 lib/python${PY_VER_SUFFIX}/site.py
 lib/python${PY_VER_SUFFIX}/site.pyc
 lib/python${PY_VER_SUFFIX}/site.pyo
-lib/python${PY_VER_SUFFIX}/smtpd${PY_VER_SUFFIX}.py
-lib/python${PY_VER_SUFFIX}/smtpd${PY_VER_SUFFIX}.pyc
-lib/python${PY_VER_SUFFIX}/smtpd${PY_VER_SUFFIX}.pyo
+lib/python${PY_VER_SUFFIX}/smtpd.py
+lib/python${PY_VER_SUFFIX}/smtpd.pyc
+lib/python${PY_VER_SUFFIX}/smtpd.pyo
 lib/python${PY_VER_SUFFIX}/smtplib.py
 lib/python${PY_VER_SUFFIX}/smtplib.pyc
 lib/python${PY_VER_SUFFIX}/smtplib.pyo

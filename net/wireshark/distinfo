@@ -1,4 +1,4 @@
-$NetBSD: distinfo,v 1.72.2.1 2014/03/08 20:33:36 spz Exp $
+$NetBSD: distinfo,v 1.73 2014/03/08 10:38:26 tron Exp $
 
 SHA1 (wireshark-1.10.6.tar.bz2) = 081a2daf85e3257d7a2699e84a330712e3e5b9bb
 RMD160 (wireshark-1.10.6.tar.bz2) = 3018f4d60d1ac86dfffd875a53373c85f5be44e8

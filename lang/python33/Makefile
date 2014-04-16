@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.13.2.1 2014/02/11 20:42:37 tron Exp $
+# $NetBSD: Makefile,v 1.22 2014/03/27 08:50:00 obache Exp $
 
 .include "dist.mk"
 
@@ -13,13 +13,19 @@ LICENSE=	python-software-foundation
 
 CONFLICTS+=	python-[0-9]*
 
+PLIST_AWK+=	-f ${PKGSRCDIR}/lang/python/plist-python.awk
+PLIST_AWK_ENV+=	PYTHON_SOABI="cpython-33"
+PRINT_PLIST_AWK+=	/^[^@]/ && /[^\/]+\.py[co]$$/ {
+PRINT_PLIST_AWK+=	gsub(/__pycache__\//, "")
+PRINT_PLIST_AWK+=	gsub(/\.cpython-33/, "")}
+
 GNU_CONFIGURE=		yes
 CONFIGURE_ARGS+=	--with-threads
 CONFIGURE_ARGS+=	--enable-shared
 CONFIGURE_ARGS+=	OPT=${CFLAGS:M*:Q}
 CONFIGURE_ARGS+=	--with-system-ffi
 CONFIGURE_ARGS+=	--without-pymalloc
-CONFIGURE_ENV+=		ac_cv_path_mkdir=${TOOLS_PATH.mkdir:Q}
+CONFIGURE_ENV+=		ac_cv_path_mkdir=${TOOLS_PATH.mkdir}
 
 PKGCONFIG_OVERRIDE+=	Misc/python.pc.in
 
@@ -29,6 +35,13 @@ PTHREAD_OPTS+=	require
 .include "../../mk/pthread.buildlink3.mk"
 
 .include "../../mk/bsd.prefs.mk"
+
+# http://bugs.python.org/issue13241
+.if !empty(MACHINE_PLATFORM:MDarwin-10.*)
+PKGSRC_COMPILER=	clang
+CC=			clang
+CXX=			clang++
+.endif
 
 # fdatasync()
 LIBS.SunOS+=		-lrt

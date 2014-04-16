@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.16.4.1 2014/02/17 12:10:59 tron Exp $
+# $NetBSD: Makefile,v 1.17 2014/02/16 22:45:54 bouyer Exp $
 
 DISTNAME=	glew-1.10.0
 CATEGORIES=	graphics

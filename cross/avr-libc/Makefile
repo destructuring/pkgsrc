@@ -1,6 +1,7 @@
-# $NetBSD: Makefile,v 1.29 2013/11/10 20:28:14 joerg Exp $
+# $NetBSD: Makefile,v 1.31 2014/02/14 13:28:49 joerg Exp $
 
 DISTNAME=		avr-libc-1.8.0
+PKGREVISION=		2
 CATEGORIES=		cross
 MASTER_SITES=		http://savannah.nongnu.org/download/avr-libc/
 EXTRACT_SUFX=		.tar.bz2
@@ -10,7 +11,7 @@ HOMEPAGE=		http://savannah.nongnu.org/projects/avr-libc
 COMMENT=		C and math library for Atmel AVR 8-bit microcontrollers
 LICENSE=		modified-bsd
 
-BUILD_DEPENDS+=		doxygen>=1.8.2:../../devel/doxygen
+BUILD_DEPENDS+=		doxygen>=1.8.6:../../devel/doxygen
 BUILD_DEPENDS+=		transfig-[0-9]*:../../print/transfig
 BUILD_DEPENDS+=		netpbm-[0-9]*:../../graphics/netpbm
 
@@ -51,7 +52,7 @@ post-install:
 		${DESTDIR}${PREFIX}/share/doc/avr-libc
 	## delete following or similar files, which includes PATH at build time.
 	##_usr_pkgsrc_cross_avr-libc_work_avr-libc-1.8.0_libc_string_.3
-	(cd ${DESTDIR}${PREFIX}/share/doc/avr-libc/man/man3; ${RM} -f *${PKGVERSION}*)
+	(cd ${DESTDIR}${PREFIX}/share/doc/avr-libc/man/man3; ${RM} -f *${PKGVERSION_NOREV}*)
 	set -e;	\
 	for f in Makefile demo.c demo.bin demo.hex demo.pdf \
 		demo.srec;\

@@ -1,4 +1,4 @@
-$NetBSD: patch-lib_cgraph_scan.l,v 1.1.2.3 2014/01/14 10:52:47 tron Exp $
+$NetBSD: patch-lib_cgraph_scan.l,v 1.2 2014/01/10 15:27:11 drochner Exp $
 
 http://secunia.com/advisories/55666/
 

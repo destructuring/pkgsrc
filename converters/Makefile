@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.126 2013/10/23 11:42:47 obache Exp $
+# $NetBSD: Makefile,v 1.128 2014/02/05 21:43:39 abs Exp $
 #
 
 COMMENT=	Document format and character code converters
@@ -31,7 +31,11 @@ SUBDIR+=	ja-dvi2tty
 SUBDIR+=	jcode-perl
 SUBDIR+=	kcc
 SUBDIR+=	latex2rtf
+SUBDIR+=	libabw
 SUBDIR+=	libcdr
+SUBDIR+=	libe-book
+SUBDIR+=	libetonyek
+SUBDIR+=	libfreehand
 SUBDIR+=	libiconv
 SUBDIR+=	libmspub
 SUBDIR+=	libmwaw
@@ -51,6 +55,7 @@ SUBDIR+=	p5-Convert-UUlib
 SUBDIR+=	p5-Data-Hexify
 SUBDIR+=	p5-JSON
 SUBDIR+=	p5-JSON-Any
+SUBDIR+=	p5-JSON-MaybeXS
 SUBDIR+=	p5-JSON-PP
 SUBDIR+=	p5-JSON-XS
 SUBDIR+=	p5-JSON-XS-VersionOneAndTwo

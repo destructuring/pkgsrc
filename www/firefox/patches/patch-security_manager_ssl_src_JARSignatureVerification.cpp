@@ -1,4 +1,4 @@
-$NetBSD: patch-security_manager_ssl_src_JARSignatureVerification.cpp,v 1.1 2013/09/19 12:37:50 ryoon Exp $
+$NetBSD: patch-security_manager_ssl_src_JARSignatureVerification.cpp,v 1.3 2014/02/20 13:19:03 ryoon Exp $
 
 --- security/manager/ssl/src/JARSignatureVerification.cpp.orig	2013-09-10 03:43:51.000000000 +0000
 +++ security/manager/ssl/src/JARSignatureVerification.cpp

@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.1.2.1 2014/01/02 22:03:26 tron Exp $
+# $NetBSD: Makefile,v 1.2 2014/01/01 23:52:32 dholland Exp $
 
 DISTNAME=	phone-2.0
 PKGREVISION=	1
