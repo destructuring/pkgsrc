@@ -1,4 +1,4 @@
-$NetBSD: CHANGES-pkgsrc-2013Q4,v 1.1.2.22 2014/02/06 09:12:39 tron Exp $
+$NetBSD: CHANGES-pkgsrc-2013Q4,v 1.1.2.47 2014/03/22 18:22:13 spz Exp $
 
 Changes to the packages collection and infrastructure on the
 pkgsrc-2013Q4 branch:
@@ -78,3 +78,77 @@ Pullup ticket #4315 - requested by obache
 emulators/dosbox: build fix
 Pullup ticket #4316 - requested by obache
 multimedia/adobe-flash-plugin11: security update
+Pullup ticket #4317 - requested by drochner
+textproc/libyaml: security update
+Pullup ticket #4318 - requested by sborrill
+www/squid3: bug fix update
+Pullup ticket #4319 - requested by tron
+lang/python27: security fix
+Pullup ticket #4320 - requested by obache
+lang/python33: security patch
+Pullup ticket #4321 - requested by pettai
+security/py-denyhosts: security patch
+Pullup ticket #4322 - requested by taca
+www/contao211: security update
+Pullup ticket #4323 - requested by taca
+www/contao32: security update
+Pullup ticket #4325 - requested by taca
+www/contao211: security update
+Pullup ticket #4326 - requested by taca
+www/contao32: security update
+Pullup ticket #4327 - requested by drochner
+lang/python26: security patch
+Pullup ticket #4324 - requested by tron
+mail/thunderbird: security update
+Pullup ticket #4328 - requested by bouyer
+graphics/glew: build fix
+Pullup ticket #4329 - requested by drochner
+sysutils/xentools41: security patch
+Pullup ticket #4330 - requested by drochner
+print/mupdf: security patch
+Pullup ticket #4331 - requested by drochner
+security/gnutls: security patch
+Pullup ticket #4332 - requested by obache
+multimedia/adobe-flash-plugin11: security update
+Pullup ticket #4333 - requested by tron
+databases/phpmyadmin: vulnerability patch
+Pullup ticket #4334 - requested by wiz
+graphics/png: security update
+Pullup ticket #4336 - requested by tron
+net/wireshark: security update
+Pullup ticket #4337 - requested by kim
+security/sudo: security update
+Pullup ticket #4338 - requested by taca
+www/curl: security update
+Pullup ticket #4339 - requested by taca
+databases/ruby-activerecord32: security update
+devel/ruby-activemodel32: security update
+devel/ruby-activesupport32: security update
+devel/ruby-railties32: security update
+mail/ruby-actionmailer32: security update
+www/ruby-actionpack32: security update
+www/ruby-activeresource32: security update
+www/ruby-rails32: security update
+Pullup ticket #4340 - requested by taca
+lang/php54: security update
+lang/php55: security update
+Pullup ticket #4341 - requested by jym
+security/stunnel: security update
+Pullup ticket #4342 - requested by obache
+multimedia/adobe-flash-plugin11: security update
+Pullup ticket #4343 - requested by tron
+mail/mutt-devel: security update
+Pullup ticket #4344 - requested by obache
+emulators/suse131_libpng: security update
+Pullup ticket #4345 - requested by taca
+graphics/freetype2: build fix for depending packages
+Pullup ticket #4346 - requested by obache
+graphics/MesaLib: build fix for depending packages
+Pullup ticket #4347 - requested by spz
+graphics/freetype2: security update
+Pullup ticket #4348 - requested by taca
+net/samba: security update
+Pullup ticket #4349 - requested by tron
+www/apache24: security update
+Pullup ticket #4350 - requested by tron
+graphics/freetype2: build fix

@@ -19,7 +19,7 @@
 # * $LastChangedDate: 2008-05-06 00:10:33 +0200 (Tue, 06 May 2008) $
 # * $State: Exp $
 # * $RCSfile: mvcpp.nt,v $
-# * $Source: /home/joerg/repo/netbsd/pkgsrc/archivers/libarchive/files/build/windows/mvcpp.nt,v $
+# * $Source: /cvsroot/pkgsrc/archivers/libarchive/files/build/windows/mvcpp.nt,v $
 # *
 # * Change Log:
 # * $Log: mvcpp.nt,v $
