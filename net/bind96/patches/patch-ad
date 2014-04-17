@@ -24,6 +24,7 @@ $NetBSD: patch-ad,v 1.9 2014/02/02 07:55:46 taca Exp $
  		*) LIBTOOL_ALLOW_UNDEFINED= ;;
  		esac
 @@ -18400,7 +18402,7 @@ $as_echo "no" >&6; }
+ 	fi
  	if test -n "-L$use_dlz_postgres_lib -lpq"
  	then
 -		DLZ_DRIVER_LIBS="$DLZ_DRIVER_LIBS -L$use_dlz_postgres_lib -lpq"

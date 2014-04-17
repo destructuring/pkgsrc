@@ -12,10 +12,6 @@ HOMEPAGE=	http://golang.org/
 COMMENT=	The Go programming language
 LICENSE=	modified-bsd
 
-# Fixes Unix domain socket handling under NetBSD/current
-PATCHFILES=	issue46420044_60001.diff
-PATCH_DIST_STRIP=-p1
-
 WRKSRC=		${WRKDIR}/go
 USE_TOOLS+=	bash:run perl:run pax
 
