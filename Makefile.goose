@@ -45,6 +45,7 @@ default:
 
 packages: $(WRKOBJDIR)/.gitignore $(PACKAGES)/.gitignore
 	cd devel/libtool && $(BMAKE) package
+	cd devel/bison && $(BMAKE) package
 	cd www/squid3 && $(BMAKE) package
 	cd security/openssh && $(BMAKE) package
 	-cd wip/runit && $(BMAKE) package
