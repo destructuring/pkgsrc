@@ -44,6 +44,7 @@ default:
 	env CC=$(CC) PATH="$(PKG_HOME)/bin:$(PKG_HOME)/sbin:$(PATH)" make -f Makefile.goose packages
 
 packages: $(WRKOBJDIR)/.gitignore $(PACKAGES)/.gitignore
+	cd pkgtools/libtool && $(BMAKE) package
 	cd www/squid3 && $(BMAKE) package
 	cd security/openssh && $(BMAKE) package
 	-cd wip/runit && $(BMAKE) package
@@ -78,7 +79,7 @@ $(PKG_HOME)/bin/bmake:
 
 pkgsrc: $(PKG_HOME)/bin/bmake
 	$(PKGADD) getopt figlet coreutils runit irssi unzip bsdtar
-	$(PKGADD) libxml2 libyaml expat
+	$(PKGADD) libxml2 libyaml expat libtool
 	$(PKGADD) swig autoconf automake
 	$(PKGADD) python27 py27-expat py27-msgpack py27-crypto py27-m2crypto py27-zmq
 	$(PKGADD) ocaml
