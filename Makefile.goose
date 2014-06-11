@@ -63,7 +63,7 @@ packages: $(WRKOBJDIR)/.gitignore $(PACKAGES)/.gitignore
 	cd textproc/expat && $(BMAKE) package
 	cd lang/python27 && $(BMAKE) package
 	cd textproc/py-expat && $(BMAKE) package
-	cd textproc/py-elementtree && $(BMAKE) package
+	cd textproc/py-cElementTree && $(BMAKE) package
 	cd lang/ocaml && $(BMAKE) package
 	cd devel/automake && $(BMAKE) package
 	cd devel/autoconf && $(BMAKE) package
@@ -83,7 +83,7 @@ pkgsrc: $(PKG_HOME)/bin/bmake
 	$(PKGADD) getopt figlet coreutils runit irssi unzip bsdtar
 	$(PKGADD) libxml2 libyaml expat libtool bison
 	$(PKGADD) swig autoconf automake
-	$(PKGADD) python27 py27-expat py27-msgpack py27-crypto py27-m2crypto py27-zmq py27-elementtree
+	$(PKGADD) python27 py27-expat py27-msgpack py27-crypto py27-m2crypto py27-zmq py27-cElementTree
 	$(PKGADD) ocaml
 
 cache: pkgsrc
