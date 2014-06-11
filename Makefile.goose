@@ -44,7 +44,7 @@ default:
 	env CC=$(CC) PATH="$(PKG_HOME)/bin:$(PKG_HOME)/sbin:$(PATH)" make -f Makefile.goose packages
 
 packages: $(WRKOBJDIR)/.gitignore $(PACKAGES)/.gitignore
-	cd pkgtools/libtool && $(BMAKE) package
+	cd devel/libtool && $(BMAKE) package
 	cd www/squid3 && $(BMAKE) package
 	cd security/openssh && $(BMAKE) package
 	-cd wip/runit && $(BMAKE) package
