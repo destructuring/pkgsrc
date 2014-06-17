@@ -60,6 +60,7 @@ packages: $(WRKOBJDIR)/.gitignore $(PACKAGES)/.gitignore
 	cd chat/irssi && $(BMAKE) package
 	cd textproc/libyaml && $(BMAKE) package
 	cd textproc/libxml2 && $(BMAKE) package
+	cd graphics/ImageMagick && $(BMAKE) package
 	cd textproc/expat && $(BMAKE) package
 	cd lang/python27 && $(BMAKE) package
 	cd textproc/py-expat && $(BMAKE) package
@@ -81,7 +82,7 @@ $(PKG_HOME)/bin/bmake:
 
 pkgsrc: $(PKG_HOME)/bin/bmake
 	$(PKGADD) getopt figlet coreutils runit irssi unzip bsdtar
-	$(PKGADD) libxml2 libyaml expat libtool bison
+	$(PKGADD) libxml2 libyaml expat libtool bison ImageMagick
 	$(PKGADD) swig autoconf automake
 	$(PKGADD) python27 py27-expat py27-msgpack py27-crypto py27-m2crypto py27-zmq py27-cElementTree
 	$(PKGADD) ocaml
