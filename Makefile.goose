@@ -64,6 +64,7 @@ packages: $(WRKOBJDIR)/.gitignore $(PACKAGES)/.gitignore
 	cd textproc/expat && $(BMAKE) package
 	cd lang/python27 && $(BMAKE) package
 	cd textproc/py-pip && $(BMAKE) package
+	cd textproc/py-setuptools && $(BMAKE) package
 	cd textproc/py-virtualenv && $(BMAKE) package
 	cd textproc/py-expat && $(BMAKE) package
 	cd textproc/py-sqlite3 && $(BMAKE) package
@@ -87,7 +88,7 @@ pkgsrc: $(PKG_HOME)/bin/bmake
 	$(PKGADD) getopt figlet coreutils runit irssi unzip bsdtar
 	$(PKGADD) libxml2 libyaml expat libtool bison ImageMagick
 	$(PKGADD) swig autoconf automake
-	$(PKGADD) python27 py27-pip py27-virtualenv py27-expat py27-msgpack py27-crypto py27-m2crypto py27-zmq py27-cElementTree py27-sqlite3
+	$(PKGADD) python27 py27-pip py27-setuptools py27-virtualenv py27-expat py27-msgpack py27-crypto py27-m2crypto py27-zmq py27-cElementTree py27-sqlite3
 	$(PKGADD) ocaml
 
 cache: pkgsrc
