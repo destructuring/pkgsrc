@@ -1,0 +1,5 @@
+$NetBSD: distinfo,v 1.19 2014/01/26 11:56:45 obache Exp $
+
+SHA1 (Glib-1.304.tar.gz) = f66615b386f33a74eab62271dab0e09730fcf632
+RMD160 (Glib-1.304.tar.gz) = c7795ecabf80d87fc416ff4267b30db292b78c5e
+Size (Glib-1.304.tar.gz) = 285931 bytes

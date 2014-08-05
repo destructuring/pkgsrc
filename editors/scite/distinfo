@@ -1,0 +1,6 @@
+$NetBSD: distinfo,v 1.6 2014/02/06 17:26:32 drochner Exp $
+
+SHA1 (scite339.tgz) = 6ac4fc0c56aad1d037dba2e46acb83922a639330
+RMD160 (scite339.tgz) = f7cf3a47280fe34fe1e558945fe86c0f4b4e3bb4
+Size (scite339.tgz) = 2229269 bytes
+SHA1 (patch-aa) = af56e927d5a2902229b7d95232d81dab67d55686

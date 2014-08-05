@@ -1,0 +1,5 @@
+$NetBSD: distinfo,v 1.5 2013/10/09 20:34:09 wiz Exp $
+
+SHA1 (lzip-1.15.tar.gz) = a79d062d72071b5bb2bb7ef50dda6ac408c24192
+RMD160 (lzip-1.15.tar.gz) = 72499b8142bc789d2141d91b61063900c8f1c0c9
+Size (lzip-1.15.tar.gz) = 97409 bytes

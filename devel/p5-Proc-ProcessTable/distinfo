@@ -1,0 +1,5 @@
+$NetBSD: distinfo,v 1.5 2014/02/01 10:53:49 wiz Exp $
+
+SHA1 (Proc-ProcessTable-0.50.tar.gz) = 3bc3f69c4608b06af5f7f07bab658e24ca8a2bc7
+RMD160 (Proc-ProcessTable-0.50.tar.gz) = bfb12964bbf9f62df319edb36d986b878039203f
+Size (Proc-ProcessTable-0.50.tar.gz) = 70938 bytes

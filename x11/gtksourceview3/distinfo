@@ -1,0 +1,5 @@
+$NetBSD: distinfo,v 1.5 2014/02/12 01:07:01 prlw1 Exp $
+
+SHA1 (gtksourceview-3.10.2.tar.xz) = e886f3c54e01ada2eab8fee14fde2efa3d2c2feb
+RMD160 (gtksourceview-3.10.2.tar.xz) = c36f150127d307a34570a961e2200ee3a9ebca8f
+Size (gtksourceview-3.10.2.tar.xz) = 1316140 bytes

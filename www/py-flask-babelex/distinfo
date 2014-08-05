@@ -1,0 +1,5 @@
+$NetBSD: distinfo,v 1.2 2013/10/27 18:27:33 kleink Exp $
+
+SHA1 (Flask-BabelEx-0.9.1.tar.gz) = ab2ee98154a3da68df12d424ab82fdf8e38ae4e2
+RMD160 (Flask-BabelEx-0.9.1.tar.gz) = cd838d183865bd1e05fd2816fbdc9ecdbfcd8a9c
+Size (Flask-BabelEx-0.9.1.tar.gz) = 41054 bytes

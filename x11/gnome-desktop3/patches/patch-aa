@@ -1,0 +1,15 @@
+$NetBSD: patch-aa,v 1.2 2014/02/12 01:23:33 prlw1 Exp $
+
+allow 64-bit time_t on 32-bit system
+
+--- libgnome-desktop/gnome-desktop-thumbnail.c.orig	2012-08-23 17:49:46.000000000 +0000
++++ libgnome-desktop/gnome-desktop-thumbnail.c
+@@ -1613,7 +1613,7 @@ gnome_desktop_thumbnail_is_valid (GdkPix
+   thumb_mtime_str = gdk_pixbuf_get_option (pixbuf, "tEXt::Thumb::MTime");
+   if (!thumb_mtime_str)
+     return FALSE;
+-  thumb_mtime = atol (thumb_mtime_str);
++  thumb_mtime = atoll (thumb_mtime_str);
+   if (mtime != thumb_mtime)
+     return FALSE;
+   

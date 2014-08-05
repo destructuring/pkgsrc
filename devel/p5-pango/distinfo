@@ -1,0 +1,5 @@
+$NetBSD: distinfo,v 1.4 2014/01/26 13:14:28 obache Exp $
+
+SHA1 (Pango-1.225.tar.gz) = 5e288bc034374d4f64c3f673c950b95a5f5c094a
+RMD160 (Pango-1.225.tar.gz) = 56dbafe24f3eb603b88139241a06b8b891ac120b
+Size (Pango-1.225.tar.gz) = 46144 bytes

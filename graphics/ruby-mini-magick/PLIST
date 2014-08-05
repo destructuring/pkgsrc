@@ -1,0 +1,12 @@
+@comment $NetBSD: PLIST,v 1.10 2014/03/14 17:11:42 taca Exp $
+${GEM_HOME}/cache/${GEM_NAME}.gem
+${GEM_LIBDIR}/MIT-LICENSE
+${GEM_LIBDIR}/Rakefile
+${GEM_LIBDIR}/lib/mini_gmagick.rb
+${GEM_LIBDIR}/lib/mini_magick.rb
+${GEM_LIBDIR}/lib/mini_magick/command_builder.rb
+${GEM_LIBDIR}/lib/mini_magick/errors.rb
+${GEM_LIBDIR}/lib/mini_magick/image.rb
+${GEM_LIBDIR}/lib/mini_magick/utilities.rb
+${GEM_LIBDIR}/lib/mini_magick/version.rb
+${GEM_HOME}/specifications/${GEM_NAME}.gemspec

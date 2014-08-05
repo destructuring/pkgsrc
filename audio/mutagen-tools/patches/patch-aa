@@ -1,0 +1,22 @@
+$NetBSD: patch-aa,v 1.2 2013/12/04 16:48:21 drochner Exp $
+
+--- setup.py.orig	2013-09-06 09:11:46.000000000 +0000
++++ setup.py
+@@ -171,7 +171,7 @@ class coverage_cmd(Command):
+             raise SystemExit("Coverage percentage went up; change setup.py.")
+ 
+ if os.name == "posix":
+-    data_files = [('share/man/man1', glob.glob("man/*.1"))]
++    data_files = [(os.getenv("PKGMANDIR") + '/man1', glob.glob("man/*.1"))]
+ else:
+     data_files = []
+ 
+@@ -202,7 +202,7 @@ if __name__ == "__main__":
+             'License :: OSI Approved :: GNU General Public License v2 (GPLv2)',
+             'Topic :: Multimedia :: Sound/Audio',
+           ],
+-          packages=["mutagen"],
++#          packages=["mutagen"],
+           data_files=data_files,
+           scripts=glob.glob("tools/m*[!~]"),
+           long_description="""\

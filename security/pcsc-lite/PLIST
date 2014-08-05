@@ -1,0 +1,18 @@
+@comment $NetBSD: PLIST,v 1.6 2014/02/25 17:47:19 gdt Exp $
+${PLIST.spy}bin/pcsc-spy
+include/PCSC/debuglog.h
+include/PCSC/ifdhandler.h
+include/PCSC/pcsclite.h
+include/PCSC/reader.h
+include/PCSC/winscard.h
+include/PCSC/wintypes.h
+lib/libpcsclite.la
+${PLIST.spy}lib/libpcscspy.la
+lib/pkgconfig/libpcsclite.pc
+${PLIST.spy}man/man1/pcsc-spy.1
+man/man5/reader.conf.5
+man/man8/pcscd.8
+sbin/pcscd
+share/doc/pcsc-lite/README.DAEMON
+share/doc/pcsc-lite/README.polkit
+@pkgdir share/examples/pcsc-lite

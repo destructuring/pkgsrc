@@ -1,0 +1,56 @@
+$NetBSD: CHANGES-pkgsrc-2014Q1,v 1.1.2.11 2014/04/15 12:20:59 tron Exp $
+
+Changes to the packages collection and infrastructure on the
+pkgsrc-2014Q1 branch:
+
+Created pkgsrc-2014Q1 branch [agc 2014-03-31 05:15 UTC]
+
+Pullup ticket #4352 - requested by obache
+emulators/suse131_openssl: security update
+Pullup ticket #4353 - requested by obache
+misc/libreoffice4-bin: build fix
+Pullup ticket #4359 - requested by obache
+security/openssl: security update
+Pullup ticket #4354 - requested by obache
+inputmethod/ibus: bug fix patch
+Pullup ticket #4355 - requested by obache
+wm/awesome: build fix
+Pullup ticket #4360 - requested by obache
+emulators/suse131_openssl: security update
+Pullup ticket #4357 - requested by taca
+www/contao211: security update
+Pullup ticket #4358 - requested by taca
+www/contao32: security update
+Pullup ticket #4361 - requested by ryoon
+www/apache-tomcat7: security update
+Pullup ticket #4362 - requested by obache
+multimedia/adobe-flash-plugin11: security update
+Pullup ticket #4363 - requested by obache
+graphics/jbigkit: security update
+Pullup ticket #4364 - requested by obache
+graphics/py-Pillow: security update
+Pullup ticket #4366 - requested by obache
+graphics/openjpeg15: security update
+Pullup ticket #4367 - requested by obache
+www/dillo: security update
+Pullup ticket #4365 - requested by obache
+emulators/suse131_libcurl: security update
+Pullup ticket #4369 - requested by bsiegert
+lang/python26: build fix
+lang/python27: build fix
+Pullup ticket #4370 - requested by morr
+www/wordpress: security update
+Pullup ticket #4371 - requested by taca
+net/net-snmp: security update
+Pullup ticket #4372 - requested by taca
+print/a2ps: security patch
+Pullup ticket #4373 - requested by taca
+databases/mysql55-client: security update
+databases/mysql55-server: update to keep in sync with with "mysql55-client"
+Pullup ticket #4374 - requested by taca
+databases/mysql56-client: security update
+databases/mysql56-server: update to keep in sync with with "mysql56-client"
+Pullup ticket #4375 - requested by obache
+textproc/p5-YAML-LibYAML: security patch
+Pullup ticket #4377 - requested by asau
+www/curl: build fix

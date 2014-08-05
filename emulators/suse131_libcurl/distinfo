@@ -1,0 +1,8 @@
+$NetBSD: distinfo,v 1.2.4.1 2014/04/14 10:41:53 tron Exp $
+
+SHA1 (suse131/libcurl4-7.32.0-2.16.1.i586.rpm) = d027b38ceb80e89bc783f3785d83fd259b41f77c
+RMD160 (suse131/libcurl4-7.32.0-2.16.1.i586.rpm) = a6d1783489e8df0cc5cb2a21eaaf2ba4f88079f5
+Size (suse131/libcurl4-7.32.0-2.16.1.i586.rpm) = 191826 bytes
+SHA1 (suse131/libcurl4-7.32.0-2.16.1.x86_64.rpm) = 22680c7beccc2e69d25b59263ada81174eae49e4
+RMD160 (suse131/libcurl4-7.32.0-2.16.1.x86_64.rpm) = ffba30f80469f240602af09ee23f71426f30ec4a
+Size (suse131/libcurl4-7.32.0-2.16.1.x86_64.rpm) = 189666 bytes

@@ -1,0 +1,14 @@
+$NetBSD: distinfo,v 1.13 2014/02/08 18:49:05 rumko Exp $
+
+SHA1 (lyx-2.0.7.tar.xz) = 4d54eb0cf98b0a44b5156ec84932e58c9c0efb07
+RMD160 (lyx-2.0.7.tar.xz) = 01b8989b68f10f37b5eb799fc01ba0a4f739b9f6
+Size (lyx-2.0.7.tar.xz) = 10449908 bytes
+SHA1 (patch-boost_boost_detail_container__fwd.hpp) = ff95034c4e2c03c894b3aa4b9222b34b8495fba7
+SHA1 (patch-boost_libs_signals_src_named__slot__map.cpp) = 3d73f93911eb2a9b51b0be34e3a26e85ec5b54f4
+SHA1 (patch-development_MacOSX_Makefile.in) = ae9e51e3458f8986ae392b146f8684305b7fe25b
+SHA1 (patch-src_WordList.cpp) = d747efcd6ca4d7015a5c6860a8844ac79a65672a
+SHA1 (patch-src_mathed_InsetMath.h) = c178b1436c7a969e29b328dde1a800e9ccb7af0e
+SHA1 (patch-src_mathed_MathData.h) = fcd51f36aa2aae29f75e041d7adb1d88baa370a5
+SHA1 (patch-src_support_debug.h) = 749ab17184fe2fc059384785c426afe444c0b2a7
+SHA1 (patch-src_support_strfwd.h) = 4ef82f8703fd68f8b953447f05ab1fd71958c379
+SHA1 (patch-src_support_unicode.cpp) = 71bdc1b929a3c90bed84d6de5aa0734e548c67de

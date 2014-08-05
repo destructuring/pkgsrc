@@ -1,0 +1,5 @@
+$NetBSD: distinfo,v 1.4 2014/01/02 17:55:40 wiz Exp $
+
+SHA1 (chardet-2.2.1.tar.gz) = b59690c286ae2bc515da9b34eb30629d72f02e27
+RMD160 (chardet-2.2.1.tar.gz) = f85631355c6ba46f18b1171029dbf3faf1586125
+Size (chardet-2.2.1.tar.gz) = 180319 bytes

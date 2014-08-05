@@ -1,0 +1,69 @@
+$NetBSD: patch-aa,v 1.26 2014/03/30 12:57:54 spz Exp $
+
+builtin krb5-config in platforms such as solaris do not support
+the gssapi option, and need an explicit -lgss
+
+--- configure.orig	2014-03-25 10:29:28.000000000 +0000
++++ configure
+@@ -3641,6 +3641,7 @@ $as_echo "$as_me: $xc_bad_var_msg librar
+         ;;
+     esac
+   done
++  xc_bad_var_cflags=no
+   if test $xc_bad_var_cflags = yes; then
+     { $as_echo "$as_me:${as_lineno-$LINENO}: using CFLAGS: $CFLAGS" >&5
+ $as_echo "$as_me: using CFLAGS: $CFLAGS" >&6;}
+@@ -16620,7 +16621,7 @@ squeeze() {
+ 
+ 
+       #
+-  if test "$compiler_id" != "unknown"; then
++  if false; then
+     #
+     if test "$compiler_id" = "GNU_C" ||
+       test "$compiler_id" = "CLANG"; then
+@@ -21079,7 +21080,12 @@ $as_echo "yes" >&6; }
+ 
+   if test -z "$GSSAPI_INCS"; then
+      if test -f "$GSSAPI_ROOT/bin/krb5-config"; then
+-        GSSAPI_INCS=`$GSSAPI_ROOT/bin/krb5-config --cflags gssapi`
++		if $GSSAPI_ROOT/bin/krb5-config --cflags gssapi 2>&1 |	\
++			   grep "Unknown option" > /dev/null ; then
++			GSSAPI_INCS=`$GSSAPI_ROOT/bin/krb5-config --cflags`
++		else
++			GSSAPI_INCS=`$GSSAPI_ROOT/bin/krb5-config --cflags gssapi`
++		fi
+      elif test "$GSSAPI_ROOT" != "yes"; then
+         GSSAPI_INCS="-I$GSSAPI_ROOT/include"
+      fi
+@@ -21227,13 +21233,18 @@ $as_echo "#define HAVE_GSSAPI 1" >>confd
+         ;;
+      *)
+         if test -f "$GSSAPI_ROOT/bin/krb5-config"; then
+-                                 gss_libs=`$GSSAPI_ROOT/bin/krb5-config --libs gssapi`
++		if $GSSAPI_ROOT/bin/krb5-config --libs gssapi 2>&1 | \
++			grep "Unknown option" > /dev/null ; then
++			gss_libs="`$GSSAPI_ROOT/bin/krb5-config --libs` -lgss"
++		else
++			gss_libs=`$GSSAPI_ROOT/bin/krb5-config --libs gssapi`
++		fi
+            LIBS="$gss_libs $LIBS"
+         elif test "$GSSAPI_ROOT" != "yes"; then
+            LDFLAGS="$LDFLAGS -L$GSSAPI_ROOT/lib$libsuff"
+-           LIBS="-lgssapi $LIBS"
++           LIBS="-lgssapi -lkrb5 $LIBS"
+         else
+-           LIBS="-lgssapi $LIBS"
++           LIBS="-lgssapi -lkrb5 $LIBS"
+         fi
+         ;;
+      esac
+@@ -21244,7 +21255,7 @@ $as_echo "#define HAVE_GSSAPI 1" >>confd
+         LIBS="-lgss $LIBS"
+         ;;
+      *)
+-        LIBS="-lgssapi $LIBS"
++        LIBS="-lgssapi -lkrb5 $LIBS"
+         ;;
+      esac
+   fi

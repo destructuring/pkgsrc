@@ -1,0 +1,13 @@
+$NetBSD: distinfo,v 1.5 2013/12/02 22:54:46 hubertf Exp $
+
+SHA1 (ansible-1.4.1.tar.gz) = 670fda6b9c4869820d80c6e873604ec759dfa03c
+RMD160 (ansible-1.4.1.tar.gz) = c1d2248244d6799e8ea79e5bfb3e96579c066594
+Size (ansible-1.4.1.tar.gz) = 571296 bytes
+SHA1 (patch-examples_ansible.cfg) = 2a2e3841735df3bddeb6e569e2fdc659ae305053
+SHA1 (patch-lib_ansible_callbacks.py) = bbede537853ab35f31727b72cda41835c7700074
+SHA1 (patch-lib_ansible_constants.py) = eb9379937555b28f8b0f7932d54042432197c59d
+SHA1 (patch-library-system-ping) = 74f4df32948d9a52998420a01f38828dd00c31b6
+SHA1 (patch-library_database_riak) = 7efb167fd9a0e2bd9c7ac5fad3b426c1aa6d5272
+SHA1 (patch-library_monitoring_nagios) = a677946b5c83bab4c3fa3c8d078b28d8abdd7030
+SHA1 (patch-library_packaging_pkgin) = 247f583e3be5cd28462cd274d640ac44652fac50
+SHA1 (patch-library_system_setup) = d87259d0585f750b8f7baf43cc4254138bbbcf72

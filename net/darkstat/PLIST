@@ -1,0 +1,4 @@
+@comment $NetBSD: PLIST,v 1.7 2014/03/11 14:05:07 jperkin Exp $
+man/man8/darkstat.8
+sbin/darkstat
+@pkgdir share/darkstat/chroot

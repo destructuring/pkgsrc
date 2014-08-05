@@ -1,0 +1,9 @@
+@comment $NetBSD: PLIST,v 1.4 2014/03/11 14:05:03 jperkin Exp $
+man/man8/dk-milter.8
+sbin/dk-milter
+sbin/gentxt.csh
+share/doc/dk-milter/FEATURES
+share/doc/dk-milter/INSTALL
+share/doc/dk-milter/KNOWNBUGS
+share/doc/dk-milter/README
+share/doc/dk-milter/RELEASE_NOTES

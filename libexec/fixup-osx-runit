@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -exfu
+
+set +f
+cd work/wip/runit/work/admin/runit-*/src
+set -f
+
+perl -pe 's{ -static}{}' -i Makefile

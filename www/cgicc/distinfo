@@ -1,0 +1,5 @@
+$NetBSD: distinfo,v 1.7 2014/03/05 15:44:51 adam Exp $
+
+SHA1 (cgicc-3.2.12.tar.gz) = 7a707b99a5e13001ef2643fc8bdfc1b0a7492be8
+RMD160 (cgicc-3.2.12.tar.gz) = 762c972b46707b9478e9f83fd1ee883f70bd3c27
+Size (cgicc-3.2.12.tar.gz) = 2385390 bytes

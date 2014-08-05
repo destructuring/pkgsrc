@@ -1,0 +1,5 @@
+# $NetBSD: Makefile.version,v 1.13 2014/01/11 14:41:05 adam Exp $
+
+TCL_SONUM=	86
+TCL_BASEVER=	8.6
+TCL_VERSION=	8.6.1

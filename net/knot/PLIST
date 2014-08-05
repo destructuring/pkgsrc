@@ -1,0 +1,17 @@
+@comment $NetBSD: PLIST,v 1.5 2014/03/11 14:05:09 jperkin Exp $
+bin/kdig
+bin/khost
+bin/knsec3hash
+bin/knsupdate
+man/man1/kdig.1
+man/man1/khost.1
+man/man1/knsec3hash.1
+man/man1/knsupdate.1
+man/man5/knot.conf.5
+man/man8/knotc.8
+man/man8/knotd.8
+sbin/knotc
+sbin/knotd
+share/examples/knot/example.com.zone
+share/examples/knot/knot.sample.conf
+@pkgdir etc/knot

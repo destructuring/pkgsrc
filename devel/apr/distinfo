@@ -1,0 +1,5 @@
+$NetBSD: distinfo,v 1.37 2013/12/01 09:45:49 ryoon Exp $
+
+SHA1 (apr-1.5.0.tar.bz2) = cae122be79070645a7ab36a53148487c84ce8bf0
+RMD160 (apr-1.5.0.tar.bz2) = 5e8dbb51eb11fba92d2de67f764c54cd72b15a72
+Size (apr-1.5.0.tar.bz2) = 813976 bytes

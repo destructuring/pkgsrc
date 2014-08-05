@@ -1,0 +1,66 @@
+$NetBSD: patch-Makefile.am,v 1.2 2013/12/31 17:09:02 abs Exp $
+
+* cp -a is not portable, DragonFly 3.2.2 has not -a option of cp at least.
+
+--- Makefile.am.orig	2013-12-27 14:49:23.000000000 +0000
++++ Makefile.am
+@@ -247,8 +247,8 @@ if ENABLE_PLUGIN
+ endif
+ 	${INSTALL_DATA} $(NETX_DIR)/lib/classes.jar $(DESTDIR)$(datadir)/$(PACKAGE_NAME)/netx.jar
+ 	${INSTALL_DATA} $(NETX_SRCDIR)/javaws_splash.png $(DESTDIR)$(datadir)/$(PACKAGE_NAME)/javaws_splash.png
+-	${INSTALL_PROGRAM} launcher.build/$(javaws) $(DESTDIR)$(bindir)
+-	${INSTALL_PROGRAM} launcher.build/$(itweb_settings) $(DESTDIR)$(bindir)
++	${INSTALL_SCRIPT} launcher.build/$(javaws) $(DESTDIR)$(bindir)
++	${INSTALL_SCRIPT} launcher.build/$(itweb_settings) $(DESTDIR)$(bindir)
+ 
+ install-data-local:
+ 	${mkinstalldirs} -d $(DESTDIR)$(mandir)/man1
+@@ -256,15 +256,15 @@ install-data-local:
+ if ENABLE_DOCS
+ 	${mkinstalldirs} $(DESTDIR)$(htmldir)
+ 	(cd ${abs_top_builddir}/docs/netx; \
+-	 for files in $$(find . -type f); \
++	 for files in *; \
+ 	 do \
+-	   ${INSTALL_DATA} -D $${files} $(DESTDIR)$(htmldir)/netx/$${files}; \
++	   ${INSTALL_DATA} $${files} $(DESTDIR)$(htmldir)/netx/; \
+ 	 done)
+ if ENABLE_PLUGIN
+ 	(cd ${abs_top_builddir}/docs/plugin; \
+-	 for files in $$(find . -type f); \
++	 for files in *; \
+ 	 do \
+-	   ${INSTALL_DATA} -D $${files} $(DESTDIR)$(htmldir)/plugin/$${files}; \
++	   ${INSTALL_DATA} $${files} $(DESTDIR)$(htmldir)/plugin/; \
+ 	 done)
+ endif
+ endif
+@@ -474,7 +474,7 @@ stamps/netx-html-gen.stamp:
+ 	touch $@
+ 
+ stamps/netx.stamp: netx-source-files.txt stamps/bootstrap-directory.stamp stamps/netx-html-gen.stamp
+-	mkdir -p $(NETX_DIR)
++	mkdir -p $(NETX_DIR)/net/sourceforge/jnlp/resources
+ 	$(BOOT_DIR)/bin/javac $(IT_JAVACFLAGS) \
+ 	    -d $(NETX_DIR) \
+ 	    -sourcepath $(NETX_SRCDIR) \
+@@ -482,14 +482,14 @@ stamps/netx.stamp: netx-source-files.txt
+ 	    $(NETX_CLASSPATH_ARG) \
+ 	    @netx-source-files.txt
+ 	(cd $(NETX_RESOURCE_DIR); \
+-	 for files in $$(find . -type f); \
++	 for files in *; \
+ 	 do \
+-	   ${INSTALL_DATA} -D $${files} \
+-	   $(NETX_DIR)/net/sourceforge/jnlp/resources/$${files}; \
++	   ${INSTALL_DATA} $${files} \
++	   $(NETX_DIR)/net/sourceforge/jnlp/resources/; \
+ 	 done)
+-	cp -a $(NETX_SRCDIR)/net/sourceforge/jnlp/runtime/pac-funcs.js \
++	cp -RpP $(NETX_SRCDIR)/net/sourceforge/jnlp/runtime/pac-funcs.js \
+ 	  $(NETX_DIR)/net/sourceforge/jnlp/runtime
+-	cp -a build.properties $(NETX_DIR)/net/sourceforge/jnlp/
++	cp -RpP build.properties $(NETX_DIR)/net/sourceforge/jnlp/
+ 	mkdir -p stamps
+ 	touch $@
+ 

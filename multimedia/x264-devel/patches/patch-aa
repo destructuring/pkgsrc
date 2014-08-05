@@ -1,0 +1,74 @@
+$NetBSD: patch-aa,v 1.17 2014/03/04 13:59:11 adam Exp $
+
+Clang does not support -falign-loops option.
+
+--- configure.orig	2014-03-03 21:45:04.000000000 +0000
++++ configure
+@@ -467,7 +467,7 @@ case $host_os in
+         ;;
+     darwin*)
+         SYS="MACOSX"
+-        CFLAGS="$CFLAGS -falign-loops=16"
++        CFLAGS="$CFLAGS"
+         libm="-lm"
+         if [ "$pic" = "no" ]; then
+             cc_check "" -mdynamic-no-pic && CFLAGS="$CFLAGS -mdynamic-no-pic"
+@@ -477,6 +477,10 @@ case $host_os in
+         SYS="FREEBSD"
+         libm="-lm"
+         ;;
++    dragonfly*)
++        SYS="DRAGONFLY"
++        LDFLAGS="$LDFLAGS -lm"
++        ;;
+     kfreebsd*-gnu)
+         SYS="FREEBSD"
+         define HAVE_MALLOC_H
+@@ -599,7 +603,7 @@ case $host_cpu in
+             ASFLAGS="$ASFLAGS -f elf"
+         fi
+         ;;
+-    x86_64)
++    x86_64|amd64)
+         ARCH="X86_64"
+         AS="yasm"
+         [ $compiler = GNU ] && CFLAGS="-m64 $CFLAGS" && LDFLAGS="-m64 $LDFLAGS"
+@@ -620,13 +624,14 @@ case $host_cpu in
+         fi
+         ;;
+     powerpc|powerpc64)
+-        ARCH="PPC"
+         if [ $asm = auto ] ; then
+             define HAVE_ALTIVEC
+             AS="${AS-${cross_prefix}gcc}"
+             if [ $SYS = MACOSX ] ; then
++	        ARCH="POWERPC"
+                 CFLAGS="$CFLAGS -faltivec -fastf -mcpu=G4"
+             else
++	        ARCH="PPC"
+                 CFLAGS="$CFLAGS -maltivec -mabi=altivec"
+                 define HAVE_ALTIVEC_H
+             fi
+@@ -777,7 +782,7 @@ fi
+ # pthread-win32 is lgpl, prevent its use if --disable-gpl is specified and targeting windows
+ [ "$SYS" = "WINDOWS" -a "$gpl" = "no" -a "$thread" = "auto" ] && thread="win32"
+ 
+-libpthread=""
++libpthread="$PTHREAD_LDFLAGS $PTHREAD_LIBS"
+ if [ "$thread" = "auto" ]; then
+     thread="no"
+     case $SYS in
+@@ -986,10 +991,11 @@ fi
+ cc_check "stdint.h" "" "uint32_t test_vec __attribute__ ((vector_size (16))) = {0,1,2,3};" && define HAVE_VECTOREXT
+ 
+ if [ "$pic" = "yes" ] ; then
+-    CFLAGS="$CFLAGS -fPIC"
++    CFLAGS="$CFLAGS"
++    PICFLAG="-prefer-pic"
+     ASFLAGS="$ASFLAGS -DPIC"
+     # resolve textrels in the x86 asm
+-    cc_check stdio.h "-shared -Wl,-Bsymbolic" && SOFLAGS="$SOFLAGS -Wl,-Bsymbolic"
++    cc_check stdio.h "-Wl,-Bsymbolic" && LDFLAGS="$LDFLAGS -Wl,-Bsymbolic"
+     [ $SYS = SunOS -a "$ARCH" = "X86" ] && SOFLAGS="$SOFLAGS -mimpure-text"
+ fi
+ 

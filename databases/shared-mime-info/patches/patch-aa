@@ -1,0 +1,27 @@
+$NetBSD: patch-aa,v 1.7 2013/10/17 04:36:57 wiz Exp $
+
+fdatasync needs a writable file descriptor.
+https://bugs.freedesktop.org/show_bug.cgi?id=70559
+
+Adapt paths for pkgsrc.
+
+--- update-mime-database.c.orig	2013-07-09 22:10:53.000000000 +0000
++++ update-mime-database.c
+@@ -951,7 +951,7 @@ static gboolean atomic_update(const gcha
+ 	new_name = g_strndup(pathname, len - 4);
+ 
+ #ifdef HAVE_FDATASYNC
+-	fd = open(pathname, O_RDONLY);
++	fd = open(pathname, O_RDWR);
+ 	if (fd == -1)
+ 	{
+ 		set_error_from_errno(error);
+@@ -2135,7 +2135,7 @@ static void check_in_path_xdg_data(const
+ 
+ 	env = getenv("XDG_DATA_DIRS");
+ 	if (!env)
+-		env = "/usr/local/share/"PATH_SEPARATOR"/usr/share/";
++		env = PREFIX "/share/"PATH_SEPARATOR"/usr/local/share/"PATH_SEPARATOR"/usr/share/";
+ 	dirs = g_strsplit(env, PATH_SEPARATOR, 0);
+ 	g_return_if_fail(dirs != NULL);
+ 	for (n = 0; dirs[n]; n++)

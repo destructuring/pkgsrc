@@ -1,0 +1,5 @@
+$NetBSD: distinfo,v 1.10 2014/02/06 12:01:43 spz Exp $
+
+SHA1 (apache-tomcat-6.0.39.tar.gz) = 09db6cda165c6180f19c65cd95732b546bada456
+RMD160 (apache-tomcat-6.0.39.tar.gz) = d256753f49457e3cc5b832b35daebdb5aceb70fd
+Size (apache-tomcat-6.0.39.tar.gz) = 7065481 bytes

@@ -1,0 +1,5 @@
+$NetBSD: distinfo,v 1.19 2013/11/24 09:58:21 wiz Exp $
+
+SHA1 (Storable-2.45.tar.gz) = f2237e8a32cfde28fbae212d4178f89f38f84478
+RMD160 (Storable-2.45.tar.gz) = 9e0f40827f65160ca5243447ee293bcad5620697
+Size (Storable-2.45.tar.gz) = 184098 bytes

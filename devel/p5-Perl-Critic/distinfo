@@ -1,0 +1,5 @@
+$NetBSD: distinfo,v 1.15 2013/10/31 03:04:33 wen Exp $
+
+SHA1 (Perl-Critic-1.120.tar.gz) = fbb9fced6d5cf8b65ea1fb260cbc7030f33fc094
+RMD160 (Perl-Critic-1.120.tar.gz) = 682611d7647e47de2e0fd3c296f3e6403f553668
+Size (Perl-Critic-1.120.tar.gz) = 646517 bytes

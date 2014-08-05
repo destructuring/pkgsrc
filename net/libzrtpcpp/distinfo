@@ -1,0 +1,6 @@
+$NetBSD: distinfo,v 1.3 2014/01/10 02:58:51 rodent Exp $
+
+SHA1 (V4.1.2.tar.gz) = 4dd9a916437e6a9d82ccc86fb566e40f801f8340
+RMD160 (V4.1.2.tar.gz) = 6b51a90a036baf9c965fb22c5aa2d5adf130bd03
+Size (V4.1.2.tar.gz) = 1919843 bytes
+SHA1 (patch-CMakeLists.txt) = 4635e03e618872e75c2081e8247b77cff1d0d339

@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+case "$(uname -s)" in
+  Darwin)
+    echo "$(uname -s)_$(uname -r | cut -d. -f1)"
+    ;;
+  *)
+    uname -s
+    ;;
+esac
